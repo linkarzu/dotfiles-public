@@ -1,0 +1,55 @@
+# Filename: alacritty.yml
+
+env:
+  TERM: xterm-256color
+
+window:
+  dimensions:
+    columns: 200
+    lines: 55
+  position:
+   x: 2750
+   y: 1100
+  padding:
+    x: 10
+    y: 10
+  class:
+    instance: Alacritty
+    general: Alacritty
+  opacity: 1
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+font:
+  normal:
+    family: MesloLGM Nerd Font Mono
+    style:  Regular
+  size: 14
+
+draw_bold_text_with_bright_colors: true
+
+# This imports the dracula theme colors from my github repo
+import:
+  - ~/github/dotfiles-public/alacritty/themes/dracula.yml
+  # - ~/github/dotfiles-public/alacritty/themes/catppuccin/catppuccin-mocha.yml
+  # - ~/github/dotfiles-public/alacritty/themes/catppuccin/catppuccin-macchiato.yml
+  # - ~/github/dotfiles-public/alacritty/themes/catppuccin/catppuccin-frappe.yml
+  # - ~/github/dotfiles-public/alacritty/themes/catppuccin/catppuccin-latte.yml
+
+selection:
+  save_to_clipboard: false
+
+shell:
+  program: /bin/zsh
+  args:
+    - --login
+    # The 2 commands below are needed to automatically attach to an existing tmux session
+    # If no session exists, a new one is created
+    - -c
+    - /opt/homebrew/bin/tmux attach || //opt/homebrew/bin/tmux
+
+# key_bindings:
+#   - { key: Return, mods: Super|Shift, action: SpawnNewInstance }
+
