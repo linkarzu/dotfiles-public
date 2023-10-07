@@ -1,9 +1,8 @@
 # Symbolic links creation
 After cloning the repo, I create a .vimrc symbolic link that points to my custom vimrc file
-- Notice I'm creating the symlink in the `~` directory
-- This will create the .vimrc file if it doesn't exist
+- Commands below will create all the files if they don't yet exist, if they do exist, it will update them. 
 - `-n` allows the link to be treated as a normal file if it is a symlink to a directory
-- `-f` "force" overwrites without warning if it already exists 
+- `-f` "force" overwrites without warning if it already exists
 
 # .vimrc file
 
