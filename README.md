@@ -13,8 +13,7 @@ ln -snf ~/github/dotfiles-public/vimrc ~/.vimrc
 # .obsidian.vimrc file
 
 ```bash
-rm ~/github/obsidian_main/.obsidian.vimrc
-ln -s ~/github/dotfiles-public/vimrc ~/github/obsidian_main/.obsidian.vimrc
+ln -snf ~/github/dotfiles-public/vimrc ~/github/obsidian_main/.obsidian.vimrc
 echo
 echo
 echo "Now restart obsidian"
