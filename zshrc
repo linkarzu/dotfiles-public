@@ -76,6 +76,7 @@ if [ "$OS" = 'Linux' ]; then
     # For example, you can add z.lua config for Linux here, assuming you've installed it.
     
     alias ls='ls --color=auto'
+    alias nvim='~/nvim.appimage'
 
     # Initialize Starship, if it is installed
     if command -v starship &>/dev/null; then
