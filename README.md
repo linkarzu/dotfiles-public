@@ -13,34 +13,10 @@ ln -snf ~/github/dotfiles-public/karabiner ~/.config/karabiner
 ln -snf ~/github/dotfiles-public/nvim-lazyvim ~/.config/nvim
 ln -snf ~/github/dotfiles-public/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -snf ~/github/dotfiles-public/yabai/yabairc ~/.yabairc
-```
 
-# .vimrc file
-
-```bash
-ln -snf ~/github/dotfiles-public/vimrc ~/.vimrc
-```
-
-# .obsidian.vimrc file
-
-```bash
-ln -snf ~/github/dotfiles-public/vimrc ~/github/obsidian_main/.obsidian.vimrc
 echo
-echo
-echo "Now restart obsidian"
-```
+echo "Restart obsidian"
 
-# .zshrc file
-
-```bash
-ln -snf ~/github/dotfiles-public/zshrc ~/.zshrc
-source ~/.zshrc
-```
-
-# .tmux.conf file
-
-```bash
-ln -snf ~/github/dotfiles-public/tmux.conf ~/.tmux.conf
 source ~/.zshrc
 ```
 
