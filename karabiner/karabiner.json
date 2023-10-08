@@ -1081,7 +1081,7 @@
                 ],
                 "type": "basic",
                 "from": {
-                  "key_code": "u",
+                  "key_code": "k",
                   "modifiers": {
                     "mandatory": [
                       "any"
@@ -1122,62 +1122,16 @@
               {
                 "to": [
                   {
-                    "key_code": "display_brightness_increment"
-                  }
-                ],
-                "type": "basic",
-                "from": {
-                  "key_code": "i",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_s",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "key_code": "display_brightness_decrement"
-                  }
-                ],
-                "type": "basic",
-                "from": {
-                  "key_code": "k",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_s",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "key_code": "q",
+                    "key_code": "close_bracket",
                     "modifiers": [
-                      "right_control",
-                      "right_command"
+                      "left_command",
+                      "left_shift"
                     ]
                   }
                 ],
                 "type": "basic",
                 "from": {
-                  "key_code": "spacebar",
+                  "key_code": "l",
                   "modifiers": {
                     "mandatory": [
                       "any"
@@ -1195,12 +1149,16 @@
               {
                 "to": [
                   {
-                    "key_code": "play_or_pause"
+                    "key_code": "open_bracket",
+                    "modifiers": [
+                      "left_command",
+                      "left_shift"
+                    ]
                   }
                 ],
                 "type": "basic",
                 "from": {
-                  "key_code": "p",
+                  "key_code": "h",
                   "modifiers": {
                     "mandatory": [
                       "any"
@@ -1246,33 +1204,6 @@
                 ],
                 "type": "basic",
                 "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_s",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "key_code": "close_bracket",
-                    "modifiers": [
-                      "left_command",
-                      "left_shift"
-                    ]
-                  }
-                ],
-                "type": "basic",
-                "from": {
                   "key_code": "y",
                   "modifiers": {
                     "mandatory": [
@@ -1291,16 +1222,85 @@
               {
                 "to": [
                   {
-                    "key_code": "open_bracket",
+                    "key_code": "display_brightness_increment"
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "i",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_s",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "key_code": "display_brightness_decrement"
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "u",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_s",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "key_code": "play_or_pause"
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_s",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "key_code": "q",
                     "modifiers": [
-                      "left_command",
-                      "left_shift"
+                      "right_control",
+                      "right_command"
                     ]
                   }
                 ],
                 "type": "basic",
                 "from": {
-                  "key_code": "h",
+                  "key_code": "d",
                   "modifiers": {
                     "mandatory": [
                       "any"

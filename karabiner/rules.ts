@@ -77,7 +77,6 @@ const rules: KarabinerRules[] = [
   // },
 
   ...createHyperSubLayers({
-
     // I use spacebar as the app launcher
     spacebar: {
       j: app("Alacritty"),
@@ -141,7 +140,7 @@ const rules: KarabinerRules[] = [
 
     // s = "System"
     s: {
-      u: {
+      k: {
         to: [
           {
             key_code: "volume_increment",
@@ -155,51 +154,8 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
-      i: {
-        to: [
-          {
-            key_code: "display_brightness_increment",
-          },
-        ],
-      },
-      k: {
-        to: [
-          {
-            key_code: "display_brightness_decrement",
-          },
-        ],
-      },
-      spacebar: {
-        to: [
-          {
-            key_code: "q",
-            modifiers: ["right_control", "right_command"],
-          },
-        ],
-      },
-      p: {
-        to: [
-          {
-            key_code: "play_or_pause",
-          },
-        ],
-      },
-      o: {
-        to: [
-          {
-            key_code: "fastforward",
-          },
-        ],
-      },
-      l: {
-        to: [
-          {
-            key_code: "rewind",
-          },
-        ],
-      },
       // Move between tabs in browsers
-      y: {
+      l: {
         to: [
           {
             key_code: "close_bracket",
@@ -213,6 +169,49 @@ const rules: KarabinerRules[] = [
           {
             key_code: "open_bracket",
             modifiers: ["left_command", "left_shift"],
+          },
+        ],
+      },
+      o: {
+        to: [
+          {
+            key_code: "fastforward",
+          },
+        ],
+      },
+      y: {
+        to: [
+          {
+            key_code: "rewind",
+          },
+        ],
+      },
+      i: {
+        to: [
+          {
+            key_code: "display_brightness_increment",
+          },
+        ],
+      },
+      u: {
+        to: [
+          {
+            key_code: "display_brightness_decrement",
+          },
+        ],
+      },
+      p: {
+        to: [
+          {
+            key_code: "play_or_pause",
+          },
+        ],
+      },
+      d: {
+        to: [
+          {
+            key_code: "q",
+            modifiers: ["right_control", "right_command"],
           },
         ],
       },
