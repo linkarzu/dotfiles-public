@@ -1,6 +1,7 @@
 # Filename: alacritty.yml
 
 env:
+  # TERM: screen-256color
   TERM: xterm-256color
 
 window:
