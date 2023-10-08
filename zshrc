@@ -18,6 +18,35 @@ alias ll='ls -l'
 alias python='python3'
 alias lla='ls -al'
 
+# Autocompletion settings
+# https://github.com/Phantas0s/.dotfiles/blob/master/zsh/completion.zsh
+zmodload zsh/complist
+autoload -U compinit; compinit
+_comp_options+=(globdots) # With hidden files
+# setopt MENU_COMPLETE        # Automatically highlight first element of completion menu
+setopt AUTO_LIST            # Automatically list choices on ambiguous completion.
+setopt COMPLETE_IN_WORD     # Complete from both ends of a word.
+# Define completers
+zstyle ':completion:*' completer _extensions _complete _approximate
+# Use cache for commands using cache
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "~/.zcompcache"
+# Complete the alias when _expand_alias is used as a function
+zstyle ':completion:*' complete true
+# Allow you to select in a menu
+zstyle ':completion:*' menu select
+# Autocomplete options for cd instead of directory stack
+zstyle ':completion:*' complete-options true
+zstyle ':completion:*' file-sort modification
+zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
+zstyle ':completion:*:*:*:*:descriptions' format '%F{blue}-- %D %d --%f'
+zstyle ':completion:*:*:*:*:messages' format ' %F{purple} -- %d --%f'
+zstyle ':completion:*:*:*:*:warnings' format ' %F{red}-- no matches found --%f'
+# zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+# Colors for files and directory
+zstyle ':completion:*:*:*:*:default' list-colors ${(s.:.)LS_COLORS}
+
+
 # macOS-specific configurations
 if [ "$OS" = 'Mac' ]; then
 
@@ -62,12 +91,34 @@ if [ "$OS" = 'Mac' ]; then
         ZVM_VI_INSERT_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
         ZVM_VI_VISUAL_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
         ZVM_VI_OPPEND_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
+
         # Source .fzf.zsh so that the ctrl+r bindkey is given back fzf
         zvm_after_init_commands+=('[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh')
+
+        # # if zsh-history-substring-search is installed, source it so that the arrows are given back to it
+        # if [ -f "$(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh" ]; then
+        #   zvm_after_init_commands+=('source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh')
+        #   zvm_after_init_commands+=('bindkey "^[[A" history-substring-search-up')
+        #   zvm_after_init_commands+=('bindkey "^[[B" history-substring-search-down')
+        # fi
     fi
 
     # Initialize fzf if installed
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+    # Source zsh-autosuggestions if file exists
+    if [ -f "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+      source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+    fi
+
+    # # Source zsh-history-substring-search if file exists
+    # # Also leaving this here in case fzf is not installed
+    # if [ -f "$(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh" ]; then
+    #   source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+    #   bindkey '^[[A' history-substring-search-up
+    #   bindkey '^[[B' history-substring-search-down
+    # fi
+
 fi
 
 # Linux (Debian)-specific configurations
