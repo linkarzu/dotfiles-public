@@ -1699,33 +1699,6 @@
               {
                 "to": [
                   {
-                    "key_code": "d",
-                    "modifiers": [
-                      "right_shift",
-                      "right_command"
-                    ]
-                  }
-                ],
-                "type": "basic",
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_f",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
                     "key_code": "page_down"
                   }
                 ],
@@ -1864,6 +1837,33 @@
                 "type": "basic",
                 "from": {
                   "key_code": "r",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_right_command",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "key_code": "a",
+                    "modifiers": [
+                      "left_command",
+                      "left_shift"
+                    ]
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "a",
                   "modifiers": {
                     "mandatory": [
                       "any"

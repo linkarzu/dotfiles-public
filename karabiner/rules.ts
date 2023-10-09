@@ -207,6 +207,7 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
+      // Lock screen 
       d: {
         to: [
           {
@@ -279,9 +280,6 @@ const rules: KarabinerRules[] = [
       s: {
         to: [{ key_code: "j", modifiers: ["right_control"] }],
       },
-      d: {
-        to: [{ key_code: "d", modifiers: ["right_shift", "right_command"] }],
-      },
       u: {
         to: [{ key_code: "page_down" }],
       },
@@ -295,12 +293,17 @@ const rules: KarabinerRules[] = [
       r: {
         to: [{ key_code: "r", modifiers: ["left_control"] }],
       },
+      // Slack go to all unreads
+      a: {
+        to: [{ key_code: "a", modifiers: ["left_command", "left_shift"] }],
+      },
       h: {
         to: [{ key_code: "delete_or_backspace" }],
       },
       l: {
         to: [{ key_code: "delete_forward" }],
       },
+      // Switch between windows of same app
       spacebar: {
         to: [{ key_code: "grave_accent_and_tilde", modifiers: ["left_command"] }],
       },
