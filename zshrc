@@ -101,10 +101,6 @@ if [ "$OS" = 'Linux' ]; then
     # Add Debian-specific configurations here
     # For example, you can add z.lua config for Linux here, assuming you've installed it.
 
-    # Every time I log into a linux host I want to pull my github repos
-    cd ~/github/dotfiles-public && git pull > /dev/null 2>&1 || echo "Failed to pull dotfiles"
-    cd ~/github/starship-config && git pull > /dev/null 2>&1 || echo "Failed to pull starship-config"
-
     alias ls='ls --color=auto'
     alias nvim='~/nvim.appimage'
 
@@ -164,6 +160,10 @@ fi
 alias ll='ls -l'
 alias python='python3'
 alias lla='ls -al'
+
+# Every time I log into a host I want to pull my github repos
+cd ~/github/dotfiles-public && git pull > /dev/null 2>&1 || echo "Failed to pull dotfiles"
+cd ~/github/starship-config && git pull > /dev/null 2>&1 || echo "Failed to pull starship-config"
 
 # Autocompletion settings
 # https://github.com/Phantas0s/.dotfiles/blob/master/zsh/completion.zsh
