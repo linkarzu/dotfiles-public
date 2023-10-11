@@ -31,8 +31,8 @@ return {
     table.insert(opts.sections.lualine_x, 1, {
       "hostname",
       color = { fg = fg_color, bg = bg_color, gui = "bold" },
-      separator = { left = "", right = "" },
-      -- separator = { left = "", right = "" },
+      -- separator = { left = "", right = "" },
+      separator = { left = "", right = "" },
       padding = 2,
     })
   end,
