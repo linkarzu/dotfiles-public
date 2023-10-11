@@ -38,7 +38,7 @@ yabai -m signal --add event=window_focused app!="$app_list" action="yabai -m con
 # make the apps below fully opaque (not transparent) so theyre always shown
 # IF THE APP WAS CLOSED, OPEN IT, AND RESTART YABAI FOR THIS TO TAKE EFFECT, otherwise can't get it's id
 # All the options can be seen using 'man yabai'
-always_shown_apps=("Notes" "iStat Menus" "CleanShot X")
+always_shown_apps=("Notes" "iStat Menus" "CleanShot X" "Calculator")
 for app in "${always_shown_apps[@]}"; do
   # get the window ID for the app
   window_ids=$(yabai -m query --windows | jq -r --arg APP "$app" '.[] | select(.app == $APP) | .id')
