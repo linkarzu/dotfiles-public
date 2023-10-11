@@ -1,5 +1,6 @@
 return {
   "nvim-lualine/lualine.nvim",
+  event = "VeryLazy",
   opts = function(_, opts)
     -- Function to decide color based on hostname
     local function decide_color()
@@ -30,8 +31,8 @@ return {
     table.insert(opts.sections.lualine_x, 1, {
       "hostname",
       color = { fg = fg_color, bg = bg_color, gui = "bold" },
-      -- section_separators = { left = "", right = "" },
-      -- component_separators = { left = "", right = "" },
+      component_separators = { left = "", right = "" },
+      section_separators = { left = "", right = "" },
     })
   end,
 }
