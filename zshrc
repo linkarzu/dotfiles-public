@@ -101,8 +101,9 @@ if [ "$OS" = 'Linux' ]; then
     # Add Debian-specific configurations here
     # For example, you can add z.lua config for Linux here, assuming you've installed it.
 
-    # Every time I log into a linux host I want to pull my dotfiles
+    # Every time I log into a linux host I want to pull my github repos
     cd ~/github/dotfiles-public && git pull > /dev/null 2>&1 || echo "Failed to pull dotfiles"
+    cd ~/github/starship-config && git pull > /dev/null 2>&1 || echo "Failed to pull starship-config"
 
     alias ls='ls --color=auto'
     alias nvim='~/nvim.appimage'
