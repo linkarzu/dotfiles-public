@@ -102,6 +102,7 @@ const rules: KarabinerRules[] = [
       e: app("Microsoft Excel"),
       q: app("Setapp"),
       s: app("Safari"),
+      r: app("MySQLWorkbench"),
     },
 
     // r = "Raycast"
