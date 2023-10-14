@@ -13,6 +13,7 @@ ln -snf ~/github/dotfiles-public/karabiner ~/.config/karabiner
 ln -snf ~/github/dotfiles-public/nvim-lazyvim ~/.config/nvim
 ln -snf ~/github/dotfiles-public/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -snf ~/github/dotfiles-public/yabai/yabairc ~/.yabairc
+ln -snf ~/github/dotfiles-public/hammerspoon ~/.hammerspoon
 
 echo
 echo "Restart obsidian"
