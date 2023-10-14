@@ -1,0 +1,1 @@
+require "lgtv_init"
