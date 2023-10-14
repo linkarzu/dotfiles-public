@@ -1,3 +1,6 @@
+-- Disabled this plugin as dashboard.nvim is the new starter plugin
+-- That's why I renamed it to .old
+
 return {
   "goolord/alpha-nvim",
   opts = function(_, opts)
