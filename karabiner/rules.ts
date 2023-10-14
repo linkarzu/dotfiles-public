@@ -273,6 +273,18 @@ const rules: KarabinerRules[] = [
       l: {
         to: [{ key_code: "right_arrow", modifiers: ["left_shift"] }],
       },
+      y: {
+        to: [{ key_code: "left_arrow", modifiers: ["left_shift", "left_option"] }],
+      },
+      u: {
+        to: [{ key_code: "down_arrow", modifiers: ["left_shift", "left_option"] }],
+      },
+      i: {
+        to: [{ key_code: "up_arrow", modifiers: ["left_shift", "left_option"] }],
+      },
+      o: {
+        to: [{ key_code: "right_arrow", modifiers: ["left_shift", "left_option"] }],
+      },
       // Magicmove via homerow.app
       m: {
         to: [{ key_code: "f", modifiers: ["right_control"] }],
@@ -280,12 +292,6 @@ const rules: KarabinerRules[] = [
       // Scroll mode via homerow.app
       s: {
         to: [{ key_code: "j", modifiers: ["right_control"] }],
-      },
-      u: {
-        to: [{ key_code: "page_down" }],
-      },
-      i: {
-        to: [{ key_code: "page_up" }],
       },
     },
 
@@ -310,11 +316,31 @@ const rules: KarabinerRules[] = [
       },
     },
 
-    // 'e' for excel 
+    // 'e' for extra tools
     e: {
-      // To edit the contents of a cell
+      // To edit the contents of an excel cell
       u: {
         to: [{ key_code: "f2" }],
+      },
+      // Focus outline in obsidian
+      o: {
+        to: [{ key_code: "x", modifiers: ["left_command", "left_shift"] }],
+      },
+      // Increase LG TV volume
+      k: {
+        to: [
+          {
+            shell_command: `~/opt/lgtv/bin/python3 ~/opt/lgtv/bin/lgtv MyTV volumeUp ssl`,
+          },
+        ],
+      },
+      // Decrease LG TV volume
+      j: {
+        to: [
+          {
+            shell_command: `~/opt/lgtv/bin/python3 ~/opt/lgtv/bin/lgtv MyTV volumeDown ssl`,
+          },
+        ],
       },
     },
 
