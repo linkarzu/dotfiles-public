@@ -85,7 +85,7 @@ const rules: KarabinerRules[] = [
       semicolon: app("ChatGPT"),
       quote: app("System Settings"),
       u: app("Slack"),
-      i: app("WhatsApp Web"),
+      i: app("WhatsApp"),
       p: app("Brave Browser"),
       o: app("Preview"),
       open_bracket: app("Reminders"),
