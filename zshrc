@@ -160,6 +160,7 @@ fi
 alias ll='ls -l'
 alias python='python3'
 alias lla='ls -al'
+alias k='kubectl'
 
 # Every time I log into a host I want to pull my github repos
 cd ~/github/dotfiles-public && git pull > /dev/null 2>&1 || echo "Failed to pull dotfiles"
