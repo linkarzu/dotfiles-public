@@ -106,26 +106,26 @@ if [ "$OS" = 'Linux' ]; then
 
     # Initialize Starship, if it is installed
     if command -v starship &>/dev/null; then
-    eval "$(starship init zsh)"
-    # Extract the last digit of $HOST
-    last_digit="${HOST: -1}"
-    # Determine the Starship config file to use
-    case $last_digit in
-        1)
-        starship_file="starship1.toml"
-        ;;
-        2)
-        starship_file="starship2.toml"
-        ;;
-        3)
-        starship_file="starship3.toml"
-        ;;
-        *)
-        starship_file="starship4.toml"
-        ;;
-    esac
-    # This is what applies the specific profile
-    export STARSHIP_CONFIG=$HOME/github/starship-config/$starship_file
+      eval "$(starship init zsh)"
+      # Extract the last digit of $HOST
+      last_digit="${HOST: -1}"
+      # Determine the Starship config file to use
+      case $last_digit in
+          1)
+          starship_file="starship1.toml"
+          ;;
+          2)
+          starship_file="starship2.toml"
+          ;;
+          3)
+          starship_file="starship3.toml"
+          ;;
+          *)
+          starship_file="starship4.toml"
+          ;;
+      esac
+      # This is what applies the specific profile
+      export STARSHIP_CONFIG=$HOME/github/starship-config/$starship_file
     fi
 
     # Initialize z.lua, if it is installed
@@ -147,6 +147,7 @@ if [ "$OS" = 'Linux' ]; then
 
     # Initialize neofetch, if it is installed
     if command -v neofetch &>/dev/null; then
+        # leave blank space before the command
         echo
         neofetch
     fi
@@ -154,6 +155,11 @@ if [ "$OS" = 'Linux' ]; then
     # Initialize fzf if installed
     # It will automatically detect the directory in which the repo was downloaded
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+    # Initialize kubectl completion if kubectl is installed
+    if command -v kubectl &>/dev/null; then
+       source <(kubectl completion zsh)
+    fi
 fi
 
 # Common settings and plugins
