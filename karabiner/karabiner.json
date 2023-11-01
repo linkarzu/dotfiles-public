@@ -244,7 +244,7 @@
                 "description": "Open -a 'Slack.app'",
                 "type": "basic",
                 "from": {
-                  "key_code": "u",
+                  "key_code": "i",
                   "modifiers": {
                     "mandatory": [
                       "any"
@@ -268,7 +268,7 @@
                 "description": "Open -a 'WhatsApp Web.app'",
                 "type": "basic",
                 "from": {
-                  "key_code": "i",
+                  "key_code": "u",
                   "modifiers": {
                     "mandatory": [
                       "any"
