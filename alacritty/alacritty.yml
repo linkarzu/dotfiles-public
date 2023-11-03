@@ -9,8 +9,8 @@ window:
     columns: 200
     lines: 55
   position:
-   x: 2750
-   y: 1100
+    x: 2750
+    y: 1100
   padding:
     x: 10
     y: 10
@@ -26,7 +26,7 @@ scrolling:
 font:
   normal:
     family: MesloLGM Nerd Font Mono
-    style:  Regular
+    style: Regular
   size: 14
 
 draw_bold_text_with_bright_colors: true
@@ -40,7 +40,7 @@ import:
   # - ~/github/dotfiles-public/alacritty/themes/catppuccin/catppuccin-latte.yml
 
 selection:
-  save_to_clipboard: false
+  save_to_clipboard: true
 
 shell:
   program: /bin/zsh
@@ -50,7 +50,6 @@ shell:
     # If no session exists, a new one is created
     - -c
     - /opt/homebrew/bin/tmux attach || //opt/homebrew/bin/tmux
-
 # key_bindings:
 #   - { key: Return, mods: Super|Shift, action: SpawnNewInstance }
 
