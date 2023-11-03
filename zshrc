@@ -28,7 +28,7 @@ if [ "$OS" = 'Mac' ]; then
     # Initialize Starship, if it is installed
     if command -v starship &>/dev/null; then
         eval "$(starship init zsh)"
-        export STARSHIP_CONFIG=$HOME/github/starship-config/starship.toml
+        export STARSHIP_CONFIG=$HOME/github/dotfiles-public/starship-config/starship.toml
     fi
 
     # Add MySQL client to PATH, if it exists
@@ -125,7 +125,7 @@ if [ "$OS" = 'Linux' ]; then
           ;;
       esac
       # This is what applies the specific profile
-      export STARSHIP_CONFIG=$HOME/github/starship-config/$starship_file
+      export STARSHIP_CONFIG=$HOME/github/dotfiles-public/starship-config/$starship_file
     fi
 
     # Initialize z.lua, if it is installed
