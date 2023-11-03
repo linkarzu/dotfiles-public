@@ -39,8 +39,10 @@ import:
   # - ~/github/dotfiles-public/alacritty/themes/catppuccin/catppuccin-frappe.yml
   # - ~/github/dotfiles-public/alacritty/themes/catppuccin/catppuccin-latte.yml
 
-selection:
-  save_to_clipboard: true
+# # I don't need to enable this, as I normally select in visual mode and yank
+# # But apparently it allows you to copy to clipboard by just selecting the text
+# selection:
+#   save_to_clipboard: true
 
 shell:
   program: /bin/zsh
