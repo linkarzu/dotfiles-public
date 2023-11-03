@@ -1,0 +1,51 @@
+# vim ~/.config/starship1.toml
+# https://starship.rs/config/#git-branch
+
+# # In case you want to modify the order of the items you can do this
+# format = """
+# $username\
+# $hostname\
+# $directory\
+# $git_branch\
+# $git_status\
+# $git_commit\
+# $git_state\
+# $all\
+# $time\
+# $character
+# """
+
+# This will show the time on a 2nd line
+format = """
+$all\
+$time\
+$character
+"""
+
+[battery]
+disabled = true
+
+[gcloud]
+disabled = true
+
+[time]
+style = 'purple bold'
+disabled = false
+format = '[\[$time\]]($style) '
+time_format = '%T'
+
+[username]
+style_user = '#0DFFAE bold'
+style_root = 'white bold'
+format = '[$user]($style)'
+show_always = true
+
+[hostname]
+ssh_only = false
+format = '[@](green bold)[$hostname](#00C8FF bold)'
+
+[directory]
+style = '#0CE8DD bold'
+truncation_length = 0
+truncate_to_repo = false
+
