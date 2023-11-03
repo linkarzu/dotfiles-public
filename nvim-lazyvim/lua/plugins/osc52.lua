@@ -1,5 +1,7 @@
 -- Filename: ~/github/dotfiles-public/nvim-lazyvim/lua/plugins/osc52.lua
 
+-- For this plugin to work, you also have to set the below on tmux.conf
+-- set -s set-clipboard on
 return {
   {
     "ojroques/nvim-osc52",
