@@ -171,6 +171,8 @@ alias k='kubectl'
 # Every time I log into a host I want to pull my github repos
 cd ~/github/dotfiles-public && git pull > /dev/null 2>&1 || echo "Failed to pull dotfiles"
 cd ~/github/starship-config && git pull > /dev/null 2>&1 || echo "Failed to pull starship-config"
+# After that, always change to the folder you want to use as the default
+cd ~/github/dotfiles-public
 
 # Autocompletion settings
 # https://github.com/Phantas0s/.dotfiles/blob/master/zsh/completion.zsh
