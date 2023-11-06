@@ -1,5 +1,8 @@
 # Filename: /Users/krishna/github/dotfiles-public/zshrc
 
+# Run a clear command right after I log in to any host
+clear
+
 # Detect OS
 case "$(uname -s)" in
     Darwin)
