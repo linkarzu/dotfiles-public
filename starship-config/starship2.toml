@@ -29,7 +29,7 @@ disabled = true
 disabled = true
 
 [time]
-style = 'purple bold'
+style = '#FF6200 bold'
 disabled = false
 format = '[\[$time\]]($style) '
 time_format = '%T'
