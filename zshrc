@@ -136,8 +136,8 @@ if [ "$OS" = 'Linux' ]; then
     fi
 
     # Source zsh-autosuggestions if file exists
-    if [ -f "~/github/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
-      source ~/github/zsh-autosuggestions/zsh-autosuggestions.zsh
+    if [ -f "$HOME/github/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+      source $HOME/github/zsh-autosuggestions/zsh-autosuggestions.zsh
     fi
 
     # Initialize zsh-vi-mode, if it is installed
