@@ -135,6 +135,11 @@ if [ "$OS" = 'Linux' ]; then
         eval "$(lua $HOME/github/z.lua/z.lua --init zsh enhanced once)"
     fi
 
+    # Source zsh-autosuggestions if file exists
+    if [ -f "~/github/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+      source ~/github/zsh-autosuggestions/zsh-autosuggestions.zsh
+    fi
+
     # Initialize zsh-vi-mode, if it is installed
     if [ -d "$HOME/github/zsh-vi-mode" ]; then
         source $HOME/github/zsh-vi-mode/zsh-vi-mode.plugin.zsh
