@@ -344,6 +344,24 @@ const rules: KarabinerRules[] = [
       },
     },
 
+    // // 't' for terminal 
+    // t: {
+    //   j: {
+    //     to: [
+    //       {
+    //         shell_command: `tmux select-window -t 0`,
+    //       },
+    //     ],
+    //   },
+    //   k: {
+    //     to: [
+    //
+    //       {
+    //         shell_command: `tmux select-window -t 1`,
+    //       },
+    //     ],
+    //   },
+    // },
 
     // Vim nagivation
     // ALWAYS LEAVE THE ONES WITHOUT ANY SUBLAYERS AT THE BOTTOM
