@@ -142,10 +142,10 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Google Chrome.app'"
+                    "shell_command": "open -a 'Safari.app'"
                   }
                 ],
-                "description": "Open -a 'Google Chrome.app'",
+                "description": "Open -a 'Safari.app'",
                 "type": "basic",
                 "from": {
                   "key_code": "k",
@@ -629,30 +629,6 @@
                 "type": "basic",
                 "from": {
                   "key_code": "q",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -a 'Safari.app'"
-                  }
-                ],
-                "description": "Open -a 'Safari.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "s",
                   "modifiers": {
                     "mandatory": [
                       "any"

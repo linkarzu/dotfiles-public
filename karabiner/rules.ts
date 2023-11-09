@@ -80,7 +80,7 @@ const rules: KarabinerRules[] = [
     // I use spacebar as the app launcher
     spacebar: {
       j: app("Alacritty"),
-      k: app("Google Chrome"),
+      k: app("Safari"),
       l: app("Obsidian"),
       semicolon: app("ChatGPT"),
       quote: app("System Settings"),
@@ -101,7 +101,7 @@ const rules: KarabinerRules[] = [
       w: app("Microsoft Word"),
       e: app("Microsoft Excel"),
       q: app("Setapp"),
-      s: app("Safari"),
+      // s: app("Safari"),
       r: app("MySQLWorkbench"),
     },
 
