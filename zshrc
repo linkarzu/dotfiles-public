@@ -3,6 +3,43 @@
 # Run a clear command right after I log in to any host
 clear
 
+# Autocompletion settings
+# https://github.com/Phantas0s/.dotfiles/blob/master/zsh/completion.zsh
+zmodload zsh/complist
+autoload -U compinit; compinit
+_comp_options+=(globdots) # With hidden files
+# setopt MENU_COMPLETE        # Automatically highlight first element of completion menu
+setopt AUTO_LIST            # Automatically list choices on ambiguous completion.
+setopt COMPLETE_IN_WORD     # Complete from both ends of a word.
+# Define completers
+zstyle ':completion:*' completer _extensions _complete _approximate
+# Use cache for commands using cache
+zstyle ':completion:*' use-cache on
+zstyle ':completion:*' cache-path "~/.zcompcache"
+# Complete the alias when _expand_alias is used as a function
+zstyle ':completion:*' complete true
+# Allow you to select in a menu
+zstyle ':completion:*' menu select
+# Autocomplete options for cd instead of directory stack
+zstyle ':completion:*' complete-options true
+zstyle ':completion:*' file-sort modification
+zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
+zstyle ':completion:*:*:*:*:descriptions' format '%F{blue}-- %D %d --%f'
+zstyle ':completion:*:*:*:*:messages' format ' %F{purple} -- %d --%f'
+zstyle ':completion:*:*:*:*:warnings' format ' %F{red}-- no matches found --%f'
+# zstyle ':completion:*:default' list-prompt '%S%M matches%s'
+# Colors for files and directory
+zstyle ':completion:*:*:*:*:default' list-colors ${(s.:.)LS_COLORS}
+
+# Common settings and plugins
+alias ll='ls -l'
+alias python='python3'
+alias lla='ls -al'
+alias k='kubectl'
+
+# Every time I log into a host I want to pull my github repos
+cd ~/github/dotfiles-public && git pull > /dev/null 2>&1 || echo "Failed to pull dotfiles"
+
 # Detect OS
 case "$(uname -s)" in
     Darwin)
@@ -168,41 +205,4 @@ if [ "$OS" = 'Linux' ]; then
        source <(kubectl completion zsh)
     fi
 fi
-
-# Common settings and plugins
-alias ll='ls -l'
-alias python='python3'
-alias lla='ls -al'
-alias k='kubectl'
-
-# Every time I log into a host I want to pull my github repos
-cd ~/github/dotfiles-public && git pull > /dev/null 2>&1 || echo "Failed to pull dotfiles"
-
-# Autocompletion settings
-# https://github.com/Phantas0s/.dotfiles/blob/master/zsh/completion.zsh
-zmodload zsh/complist
-autoload -U compinit; compinit
-_comp_options+=(globdots) # With hidden files
-# setopt MENU_COMPLETE        # Automatically highlight first element of completion menu
-setopt AUTO_LIST            # Automatically list choices on ambiguous completion.
-setopt COMPLETE_IN_WORD     # Complete from both ends of a word.
-# Define completers
-zstyle ':completion:*' completer _extensions _complete _approximate
-# Use cache for commands using cache
-zstyle ':completion:*' use-cache on
-zstyle ':completion:*' cache-path "~/.zcompcache"
-# Complete the alias when _expand_alias is used as a function
-zstyle ':completion:*' complete true
-# Allow you to select in a menu
-zstyle ':completion:*' menu select
-# Autocomplete options for cd instead of directory stack
-zstyle ':completion:*' complete-options true
-zstyle ':completion:*' file-sort modification
-zstyle ':completion:*:*:*:*:corrections' format '%F{yellow}!- %d (errors: %e) -!%f'
-zstyle ':completion:*:*:*:*:descriptions' format '%F{blue}-- %D %d --%f'
-zstyle ':completion:*:*:*:*:messages' format ' %F{purple} -- %d --%f'
-zstyle ':completion:*:*:*:*:warnings' format ' %F{red}-- no matches found --%f'
-# zstyle ':completion:*:default' list-prompt '%S%M matches%s'
-# Colors for files and directory
-zstyle ':completion:*:*:*:*:default' list-colors ${(s.:.)LS_COLORS}
 
