@@ -35,7 +35,12 @@ zstyle ':completion:*:*:*:*:default' list-colors ${(s.:.)LS_COLORS}
 alias ll='ls -l'
 alias python='python3'
 alias lla='ls -al'
+
+# If you need help, just run 'kgp --help' for example
 alias k='kubectl'
+alias kgp='kubectl get pods'
+alias kgpa='kubectl get pods --all-namespaces'
+alias kgpo='kubectl get pods -o wide'
 
 # Every time I log into a host I want to pull my github repos
 cd ~/github/dotfiles-public && git pull > /dev/null 2>&1 || echo "Failed to pull dotfiles"
