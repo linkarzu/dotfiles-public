@@ -38,6 +38,7 @@ alias lla='ls -al'
 
 # If you need help, just run 'kgp --help' for example
 alias k='kubectl'
+alias kga='kubectl get all'
 alias kgp='kubectl get pods'
 alias kgpa='kubectl get pods --all-namespaces'
 alias kgpo='kubectl get pods -o wide'
