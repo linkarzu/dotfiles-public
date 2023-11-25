@@ -108,34 +108,34 @@ const rules: KarabinerRules[] = [
     // r = "Raycast"
     r: {
       j: open(
-        "raycast://extensions/lardissone/raindrop-io/search"
+        "raycast://extensions/lardissone/raindrop-io/search",
       ),
       k: open(
-        "raycast://extensions/mblode/google-search/index"
+        "raycast://extensions/mblode/google-search/index",
       ),
       l: open(
-        "raycast://extensions/KevinBatdorf/obsidian/searchNoteCommand"
+        "raycast://extensions/KevinBatdorf/obsidian/searchNoteCommand",
       ),
       semicolon: open(
         ""
       ),
       quote: open(
-        "raycast://extensions/mathieudutour/wolfram-alpha/index"
+        "raycast://extensions/mathieudutour/wolfram-alpha/index",
       ),
       u: open(
-        "raycast://extensions/raycast/reminders/create-reminder"
+        "raycast://extensions/raycast/reminders/create-reminder",
       ),
       i: open(
-        "raycast://extensions/raycast/reminders/my-reminders"
+        "raycast://extensions/raycast/reminders/my-reminders",
       ),
       o: open(
-        "raycast://extensions/raycast/github/search-repositories"
+        "raycast://extensions/raycast/github/search-repositories",
       ),
       p: open(
-        "raycast://extensions/nhojb/brew/search"
+        "raycast://extensions/nhojb/brew/search",
       ),
       h: open(
-        "raycast://extensions/mattisssa/spotify-player/search"
+        "raycast://extensions/mattisssa/spotify-player/search",
       ),
     },
 
@@ -342,6 +342,13 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
+    },
+
+    // For betterTouchTool
+    d: {
+      j: open(
+        "btt://execute_assigned_actions_for_trigger/?uuid=CF579738-1663-49D8-8EA7-C6F55E6840F0",
+      ),
     },
 
     // // 't' for terminal 
