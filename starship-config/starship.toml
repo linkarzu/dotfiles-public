@@ -42,7 +42,7 @@ show_always = true
 
 [hostname]
 ssh_only = false
-format = '[@](white bold)[$hostname](#50fa7b bold)'
+format = '[.@.](white bold)[$hostname](#50fa7b bold)'
 
 [directory]
 style = '#00a5ff bold'
