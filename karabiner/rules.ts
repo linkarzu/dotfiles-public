@@ -226,6 +226,10 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
+      // Connect airpods via bluetooth
+      n: open(
+        "btt://execute_assigned_actions_for_trigger/?uuid=9A1CFA49-416C-480E-9430-184D2DAEE1CA",
+      ),
       m: {
         to: [
           {
@@ -233,30 +237,30 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
+      // comma: {
+      //   to: [
+      //     {
+      //       shell_command: `/opt/homebrew/bin/SwitchAudioSource -s "LG TV"; /opt/homebrew/bin/SwitchAudioSource -t input -s "C922 Pro Stream Webcam"`,
+      //     },
+      //   ],
+      // },
       comma: {
-        to: [
-          {
-            shell_command: `/opt/homebrew/bin/SwitchAudioSource -s "LG TV"; /opt/homebrew/bin/SwitchAudioSource -t input -s "C922 Pro Stream Webcam"`,
-          },
-        ],
-      },
-      period: {
         to: [
           {
             shell_command: `/opt/homebrew/bin/SwitchAudioSource -s "Mac mini Speakers"; /opt/homebrew/bin/SwitchAudioSource -t input -s "C922 Pro Stream Webcam"`,
           },
         ],
       },
-      slash: {
+      period: {
         to: [
           {
             shell_command: `/opt/homebrew/bin/SwitchAudioSource -s "MacBook Pro Speakers"; /opt/homebrew/bin/SwitchAudioSource -t input -s "MacBook Pro Microphone"`,
           },
         ],
       },
-      n: open(
-        "raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-1"
-      ),
+      // n: open(
+      //   "raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-1"
+      // ),
     },
 
     // shift+arrows to select stuff
@@ -346,8 +350,21 @@ const rules: KarabinerRules[] = [
 
     // For betterTouchTool
     d: {
+      // Select text from alacritty
       j: open(
-        "btt://execute_assigned_actions_for_trigger/?uuid=CF579738-1663-49D8-8EA7-C6F55E6840F0",
+        "btt://execute_assigned_actions_for_trigger/?uuid=5A708885-4D65-465C-B87A-996BA6C23B86",
+      ),
+      // Paste alacritty text and go down
+      k: open(
+        "btt://execute_assigned_actions_for_trigger/?uuid=213C11E3-1541-46B2-9DF3-8F9C9EC421FA",
+      ),
+      // Paste kodekloud text and go down
+      l: open(
+        "btt://execute_assigned_actions_for_trigger/?uuid=3FD931CD-45A8-4AAF-8D73-A9C0E5C41A60",
+      ),
+      // Reboot router
+      u: open(
+        "btt://execute_assigned_actions_for_trigger/?uuid=EA461EE0-4C15-4113-93B6-07C12086FF1F",
       ),
     },
 

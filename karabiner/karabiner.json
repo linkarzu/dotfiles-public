@@ -1383,6 +1383,30 @@
               {
                 "to": [
                   {
+                    "shell_command": "open btt://execute_assigned_actions_for_trigger/?uuid=9A1CFA49-416C-480E-9430-184D2DAEE1CA"
+                  }
+                ],
+                "description": "Open btt://execute_assigned_actions_for_trigger/?uuid=9A1CFA49-416C-480E-9430-184D2DAEE1CA",
+                "type": "basic",
+                "from": {
+                  "key_code": "n",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_s",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
                     "shell_command": "/opt/homebrew/bin/SwitchAudioSource -s \"AirPods Pro\"; /opt/homebrew/bin/SwitchAudioSource -t input -s \"AirPods Pro\""
                   }
                 ],
@@ -1406,7 +1430,7 @@
               {
                 "to": [
                   {
-                    "shell_command": "/opt/homebrew/bin/SwitchAudioSource -s \"LG TV\"; /opt/homebrew/bin/SwitchAudioSource -t input -s \"C922 Pro Stream Webcam\""
+                    "shell_command": "/opt/homebrew/bin/SwitchAudioSource -s \"Mac mini Speakers\"; /opt/homebrew/bin/SwitchAudioSource -t input -s \"C922 Pro Stream Webcam\""
                   }
                 ],
                 "type": "basic",
@@ -1429,59 +1453,12 @@
               {
                 "to": [
                   {
-                    "shell_command": "/opt/homebrew/bin/SwitchAudioSource -s \"Mac mini Speakers\"; /opt/homebrew/bin/SwitchAudioSource -t input -s \"C922 Pro Stream Webcam\""
-                  }
-                ],
-                "type": "basic",
-                "from": {
-                  "key_code": "period",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_s",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
                     "shell_command": "/opt/homebrew/bin/SwitchAudioSource -s \"MacBook Pro Speakers\"; /opt/homebrew/bin/SwitchAudioSource -t input -s \"MacBook Pro Microphone\""
                   }
                 ],
                 "type": "basic",
                 "from": {
-                  "key_code": "slash",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_s",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-1"
-                  }
-                ],
-                "description": "Open raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-1",
-                "type": "basic",
-                "from": {
-                  "key_code": "n",
+                  "key_code": "period",
                   "modifiers": {
                     "mandatory": [
                       "any"
@@ -2336,13 +2313,85 @@
               {
                 "to": [
                   {
-                    "shell_command": "open btt://execute_assigned_actions_for_trigger/?uuid=CF579738-1663-49D8-8EA7-C6F55E6840F0"
+                    "shell_command": "open btt://execute_assigned_actions_for_trigger/?uuid=5A708885-4D65-465C-B87A-996BA6C23B86"
                   }
                 ],
-                "description": "Open btt://execute_assigned_actions_for_trigger/?uuid=CF579738-1663-49D8-8EA7-C6F55E6840F0",
+                "description": "Open btt://execute_assigned_actions_for_trigger/?uuid=5A708885-4D65-465C-B87A-996BA6C23B86",
                 "type": "basic",
                 "from": {
                   "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_d",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open btt://execute_assigned_actions_for_trigger/?uuid=213C11E3-1541-46B2-9DF3-8F9C9EC421FA"
+                  }
+                ],
+                "description": "Open btt://execute_assigned_actions_for_trigger/?uuid=213C11E3-1541-46B2-9DF3-8F9C9EC421FA",
+                "type": "basic",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_d",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open btt://execute_assigned_actions_for_trigger/?uuid=3FD931CD-45A8-4AAF-8D73-A9C0E5C41A60"
+                  }
+                ],
+                "description": "Open btt://execute_assigned_actions_for_trigger/?uuid=3FD931CD-45A8-4AAF-8D73-A9C0E5C41A60",
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_d",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open btt://execute_assigned_actions_for_trigger/?uuid=EA461EE0-4C15-4113-93B6-07C12086FF1F"
+                  }
+                ],
+                "description": "Open btt://execute_assigned_actions_for_trigger/?uuid=EA461EE0-4C15-4113-93B6-07C12086FF1F",
+                "type": "basic",
+                "from": {
+                  "key_code": "u",
                   "modifiers": {
                     "mandatory": [
                       "any"
