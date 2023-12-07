@@ -101,7 +101,8 @@ const rules: KarabinerRules[] = [
       w: app("Microsoft Word"),
       e: app("Microsoft Excel"),
       q: app("Setapp"),
-      s: app("Udemy Business"),
+      // s: app("Udemy Business"),
+      s: app("Udemy"),
       r: app("MySQLWorkbench"),
     },
 
