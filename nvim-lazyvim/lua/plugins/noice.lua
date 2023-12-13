@@ -36,6 +36,7 @@ return {
       views = {
         mini = {
           timeout = 6000, -- timeout in milliseconds (5 seconds)
+          align = "center",
         },
       },
     },
