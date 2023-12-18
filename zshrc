@@ -5,6 +5,7 @@ clear
 
 # Autocompletion settings
 # https://github.com/Phantas0s/.dotfiles/blob/master/zsh/completion.zsh
+# These have to be on the top, I remember I had issues with some autocompletions if not
 zmodload zsh/complist
 autoload -U compinit; compinit
 _comp_options+=(globdots) # With hidden files
@@ -36,7 +37,7 @@ alias ll='ls -l'
 alias python='python3'
 alias lla='ls -al'
 
-# If you need help, just run 'kgp --help' for example
+# kubernetes, if you need help, just run 'kgp --help' for example
 alias k='kubectl'
 alias kga='kubectl get all'
 alias kgp='kubectl get pods'
@@ -140,6 +141,11 @@ if [ "$OS" = 'Mac' ]; then
     #   bindkey '^[[B' history-substring-search-down
     # fi
 
+    # Initialize kubernetes kubectl completion if kubectl is installed
+    # https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#enable-shell-autocompletion
+    if command -v kubectl &>/dev/null; then
+       source <(kubectl completion zsh)
+    fi
 fi
 
 # Linux (Debian)-specific configurations
@@ -206,7 +212,8 @@ if [ "$OS" = 'Linux' ]; then
     # It will automatically detect the directory in which the repo was downloaded
     [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
-    # Initialize kubectl completion if kubectl is installed
+    # Initialize kubernetes kubectl completion if kubectl is installed
+    # https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#enable-shell-autocompletion
     if command -v kubectl &>/dev/null; then
        source <(kubectl completion zsh)
     fi
