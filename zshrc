@@ -1,5 +1,12 @@
 # Filename: /Users/krishna/github/dotfiles-public/zshrc
 
+boldGreen="\033[1;32m"
+boldYellow="\033[1;33m"
+boldRed="\033[1;31m"
+boldPurple="\033[1;35m"
+boldBlue="\033[1;34m"
+noColor="\033[0m"
+
 # Run a clear command right after I log in to any host
 clear
 
@@ -181,43 +188,104 @@ fi
 # Linux (Debian)-specific configurations
 if [ "$OS" = 'Linux' ]; then
     # Add Debian-specific configurations here
-    # For example, you can add z.lua config for Linux here, assuming you've installed it.
+    # For example, you can add z.lua config for Linux here, if not installed will install them
 
     alias ls='ls --color=auto'
 
-    # Initialize Starship, if it is installed
+
+    # Initialize Starship, if installed, otherwise install it
+    # Extract the last digit of $HOST
+    last_digit="${HOST: -1}"
+    # Determine the Starship config file to use
+    case $last_digit in
+        1)
+        starship_file="starship1.toml"
+        ;;
+        2)
+        starship_file="starship2.toml"
+        ;;
+        3)
+        starship_file="starship3.toml"
+        ;;
+        *)
+        starship_file="starship4.toml"
+        ;;
+    esac
     if command -v starship &>/dev/null; then
       eval "$(starship init zsh)"
-      # Extract the last digit of $HOST
-      last_digit="${HOST: -1}"
-      # Determine the Starship config file to use
-      case $last_digit in
-          1)
-          starship_file="starship1.toml"
-          ;;
-          2)
-          starship_file="starship2.toml"
-          ;;
-          3)
-          starship_file="starship3.toml"
-          ;;
-          *)
-          starship_file="starship4.toml"
-          ;;
-      esac
       # This is what applies the specific profile
       export STARSHIP_CONFIG=$HOME/github/dotfiles-public/starship-config/$starship_file
+    else
+      echo
+      echo "Installing starship, please wait..."
+      # -y at the end answers 'yes' to any prompts
+      curl -sS https://starship.rs/install.sh | sh -s - -y >/dev/null 2>&1
+      # Verify starship installation
+      if ! command -v starship >/dev/null 2>&1; then
+      	echo -e "${boldRed}Warning: Failed to install Starship. Check this manually${noColor}"
+      	# sleep 1
+      else
+          # After installing, initialize it
+          eval "$(starship init zsh)"
+          # This is what applies the specific profile
+          export STARSHIP_CONFIG=$HOME/github/dotfiles-public/starship-config/$starship_file
+          echo "Starship installed successfully."
+      fi
     fi
+
 
     # Initialize z.lua, if it is installed
     if command -v $HOME/github/z.lua/z.lua &>/dev/null; then
         eval "$(lua $HOME/github/z.lua/z.lua --init zsh enhanced once)"
+    else
+        # First we need to install Lua
+        # Search for the latest version of Lua and extract the package name
+        echo
+        echo "Installing z.lua, please wait..."
+        LUA_PACKAGE=$(apt search lua | grep -o 'lua[0-9]\+\.[0-9]\+/stable' | sort -Vr | head -n 1 | cut -d'/' -f1)
+        # Check if a package was found
+        if [ -z "$LUA_PACKAGE" ]; then
+            echo
+            echo -e "${boldGreen}No Lua package found. Skipping z.lua installation...${noColor}"
+            # sleep 1
+        else
+            # sleep 1
+            sudo apt-get install -y $LUA_PACKAGE >/dev/null 2>&1
+            # Verify if Lua was installed successfully
+            if ! command -v lua >/dev/null 2>&1; then
+                echo -e "${boldRed}Warning: Failed to install Lua. Check this manually.${noColor}"
+                # sleep 1
+            else
+                # After installing, initialize it
+                eval "$(lua $HOME/github/z.lua/z.lua --init zsh enhanced once)"
+                echo "$LUA_PACKAGE installed successfully."
+            fi
+        fi
     fi
+
 
     # Source zsh-autosuggestions if file exists
     if [ -f "$HOME/github/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
       source $HOME/github/zsh-autosuggestions/zsh-autosuggestions.zsh
+    else
+      echo
+      echo "Installing zsh-autosuggestions, please wait..."
+      # Download github repo
+      mkdir -p $HOME/github
+      cd $HOME/github
+      git clone https://github.com/zsh-users/zsh-autosuggestions >/dev/null 2>&1
+      # Verify if the repo was cloned successfully
+      if [ ! -d "$HOME/github/zsh-autosuggestions" ]; then
+        echo
+        echo -e "${boldRed}Warning: Failed to clone the zsh-autosuggestions repository. Check this manually${noColor}"
+        # sleep 1
+      else
+        # After installing, initialize it
+        source $HOME/github/zsh-autosuggestions/zsh-autosuggestions.zsh
+        echo "Successfully installed zsh-autosuggestions"
+      fi
     fi
+
 
     # Initialize zsh-vi-mode, if it is installed
     if [ -d "$HOME/github/zsh-vi-mode" ]; then
@@ -229,7 +297,32 @@ if [ "$OS" = 'Linux' ]; then
         ZVM_VI_OPPEND_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
         # Source .fzf.zsh so that the ctrl+r bindkey is given back fzf
         zvm_after_init_commands+=('[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh')
+    else
+        echo
+        echo "Installing zsh-vi-mode, please wait..."
+        # Download zsh-vi-mode from github
+        mkdir -p $HOME/github
+        cd $HOME/github
+        git clone https://github.com/jeffreytse/zsh-vi-mode.git >/dev/null 2>&1
+        # Verify if the zsh-vi-mode GitHub repo was cloned successfully
+        if [ ! -d "$HOME/github/zsh-vi-mode" ]; then
+          echo
+          echo -e "${boldRed}Warning: Failed to clone the zsh-vi-mode repository. Check this manually.${noColor}"
+          # sleep 1
+        else
+          # After installing, initialize it
+          source $HOME/github/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+          # This modifies the escape key
+          ZVM_VI_ESCAPE_BINDKEY=kj
+          ZVM_VI_INSERT_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
+          ZVM_VI_VISUAL_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
+          ZVM_VI_OPPEND_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
+          # Source .fzf.zsh so that the ctrl+r bindkey is given back fzf
+          zvm_after_init_commands+=('[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh')
+          echo "Successfully installed zsh-vi-mode"
+        fi
     fi
+
 
     # Initialize neofetch, if it is installed
     if command -v neofetch &>/dev/null; then
@@ -238,9 +331,30 @@ if [ "$OS" = 'Linux' ]; then
         neofetch
     fi
 
+
     # Initialize fzf if installed
-    # It will automatically detect the directory in which the repo was downloaded
-    [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+    if [ -f ~/.fzf.zsh ]; then
+        source ~/.fzf.zsh
+    else
+        echo
+        echo "Installing fzf, please wait..."
+        # Download fzf from GitHub if it's not installed
+        mkdir -p $HOME/github
+        cd $HOME/github
+        git clone --depth 1 https://github.com/junegunn/fzf.git >/dev/null 2>&1
+        # Verify if the fzf GitHub repo was cloned successfully
+        if [ ! -d "$HOME/github/fzf" ]; then
+            echo -e "${boldRed}Warning: Failed to clone the fzf repository. Check this manually.${noColor}"
+        else
+            echo "Successfully cloned the fzf repository."
+            # Install fzf, this will answer `y`, `y`, and `n` to the questions asked
+            echo -e "y\ny\nn" | $fzf_install_path/install >/dev/null 2>&1
+            # After installing, initialize it
+            source ~/.fzf.zsh
+            echo "Successfully installed fzf"
+        fi
+    fi
+
 
     # Initialize kubernetes kubectl completion if kubectl is installed
     # https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#enable-shell-autocompletion
