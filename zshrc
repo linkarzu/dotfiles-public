@@ -58,7 +58,7 @@ setopt histignoredups
 # Exclude commands that start with a space
 setopt histignorespace
 # Custom list of commands to ignore (adjust as needed)
-HISTIGNORE='ls:bg:fg:exit:ll'
+HISTIGNORE='ls*:bg*:fg*:exit*:ll*'
 
 # Common settings and plugins
 alias ll='ls -l'
