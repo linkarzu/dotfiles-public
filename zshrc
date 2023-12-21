@@ -348,7 +348,7 @@ if [ "$OS" = 'Linux' ]; then
         else
             echo "Successfully cloned the fzf repository."
             # Install fzf, this will answer `y`, `y`, and `n` to the questions asked
-            echo -e "y\ny\nn" | $fzf_install_path/install >/dev/null 2>&1
+            echo -e "y\ny\nn" | $HOME/github/fzf/install >/dev/null 2>&1
             # After installing, initialize it
             source ~/.fzf.zsh
             echo "Successfully installed fzf"
