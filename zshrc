@@ -64,6 +64,8 @@ HISTIGNORE='ls*:bg*:fg*:exit*:ll*'
 alias ll='ls -l'
 alias python='python3'
 alias lla='ls -al'
+# Shows the last 30 entries, default is 15
+alias history='history -30'
 
 # kubernetes, if you need help, just run 'kgp --help' for example
 alias k='kubectl'
