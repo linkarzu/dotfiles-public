@@ -37,8 +37,14 @@ zstyle ':completion:*:*:*:*:default' list-colors ${(s.:.)LS_COLORS}
 # echo "HISTSIZE: $HISTSIZE"
 # echo "SAVEHIST: $SAVEHIST"
 # Store 10,000 entries in the command history
+HISTFILE=~/.zsh_history
 HISTSIZE=10000
 SAVEHIST=10000
+# Check if the history file exists, if not, create it
+if [[ ! -f $HISTFILE ]]; then
+    touch $HISTFILE
+    chmod 600 $HISTFILE
+fi
 # Append commands to the history file as they are entered
 setopt appendhistory
 # Record timestamp of each command (helpful for auditing)
