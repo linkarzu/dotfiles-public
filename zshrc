@@ -380,40 +380,43 @@ if [ "$OS" = 'Linux' ]; then
     fi
 
     # These below ones are neovim dependencies
-    # Install lazygit
-    LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
-    # switched to wget as was having issues when downloading with curl
-    wget -O lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" >/dev/null 2>&1
-    # curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
-    tar xf lazygit.tar.gz lazygit
-    sudo install lazygit /usr/local/bin
-    echo "Downloaded lazygit"
-    # Validate lazygit installation
-    if [ -f "/usr/local/bin/lazygit" ]; then
-      echo "lazygit installed successfully."
-    else
-      echo "lazygit installation failed."
-      exit 1
+    # Check and install lazygit if not installed
+    if ! command -v lazygit &> /dev/null; then
+        echo "Installing lazygit..."
+        LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+        wget -O lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" >/dev/null 2>&1
+        tar xf lazygit.tar.gz lazygit
+        sudo install lazygit /usr/local/bin
+        echo "Downloaded lazygit"
     fi
 
-    # Install a C compiler for nvim-treesitter
-    sudo apt install build-essential -y >/dev/null 2>&1
-    # Validate C compiler for nvim-treesitter
-    if gcc --version >/dev/null 2>&1; then
-      echo "C compiler validated."
-    else
-      echo "C compiler not found. Please install gcc, exiting..."
-      exit 1
+    # Check and install the C compiler (build-essential) if not installed
+    if ! gcc --version &> /dev/null; then
+        echo "Installing C compiler (build-essential) for nvim-treesitter..."
+        sudo apt install build-essential -y >/dev/null 2>&1
+        echo "Installed C compiler"
     fi
 
-    sudo apt-get install ripgrep -y >/dev/null 2>&1
-    echo "installed ripgrep"
-    sudo apt-get install fd-find -y >/dev/null 2>&1
-    echo "installed fd_find"
-    # fuse is needed to open the neovim appimage file
-    sudo apt install fuse -y >/dev/null 2>&1
-    echo "installed fuse"
+    # Check and install ripgrep if not installed
+    if ! command -v rg &> /dev/null; then
+        echo "Installing ripgrep..."
+        sudo apt-get install ripgrep -y >/dev/null 2>&1
+        echo "Installed ripgrep"
+    fi
 
+    # Check and install fd-find if not installed
+    if ! command -v fdfind &> /dev/null; then
+        echo "Installing fd-find..."
+        sudo apt-get install fd-find -y >/dev/null 2>&1
+        echo "Installed fd_find"
+    fi
+
+    # Check and install fuse if not installed
+    if ! command -v fusermount &> /dev/null; then
+        echo "Installing fuse..."
+        sudo apt install fuse -y >/dev/null 2>&1
+        echo "Installed fuse"
+    fi
 
     # Initialize kubernetes kubectl completion if kubectl is installed
     # https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#enable-shell-autocompletion
