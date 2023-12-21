@@ -192,6 +192,7 @@ if [ "$OS" = 'Linux' ]; then
 
     alias ls='ls --color=auto'
 
+    echo "Updating packages, please wait..."
     sudo apt-get update >/dev/null 2>&1
 
     # Initialize Starship, if installed, otherwise install it
