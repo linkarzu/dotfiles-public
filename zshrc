@@ -192,6 +192,7 @@ if [ "$OS" = 'Linux' ]; then
 
     alias ls='ls --color=auto'
 
+    sudo apt-get update >/dev/null 2>&1
 
     # Initialize Starship, if installed, otherwise install it
     # Extract the last digit of $HOST
