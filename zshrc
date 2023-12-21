@@ -355,6 +355,69 @@ if [ "$OS" = 'Linux' ]; then
         fi
     fi
 
+    # Check if Neovim is already installed
+    if ! command -v nvim &> /dev/null; then
+        echo
+        echo "Installing neovim, please wait..."
+        # Install latest version of neovim
+        # Debian repos have a really old version, so had to go this route
+        # switched to wget as was having issues when downloading with curl
+        cd ~
+        wget https://github.com/neovim/neovim/releases/latest/download/nvim.appimage >/dev/null 2>&1
+        # curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim.appimage
+        # After downloading it, you have to make it executable to be able to extract it
+        chmod u+x nvim.appimage
+
+        # I'll extract the executable and expose it globally
+        ./nvim.appimage --appimage-extract >/dev/null 2>&1
+        sudo mv squashfs-root /
+        sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+
+        echo "Downloaded neovim"
+
+        # Install lazygit
+        LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
+        # switched to wget as was having issues when downloading with curl
+        wget -O lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" >/dev/null 2>&1
+        # curl -Lo lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz"
+        tar xf lazygit.tar.gz lazygit
+        sudo install lazygit /usr/local/bin
+        echo "Downloaded lazygit"
+
+        # Validate lazygit installation
+        if [ -f "/usr/local/bin/lazygit" ]; then
+          echo "lazygit installed successfully."
+        else
+          echo "lazygit installation failed."
+          exit 1
+        fi
+
+        # Install a C compiler for nvim-treesitter
+        sudo apt install build-essential -y >/dev/null 2>&1
+        # Validate C compiler for nvim-treesitter
+        if gcc --version >/dev/null 2>&1; then
+          echo "C compiler validated."
+        else
+          echo "C compiler not found. Please install gcc, exiting..."
+          exit 1
+        fi
+
+        sudo apt-get install ripgrep -y >/dev/null 2>&1
+        echo "installed ripgrep"
+        sudo apt-get install fd-find -y >/dev/null 2>&1
+        echo "installed fd_find"
+        # fuse is needed to open the neovim appimage file
+        sudo apt install fuse -y >/dev/null 2>&1
+        echo "installed fuse"
+
+        # Remove any cached files that may exist from a previous config
+        echo
+        echo "removing backup files.."
+        mv ~/.local/share/nvim{,.bak}
+        mv ~/.local/state/nvim{,.bak}
+        mv ~/.cache/nvim{,.bak}
+    fi
+
 
     # Initialize kubernetes kubectl completion if kubectl is installed
     # https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#enable-shell-autocompletion
