@@ -23,8 +23,9 @@ ln -snf ~/github/dotfiles-public/nvim-lazyvim ~/.config/nvim >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/yabai/yabairc ~/.yabairc >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/hammerspoon ~/.hammerspoon >/dev/null 2>&1
-# This is on the other repo where I keep my ssh config files
-ln -snf ~/github/dotfiles/sshconfig-pers ~/.ssh/config >/dev/null 2>&1
+# # This is on the other repo where I keep my ssh config files
+# I commented this as I don't have give access to this repo to all the hosts
+# ln -snf ~/github/dotfiles/sshconfig-pers ~/.ssh/config >/dev/null 2>&1
 
 # Autocompletion settings
 # https://github.com/Phantas0s/.dotfiles/blob/master/zsh/completion.zsh
