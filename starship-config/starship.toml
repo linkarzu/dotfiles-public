@@ -19,6 +19,7 @@
 format = """
 $all\
 $time\
+$kubernetes
 $character
 """
 
@@ -32,7 +33,18 @@ disabled = true
 style = '#a6aaf1 bold'
 disabled = false
 format = '[\[$time\]]($style) '
-time_format = '%T'
+# https://docs.rs/chrono/0.4.7/chrono/format/strftime/index.html
+# %T	00:34:60	Hour-minute-second format. Same to %H:%M:%S.
+time_format = '%y/%m/%d %T'
+
+[kubernetes]
+# context = user@cluster
+format = '[$user@$cluster \($namespace\)](dimmed green) '
+# format = 'on [⛵ ($user on )($cluster in )$context \($namespace\)](dimmed green) '
+disabled = false
+contexts = [
+  { context_pattern = "dev.local.cluster.k8s", style = "green", symbol = "💔 " },
+]
 
 [username]
 style_user = '#a6aaf1 bold'
@@ -48,4 +60,5 @@ format = '[.@.](white bold)[$hostname](#50fa7b bold)'
 style = '#00a5ff bold'
 truncation_length = 0
 truncate_to_repo = false
+
 
