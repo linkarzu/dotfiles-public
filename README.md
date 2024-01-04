@@ -13,7 +13,7 @@ that points to my custom vimrc file
 # Create the symlinks I normally use
 # ~/.config dir holds nvim, neofetch, alacritty configs
 # If the dir/file that the symlink points to doesnt exist
-it will error out, so I direct them to dev null
+# it will error out, so I direct them to dev null
 mkdir -p ~/.config
 ln -snf ~/github/dotfiles-public/vimrc ~/.vimrc >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/vimrc ~/github/obsidian_main/.obsidian.vimrc >/dev/null 2>&1
