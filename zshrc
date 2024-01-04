@@ -17,7 +17,7 @@ mkdir -p ~/.config
 ln -snf ~/github/dotfiles-public/vimrc ~/.vimrc >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/vimrc ~/github/obsidian_main/.obsidian.vimrc >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/zshrc ~/.zshrc >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/tmux.conf ~/.tmux.conf >/dev/null 2>&1
+ln -snf ~/github/dotfiles-public/tmux/tmux.conf ~/.tmux.conf >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/karabiner ~/.config/karabiner >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/nvim-lazyvim ~/.config/nvim >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml >/dev/null 2>&1
