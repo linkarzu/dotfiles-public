@@ -18,6 +18,16 @@ window:
     instance: Alacritty
     general: Alacritty
   opacity: 1
+  # Make `Option` key behave as `Alt` (macOS only):
+  #   - OnlyLeft
+  #   - OnlyRight
+  #   - Both
+  #   - None (default)
+  # I left this option commented out, it worked when I tried to use the
+  # option key as the Meta key in tmux to switch layouts (ctrl+b option+1)
+  # But it messed up my hyper key, so if I enable it, I cant do hyper+b
+  # which is what I use for tmux commands instead of ctrl+b
+  # option_as_alt: Both
 
 scrolling:
   history: 10000
