@@ -2,7 +2,7 @@
 
 After cloning the repo, I create a .vimrc symbolic link that points to my custom vimrc file
 
-- Commands below will create all the files if they don't yet exist, if they do exist, it will update them. 
+- Commands below will create all the files if they don't yet exist, if they do exist, it will update them.
 - `-n` allows the link to be treated as a normal file if it is a symlink to a directory
 - `-f` "force" overwrites without warning if it already exists
 
