@@ -1,7 +1,7 @@
 #!/usr/bin/env sh
 
 # Configure your user to execute `yabai --load-sa` as the root user without having to enter a password.
-#  - https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
+#  https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
@@ -24,9 +24,13 @@ else
 	yabai -m config right_padding 0
 fi
 
+# Yabai signal to detect focus change for any application and move the cursor
+# yabai -m signal --add event=window_focused action="cliclick m:0,0"
+# yabai -m signal --add event=window_focused app="Google Chrome" action="cliclick m:0,0"
+
 # Make the below apps transparent
 # app_list="^(Alacritty|System Settings|Raycast|Spotify)$"
-app_list="^(Spotify)$"
+app_list="^(Spotify|Alacritty)$"
 # When my list of apps gains focus, make all background windows completely transparent
 yabai -m signal --add event=window_focused app="$app_list" action="yabai -m config active_window_opacity 0.85"
 yabai -m signal --add event=window_focused app="$app_list" action="yabai -m config normal_window_opacity 0.00001"
@@ -63,8 +67,11 @@ yabai -m rule --add app="$mgmt_excluded_apps" manage=off
 # echo "mgmt_excluded_apps: $mgmt_excluded_apps" >> /tmp/yabai_debug.log
 
 # global settings
+# When I leave youtube or chrome, hammerspoon will move the mouse to the corner
+# this below will move the mouse back to the center
+# "mouse_follows_focus on"
 yabai -m config \
-	mouse_follows_focus off \
+	mouse_follows_focus on \
 	focus_follows_mouse off \
 	window_origin_display default \
 	window_placement second_child \
