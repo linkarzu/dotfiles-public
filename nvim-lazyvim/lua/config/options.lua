@@ -6,3 +6,6 @@
 -- vim.opt.winbar = "%=%m %f"
 -- Modified version of the bar that shows the hostname
 vim.opt.winbar = "%=" .. vim.fn.systemlist("hostname")[1] .. "            %m %f"
+
+-- Shows colorcolumn that helps me with markdown guidelines
+vim.opt.colorcolumn = "80"
