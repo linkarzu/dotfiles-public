@@ -6,6 +6,9 @@ return {
       -- catppuccin catppuccin-latte, catppuccin-frappe, catppuccin-macchiato, catppuccin-mocha
       colorscheme = "catppuccin",
       -- colorscheme = "catppuccin-frappe",
+      -- colorscheme = "Duskfox",
+      -- colorscheme = "Nightfox",
+      -- colorscheme = "Carbonfox",
       -- colorscheme = "gruvbox",
     },
   },
