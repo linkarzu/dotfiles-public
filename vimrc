@@ -50,6 +50,8 @@ set mouse=a
 imap kj <Esc>
 
 " When in visual mode, you can move lines of text up and down
+" Enter visual mode, select what you need to select and press J or K to move
+" the section up or down
 vmap J :m '>+1<CR>gv=gv
 vmap K :m '<-2<CR>gv=gv
 
@@ -73,6 +75,17 @@ nnoremap <Leader>Y "+Y
 
 " Q enters Ex mode, this disables it
 nnoremap Q <nop>
+
+" Use gh to move to the beginning of the line in normal mode
+" Use gl to move to the end of the line in normal mode
+nnoremap gh ^
+nnoremap gl $
+
+" Go up half a screen and center
+" Go down half a screen and center
+nnoremap gk <C-u>zz
+nnoremap gj <C-d>zz
+
 
 " Set cursor to line in insert mode
 let &t_SI = "\e[5 q"
