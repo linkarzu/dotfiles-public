@@ -1,43 +1,26 @@
 --[[
-Hammerspoon Script for Escape Key Simulation
+Hammerspoon Script for Escape Key Automation
 
-Note: The script triggers the Escape key action when refocusing the monitored applications.
+This script uses Hammerspoon to automatically press the Escape key when switching to specific applications. It is designed to enhance workflow efficiency, particularly in web browsers or other applications where pressing Escape can reset the state or close modal dialogs.
 
-This script uses Hammerspoon to simulate pressing the Escape key based on application focus changes:
-- Monitors specified applications (Google Chrome, Safari, YouTube, etc.).
-- When switching back to these monitored applications, it simulates an Escape key press.
-- Useful for resetting state or closing modals in web browsers or other applications.
+Key Features:
+- Automatically presses the Escape key upon focusing on certain applications.
+- Targeted applications: Google Chrome, Safari, and YouTube.
+- Utilizes Hammerspoon's application watcher to monitor application focus changes.
 
-Configuration:
-- appsToMonitor: Table of application names to monitor.
-- monitorAllApps: Boolean flag to switch monitoring behavior.
-   - true: Monitors all applications.
-   - false: Monitors only specified applications in appsToMonitor.
-- pressEscapeKey(): Function that simulates pressing the Escape key.
-- applicationWatcher(): Watches for application focus changes and triggers Escape key press.
-- appWatcher: Starts the application watcher.
+How it Works:
+- When an application gains focus (event type 'activated'), the script checks if it's one of the specified applications.
+- If the focused application is Google Chrome, Safari, or YouTube, the script simulates an Escape key press.
 
 Usage:
-- Toggle monitorAllApps to switch between monitoring all applications or specific ones.
-- Modify appsToMonitor to add or remove applications from the monitoring list.
-- Reload Hammerspoon configuration for changes to take effect.
+- To modify the list of targeted applications, update the appName conditions in the applicationWatcher() function.
+- After making changes, reload the Hammerspoon configuration to apply them.
 
+Note: This script is particularly useful for scenarios where entering specific applications requires triggering an Escape key action, such as closing pop-ups or exiting full-screen mode in browsers.
+
+Author: [Your Name]
+Date: [Date of Creation/Modification]
 ]]
-
--- Variable to store the name of the last focused application
-lastFocusedApp = nil
-
--- The monitorAllApps variable is a boolean flag.
--- Set it to true to monitor all applications, or false to monitor only the specified applications.
-local monitorAllApps = false
-
--- Table containing the list of applications to monitor
-local appsToMonitor = {
-  ["Google Chrome"] = true,
-  ["Safari"] = true,
-  ["YouTube"] = true,
-  -- Add more applications as needed
-}
 
 -- Function to simulate pressing the Escape key
 function pressEscapeKey()
@@ -48,14 +31,11 @@ end
 function applicationWatcher(appName, eventType, appObject)
   -- Check if the event type is 'activated', which means an app has gained focus
   if eventType == hs.application.watcher.activated then
-    -- The if condition in applicationWatcher checks if either monitorAllApps is true
-    -- or if lastFocusedApp is in the appsToMonitor table
-    if monitorAllApps or appsToMonitor[lastFocusedApp] then
+    -- Check if the currently focused application is Google Chrome, Safari, or YouTube
+    if appName == "Google Chrome" or appName == "Safari" or appName == "YouTube" then
       -- Simulate pressing the Escape key
       pressEscapeKey()
     end
-    -- Update the last focused application
-    lastFocusedApp = appName
   end
 end
 
