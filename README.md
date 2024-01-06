@@ -15,12 +15,12 @@ that points to my custom vimrc file
 # If the dir/file that the symlink points to doesnt exist
 # it will error out, so I direct them to dev null
 mkdir -p ~/.config
-ln -snf ~/github/dotfiles-public/vimrc ~/.vimrc >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/vimrc ~/github/obsidian_main/.obsidian.vimrc >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/zshrc ~/.zshrc >/dev/null 2>&1
+ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/.vimrc >/dev/null 2>&1
+ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/github/obsidian_main/.obsidian.vimrc >/dev/null 2>&1
+ln -snf ~/github/dotfiles-public/zshrc/zshrc-file ~/.zshrc >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/tmux/tmux.conf ~/.tmux.conf >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/karabiner ~/.config/karabiner >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/nvim-lazyvim ~/.config/nvim >/dev/null 2>&1
+ln -snf ~/github/dotfiles-public/neovim/nvim-lazyvim ~/.config/nvim >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/yabai/yabairc ~/.yabairc >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/hammerspoon ~/.hammerspoon >/dev/null 2>&1
