@@ -1,5 +1,7 @@
 # Symbolic links creation
 
+<!-- # https://github.com/linkarzu/dotfiles-public -->
+
 After cloning the repo, I create a symbolic link
 that points to my custom vimrc file
 
