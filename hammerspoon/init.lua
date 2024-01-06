@@ -1,3 +1,2 @@
-require("move_cursor")
-require("press_escape")
+require("cursor_escape")
 -- require("lgtv_init")
