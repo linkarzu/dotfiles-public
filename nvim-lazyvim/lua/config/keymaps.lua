@@ -32,8 +32,8 @@ vim.keymap.set("n", "J", "mzJ`z")
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
 
--- Primagean uses this
--- Control + f in normal mode will silently run a command to create a new tmux window and execute the tmux-sessionizer.
+-- Primeagen uses this
+-- ctrl+f in normal mode will silently run a command to create a new tmux window and execute the tmux-sessionizer.
 -- Allowing quick creation and navigation of tmux sessions directly from the editor.
 vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
@@ -47,5 +47,13 @@ vim.keymap.set(
 )
 
 -- Make the file you run the command on, executable, so you don't have to go out to the command line
-vim.keymap.set("n", "<leader>gx", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make file executable" })
-vim.keymap.set("n", "<leader>gX", "<cmd>!chmod -x %<CR>", { silent = true, desc = "Remove executable flag" })
+vim.keymap.set("n", "<leader>fx", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make file executable" })
+vim.keymap.set("n", "<leader>fX", "<cmd>!chmod -x %<CR>", { silent = true, desc = "Remove executable flag" })
+
+-- If this is a script, make it executable, and execut it in a split pane on the right
+vim.keymap.set("n", "<leader>f.", function()
+  vim.cmd("!chmod +x %") -- Make the file executable
+  vim.cmd("vsplit") -- Split the window vertically
+  vim.cmd("terminal " .. vim.fn.expand("%")) -- Open terminal and execute the file
+  vim.api.nvim_feedkeys("i", "n", false) -- Enter insert mode, moves to end of prompt if there's one
+end, { desc = "Execute current file in terminal" })
