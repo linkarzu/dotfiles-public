@@ -18,7 +18,7 @@
 
 ## Usage
 
-1. Clone this repository next to your Alacritty config file (usually stored at `~/.config/alacritty/alacritty.yml`), with e.g.
+1. Clone this repository next to your Alacritty config file (usually stored at `~/.config/alacritty/alacritty.toml`), with e.g.
 ```
 git clone https://github.com/catppuccin/alacritty.git ~/.config/alacritty/catppuccin
 ```
