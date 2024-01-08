@@ -1,13 +1,28 @@
+# Filename: /Users/chris/github/dotfiles-public/brew/essential/Brewfile
+
+# Below are used by neovim
+
+# I'll install fonts from neovim script
+# tap "homebrew/cask-fonts"
+# cask "font-meslo-lg-nerd-font"
+brew "neovim"
+# This one errors out, so install it from nvim script
+# brew "jesseduffield/lazygit/lazygit"
+brew "ripgrep"
+brew "fd"
+brew "wget"
+brew "gnu-sed"
+# Used to check if specific font packages are installed
+brew "fontconfig"
+
+###############################################################################
+
 brew "bind"
 # coreutils includes ls with colors
 brew "coreutils"
 brew "expect"
-brew "fd"
-# Used to check if specific font packages are installed
-brew "fontconfig"
 brew "fzf"
 brew "git"
-brew "gnu-sed"
 brew "helm"
 brew "htop"
 brew "jq"
@@ -15,9 +30,7 @@ brew "kubernetes-cli"
 brew "mtr"
 brew "mysql-client"
 brew "neofetch"
-brew "neovim"
 brew "node"
-brew "ripgrep"
 # I use smartmontools to monitor disk health
 brew "smartmontools"
 brew "starship"
@@ -26,18 +39,16 @@ brew "telnet"
 brew "tmux"
 brew "tree"
 brew "watch"
-brew "wget"
 brew "yarn"
 brew "z.lua"
 brew "zsh-autosuggestions"
 brew "zsh-vi-mode"
-brew "jesseduffield/lazygit/lazygit"
-brew "koekeishiya/formulae/yabai"
+# This errors out, so I install it from the yabai script
+# brew "koekeishiya/formulae/yabai"
 cask "alacritty"
 cask "beardedspice"
 cask "betterdisplay"
 cask "cursorcerer"
-cask "font-meslo-lg-nerd-font"
 cask "google-chrome"
 cask "google-cloud-sdk"
 cask "google-drive"

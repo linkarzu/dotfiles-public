@@ -34,7 +34,10 @@ After the installation is completed, notice that you need to configure your
 shell for homebrew in the **Next steps** section
 
 ```bash
-(echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/krishna/.zprofile
+echo
+echo "Configuring shell for brew"
+echo '' >>~/.zprofile
+echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' >>~/.zprofile
 eval "$(/opt/homebrew/bin/brew shellenv)"
 ```
 
