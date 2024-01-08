@@ -61,4 +61,5 @@ cask "obsidian"
 cask "raindropio"
 cask "raycast"
 cask "setapp"
-cask "wineskin"
+# Will install wineskin later on when needed, it errors out if part of my script
+# cask "wineskin"
