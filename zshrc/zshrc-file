@@ -24,7 +24,7 @@ ln -snf ~/github/dotfiles-public/alacritty/alacritty.toml ~/.config/alacritty/al
 ln -snf ~/github/dotfiles-public/yabai/yabairc ~/.yabairc >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/hammerspoon ~/.hammerspoon >/dev/null 2>&1
 # # This is on the other repo where I keep my ssh config files
-# I commented this as I don't have give access to this repo to all the hosts
+# I commented this as I don't have access to this repo in all the hosts
 # ln -snf ~/github/dotfiles/sshconfig-pers ~/.ssh/config >/dev/null 2>&1
 
 # Autocompletion settings
