@@ -58,3 +58,4 @@ plugin/packer_compiled.lua
 karabiner/yarn.lock
 karabiner/package-lock.json
 nvim-lazyvim/lazyvim.json
+brew/essential/Brewfile.lock.json
