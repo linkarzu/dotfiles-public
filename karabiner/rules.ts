@@ -104,40 +104,21 @@ const rules: KarabinerRules[] = [
       s: app("Udemy Business"),
       // s: app("Udemy"),
       r: app("MySQLWorkbench"),
+      v: app("DaVinci Resolve"),
     },
 
     // r = "Raycast"
     r: {
-      j: open(
-        "raycast://extensions/lardissone/raindrop-io/search",
-      ),
-      k: open(
-        "raycast://extensions/mblode/google-search/index",
-      ),
-      l: open(
-        "raycast://extensions/KevinBatdorf/obsidian/searchNoteCommand",
-      ),
-      semicolon: open(
-        ""
-      ),
-      quote: open(
-        "raycast://extensions/mathieudutour/wolfram-alpha/index",
-      ),
-      u: open(
-        "raycast://extensions/raycast/reminders/create-reminder",
-      ),
-      i: open(
-        "raycast://extensions/raycast/reminders/my-reminders",
-      ),
-      o: open(
-        "raycast://extensions/raycast/github/search-repositories",
-      ),
-      p: open(
-        "raycast://extensions/nhojb/brew/search",
-      ),
-      h: open(
-        "raycast://extensions/mattisssa/spotify-player/search",
-      ),
+      j: open("raycast://extensions/lardissone/raindrop-io/search"),
+      k: open("raycast://extensions/mblode/google-search/index"),
+      l: open("raycast://extensions/KevinBatdorf/obsidian/searchNoteCommand"),
+      semicolon: open("raycast://extensions/vishaltelangre/google-drive/index"),
+      quote: open("raycast://extensions/mathieudutour/wolfram-alpha/index"),
+      u: open("raycast://extensions/raycast/reminders/create-reminder"),
+      i: open("raycast://extensions/raycast/reminders/my-reminders"),
+      o: open("raycast://extensions/raycast/github/search-repositories"),
+      p: open("raycast://extensions/nhojb/brew/search"),
+      h: open("raycast://extensions/mattisssa/spotify-player/search"),
     },
 
     // s = "System"
@@ -209,7 +190,7 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
-      // Lock screen 
+      // Lock screen
       d: {
         to: [
           {
@@ -229,7 +210,7 @@ const rules: KarabinerRules[] = [
       },
       // Connect airpods via bluetooth
       n: open(
-        "btt://execute_assigned_actions_for_trigger/?uuid=9A1CFA49-416C-480E-9430-184D2DAEE1CA",
+        "btt://execute_assigned_actions_for_trigger/?uuid=9A1CFA49-416C-480E-9430-184D2DAEE1CA"
       ),
       m: {
         to: [
@@ -279,16 +260,24 @@ const rules: KarabinerRules[] = [
         to: [{ key_code: "right_arrow", modifiers: ["left_shift"] }],
       },
       y: {
-        to: [{ key_code: "left_arrow", modifiers: ["left_shift", "left_option"] }],
+        to: [
+          { key_code: "left_arrow", modifiers: ["left_shift", "left_option"] },
+        ],
       },
       u: {
-        to: [{ key_code: "down_arrow", modifiers: ["left_shift", "left_option"] }],
+        to: [
+          { key_code: "down_arrow", modifiers: ["left_shift", "left_option"] },
+        ],
       },
       i: {
-        to: [{ key_code: "up_arrow", modifiers: ["left_shift", "left_option"] }],
+        to: [
+          { key_code: "up_arrow", modifiers: ["left_shift", "left_option"] },
+        ],
       },
       o: {
-        to: [{ key_code: "right_arrow", modifiers: ["left_shift", "left_option"] }],
+        to: [
+          { key_code: "right_arrow", modifiers: ["left_shift", "left_option"] },
+        ],
       },
       // Magicmove via homerow.app
       m: {
@@ -300,7 +289,7 @@ const rules: KarabinerRules[] = [
       },
     },
 
-    // copy, paste and other stuff 
+    // copy, paste and other stuff
     right_command: {
       r: {
         to: [{ key_code: "r", modifiers: ["left_control"] }],
@@ -317,7 +306,9 @@ const rules: KarabinerRules[] = [
       },
       // Switch between windows of same app
       spacebar: {
-        to: [{ key_code: "grave_accent_and_tilde", modifiers: ["left_command"] }],
+        to: [
+          { key_code: "grave_accent_and_tilde", modifiers: ["left_command"] },
+        ],
       },
     },
 
@@ -353,23 +344,23 @@ const rules: KarabinerRules[] = [
     d: {
       // Select text from alacritty
       j: open(
-        "btt://execute_assigned_actions_for_trigger/?uuid=5A708885-4D65-465C-B87A-996BA6C23B86",
+        "btt://execute_assigned_actions_for_trigger/?uuid=5A708885-4D65-465C-B87A-996BA6C23B86"
       ),
       // Paste alacritty text and go down
       k: open(
-        "btt://execute_assigned_actions_for_trigger/?uuid=213C11E3-1541-46B2-9DF3-8F9C9EC421FA",
+        "btt://execute_assigned_actions_for_trigger/?uuid=213C11E3-1541-46B2-9DF3-8F9C9EC421FA"
       ),
       // Paste kodekloud text and go down
       l: open(
-        "btt://execute_assigned_actions_for_trigger/?uuid=3FD931CD-45A8-4AAF-8D73-A9C0E5C41A60",
+        "btt://execute_assigned_actions_for_trigger/?uuid=3FD931CD-45A8-4AAF-8D73-A9C0E5C41A60"
       ),
       // Reboot router
       u: open(
-        "btt://execute_assigned_actions_for_trigger/?uuid=EA461EE0-4C15-4113-93B6-07C12086FF1F",
+        "btt://execute_assigned_actions_for_trigger/?uuid=EA461EE0-4C15-4113-93B6-07C12086FF1F"
       ),
     },
 
-    // // 't' for terminal 
+    // // 't' for terminal
     // t: {
     //   j: {
     //     to: [
@@ -402,7 +393,6 @@ const rules: KarabinerRules[] = [
     l: {
       to: [{ key_code: "right_arrow" }],
     },
-
   }),
 ];
 
