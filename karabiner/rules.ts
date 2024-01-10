@@ -103,7 +103,7 @@ const rules: KarabinerRules[] = [
       q: app("Setapp"),
       s: app("Udemy Business"),
       // s: app("Udemy"),
-      r: app("MySQLWorkbench"),
+      r: app("Microsoft Remote Desktop"),
       v: app("DaVinci Resolve"),
     },
 
