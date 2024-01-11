@@ -13,8 +13,8 @@ function applicationWatcher(appName, eventType, appObject)
   if eventType == hs.application.watcher.activated then
     if appName == "Alacritty" then
       moveCursorToCorner()
-    elseif appName == "Google Chrome" or appName == "Safari" or appName == "YouTube" then
-      pressEscapeKey()
+      -- elseif appName == "Google Chrome" or appName == "Safari" or appName == "YouTube" then
+      --   pressEscapeKey()
     end
   end
 end
