@@ -1,4 +1,4 @@
-; Script downloaded from 
+; Script downloaded from
 ; https://github.com/stroebjo/autohotkey-windows-mac-keyboard?tab=readme-ov-file
 ; It only works with Autohotkeys 1.1 (deprecated)
 
@@ -53,7 +53,6 @@ F10::SendInput {Volume_Mute}
 F11::SendInput {Volume_Down}
 F12::SendInput {Volume_Up}
 
-
 ;RCtrl::RWin
 ;RWin::RCtrl
 ;LCtrl::LWin
@@ -89,12 +88,12 @@ F19::Run https://facebook.com
 ; Make Ctrl + S work with cmd (windows) key
 #s::Send, ^s
 
-; Mapping Windows Key + Left Arrow to send the Home key
+; Mapping keys to go to beginning and end of lines and files, also to select
+; I added these 8 modifications, the rest of the original script is untouched
 #Left::Send, {Home}
 #Up::Send, ^{Home}
 #Right::Send, {End}
 #Down::Send, ^{End}
-
 #+Left::Send, +{Home}
 #+Up::Send, ^+{Home}
 #+Right::Send, +{End}
