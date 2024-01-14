@@ -389,6 +389,27 @@ if [ "$OS" = 'Linux' ]; then
 		fi
 	fi
 
+	cd ~
+
+	# Check if the Meslo Nerd Font is already installed
+	if ! fc-list | grep -qi "Meslo"; then
+		echo
+		echo "Installing Meslo Nerd Fonts..."
+
+		# Download the font archive
+		curl -OL https://github.com/ryanoasis/nerd-fonts/releases/latest/download/Meslo.tar.xz 2>&1 >/dev/null
+
+		# Ensure the fonts directory exists and extract the fonts
+		mkdir -p ~/.local/share/fonts
+		tar -xvf Meslo.tar.xz -C ~/.local/share/fonts 2>&1 >/dev/null
+		rm Meslo.tar.xz
+
+		# Refresh the font cache
+		fc-cache -fv 2>&1 >/dev/null
+
+		echo "Meslo Nerd Fonts installed."
+	fi
+
 	# Check if Neovim is already installed, otherwise install it
 	if ! command -v nvim &>/dev/null; then
 		echo
