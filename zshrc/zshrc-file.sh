@@ -15,15 +15,16 @@ clear
 # If the dir/file that the symlink points to doesnt exist, it will error out, so I direct them to dev null
 mkdir -p ~/.config
 mkdir -p ~/.config/alacritty
-ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/.vimrc 2>&1 >/dev/null
-ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/github/obsidian_main/.obsidian.vimrc 2>&1 >/dev/null
-ln -snf ~/github/dotfiles-public/zshrc/zshrc-file.sh ~/.zshrc 2>&1 >/dev/null
-ln -snf ~/github/dotfiles-public/tmux/tmux.conf ~/.tmux.conf 2>&1 >/dev/null
-ln -snf ~/github/dotfiles-public/karabiner ~/.config/karabiner 2>&1 >/dev/null
-ln -snf ~/github/dotfiles-public/neovim/nvim-lazyvim ~/.config/nvim 2>&1 >/dev/null
-ln -snf ~/github/dotfiles-public/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml 2>&1 >/dev/null
-ln -snf ~/github/dotfiles-public/yabai/yabairc ~/.yabairc 2>&1 >/dev/null
-ln -snf ~/github/dotfiles-public/hammerspoon ~/.hammerspoon 2>&1 >/dev/null
+ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/.vimrc >/dev/null 2>&1
+ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/github/obsidian_main/.obsidian.vimrc >/dev/null 2>&1
+ln -snf ~/github/dotfiles-public/zshrc/zshrc-file.sh ~/.zshrc >/dev/null 2>&1
+ln -snf ~/github/dotfiles-public/tmux/tmux.conf ~/.tmux.conf >/dev/null 2>&1
+ln -snf ~/github/dotfiles-public/neovim/nvim-lazyvim ~/.config/nvim >/dev/null 2>&1
+ln -snf ~/github/dotfiles-public/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml >/dev/null 2>&1
+ln -snf ~/github/dotfiles-public/yabai/yabairc ~/.yabairc >/dev/null 2>&1
+
+ln -snf ~/github/dotfiles-public/hammerspoon ~/.hammerspoon >/dev/null 2>&1
+ln -snf ~/github/dotfiles-public/karabiner ~/.config/karabiner >/dev/null 2>&1
 # # This is on the other repo where I keep my ssh config files
 # I commented this as I don't have access to this repo in all the hosts
 # ln -snf ~/github/dotfiles/sshconfig-pers ~/.ssh/config 2>&1 >/dev/null
