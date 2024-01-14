@@ -1,8 +1,8 @@
-import = ["~/github/dotfiles-public/alacritty/themes/dracula/dracula.toml"]
-# import = ["~/github/dotfiles-public/alacritty/themes/catppuccin/catppuccin-mocha.yml"]
-# import = ["~/github/dotfiles-public/alacritty/themes/catppuccin/catppuccin-macchiato.yml"]
-# import = ["~/github/dotfiles-public/alacritty/themes/catppuccin/catppuccin-frappe.yml"]
-# import = ["~/github/dotfiles-public/alacritty/themes/catppuccin/catppuccin-latte.yml"]
+# import = ["~/github/dotfiles-public/alacritty/themes/dracula/dracula.toml"]
+import = ["~/github/dotfiles-public/alacritty/themes/catppuccin/catppuccin-mocha.toml"]
+# import = ["~/github/dotfiles-public/alacritty/themes/catppuccin/catppuccin-macchiato.toml"]
+# import = ["~/github/dotfiles-public/alacritty/themes/catppuccin/catppuccin-frappe.toml"]
+# import = ["~/github/dotfiles-public/alacritty/themes/catppuccin/catppuccin-latte.toml"]
 
 [colors]
 draw_bold_text_with_bright_colors = true
@@ -15,7 +15,23 @@ TERM = "xterm-256color"
 size = 14
 
 [font.normal]
-family = "MesloLGM Nerd Font Mono"
+# family = "MesloLGSDZ Nerd Font"
+# family = "MesloLGMDZ Nerd Font"
+# family = "MesloLGS Nerd Font"
+# family = "MesloLGLDZ Nerd Font"
+# family = "MesloLGL Nerd Font"
+family = "MesloLGM Nerd Font" # top pick
+# family = "MesloLGSDZ Nerd Font Mono"
+# family = "MesloLGLDZ Nerd Font Mono"
+# family = "MesloLGLDZ Nerd Font Propo"
+# family = "MesloLGMDZ Nerd Font Propo"
+# family = "MesloLGM Nerd Font Mono"
+# family = "MesloLGS Nerd Font Mono"
+# family = "MesloLGM Nerd Font Propo"
+# family = "MesloLGL Nerd Font Propo"
+# family = "MesloLGSDZ Nerd Font Propo"
+# family = "MesloLGS Nerd Font Propo"
+# family = "MesloLGL Nerd Font Mono"
 style = "Regular"
 
 [scrolling]
