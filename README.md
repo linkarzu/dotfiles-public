@@ -19,7 +19,7 @@ that points to my custom vimrc file
 mkdir -p ~/.config
 ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/.vimrc >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/github/obsidian_main/.obsidian.vimrc >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/zshrc/zshrc-file ~/.zshrc >/dev/null 2>&1
+ln -snf ~/github/dotfiles-public/zshrc/zshrc-file.sh ~/.zshrc >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/tmux/tmux.conf ~/.tmux.conf >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/karabiner ~/.config/karabiner >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/neovim/nvim-lazyvim ~/.config/nvim >/dev/null 2>&1
