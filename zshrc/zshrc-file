@@ -15,18 +15,18 @@ clear
 # If the dir/file that the symlink points to doesnt exist, it will error out, so I direct them to dev null
 mkdir -p ~/.config
 mkdir -p ~/.config/alacritty
-ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/.vimrc >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/github/obsidian_main/.obsidian.vimrc >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/zshrc/zshrc-file ~/.zshrc >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/tmux/tmux.conf ~/.tmux.conf >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/karabiner ~/.config/karabiner >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/neovim/nvim-lazyvim ~/.config/nvim >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/yabai/yabairc ~/.yabairc >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/hammerspoon ~/.hammerspoon >/dev/null 2>&1
+ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/.vimrc 2>&1 >/dev/null
+ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/github/obsidian_main/.obsidian.vimrc 2>&1 >/dev/null
+ln -snf ~/github/dotfiles-public/zshrc/zshrc-file ~/.zshrc 2>&1 >/dev/null 
+ln -snf ~/github/dotfiles-public/tmux/tmux.conf ~/.tmux.conf 2>&1 >/dev/null 
+ln -snf ~/github/dotfiles-public/karabiner ~/.config/karabiner 2>&1 >/dev/null
+ln -snf ~/github/dotfiles-public/neovim/nvim-lazyvim ~/.config/nvim 2>&1 >/dev/null
+ln -snf ~/github/dotfiles-public/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml 2>&1 >/dev/null
+ln -snf ~/github/dotfiles-public/yabai/yabairc ~/.yabairc 2>&1 >/dev/null
+ln -snf ~/github/dotfiles-public/hammerspoon ~/.hammerspoon 2>&1 >/dev/null
 # # This is on the other repo where I keep my ssh config files
 # I commented this as I don't have access to this repo in all the hosts
-# ln -snf ~/github/dotfiles/sshconfig-pers ~/.ssh/config >/dev/null 2>&1
+# ln -snf ~/github/dotfiles/sshconfig-pers ~/.ssh/config 2>&1 >/dev/null
 
 # Autocompletion settings
 # https://github.com/Phantas0s/.dotfiles/blob/master/zsh/completion.zsh
@@ -241,7 +241,7 @@ if [ "$OS" = 'Linux' ]; then
       echo
       echo "Installing starship, please wait..."
       # -y at the end answers 'yes' to any prompts
-      curl -sS https://starship.rs/install.sh | sh -s - -y >/dev/null 2>&1
+      curl -sS https://starship.rs/install.sh | sh -s - -y 2>&1 >/dev/null
       # Verify starship installation
       if ! command -v starship >/dev/null 2>&1; then
       	echo -e "${boldRed}Warning: Failed to install Starship. Check this manually${noColor}"
@@ -263,7 +263,7 @@ if [ "$OS" = 'Linux' ]; then
         # First we need to install Lua
         # Search for the latest version of Lua and extract the package name
         echo
-        echo "Installing z.lua, please wait..."
+        echo "Installing lua, please wait..."
         LUA_PACKAGE=$(apt search lua | grep -o 'lua[0-9]\+\.[0-9]\+/stable' | sort -Vr | head -n 1 | cut -d'/' -f1)
         # Check if a package was found
         if [ -z "$LUA_PACKAGE" ]; then
@@ -272,16 +272,32 @@ if [ "$OS" = 'Linux' ]; then
             # sleep 1
         else
             # sleep 1
-            sudo apt-get install -y $LUA_PACKAGE >/dev/null 2>&1
+            sudo apt-get install -y $LUA_PACKAGE 2>&1 >/dev/null
             # Verify if Lua was installed successfully
             if ! command -v lua >/dev/null 2>&1; then
                 echo -e "${boldRed}Warning: Failed to install Lua. Check this manually.${noColor}"
                 # sleep 1
             else
-                # After installing, initialize it
-                eval "$(lua $HOME/github/z.lua/z.lua --init zsh enhanced once)"
-                echo "$LUA_PACKAGE installed successfully."
             fi
+        fi
+
+        # After installing Lua, I need to install z.lua from github
+        echo
+        if [ ! -d "$HOME/github/z.lua" ]; then
+          mkdir -p $HOME/github
+          cd $HOME/github
+          git clone https://github.com/skywind3000/z.lua.git 2>&1 >/dev/null
+        fi
+
+        # verify if the z.lua github repo was cloned successfully
+        if [ ! -d "$HOME/github/z.lua" ]; then
+          echo -e "${boldgreen}warning: failed to clone the repository. skipping the z.lua configuration....${nocolor}"
+          # sleep 1
+        else
+          echo "successfully cloned the z.lua repository."
+          # After installing, initialize it
+          eval "$(lua $HOME/github/z.lua/z.lua --init zsh enhanced once)"
+          echo "$LUA_PACKAGE installed successfully."
         fi
     fi
 
@@ -295,7 +311,7 @@ if [ "$OS" = 'Linux' ]; then
       # Download github repo
       mkdir -p $HOME/github
       cd $HOME/github
-      git clone https://github.com/zsh-users/zsh-autosuggestions >/dev/null 2>&1
+      git clone https://github.com/zsh-users/zsh-autosuggestions 2>&1 >/dev/null
       # Verify if the repo was cloned successfully
       if [ ! -d "$HOME/github/zsh-autosuggestions" ]; then
         echo
@@ -325,7 +341,7 @@ if [ "$OS" = 'Linux' ]; then
         # Download zsh-vi-mode from github
         mkdir -p $HOME/github
         cd $HOME/github
-        git clone https://github.com/jeffreytse/zsh-vi-mode.git >/dev/null 2>&1
+        git clone https://github.com/jeffreytse/zsh-vi-mode.git 2>&1 >/dev/null
         # Verify if the zsh-vi-mode GitHub repo was cloned successfully
         if [ ! -d "$HOME/github/zsh-vi-mode" ]; then
           echo
@@ -363,14 +379,14 @@ if [ "$OS" = 'Linux' ]; then
         # Download fzf from GitHub if it's not installed
         mkdir -p $HOME/github
         cd $HOME/github
-        git clone --depth 1 https://github.com/junegunn/fzf.git >/dev/null 2>&1
+        git clone --depth 1 https://github.com/junegunn/fzf.git 2>&1 >/dev/null
         # Verify if the fzf GitHub repo was cloned successfully
         if [ ! -d "$HOME/github/fzf" ]; then
             echo -e "${boldRed}Warning: Failed to clone the fzf repository. Check this manually.${noColor}"
         else
             echo "Successfully cloned the fzf repository."
             # Install fzf, this will answer `y`, `y`, and `n` to the questions asked
-            echo -e "y\ny\nn" | $HOME/github/fzf/install >/dev/null 2>&1
+            echo -e "y\ny\nn" | $HOME/github/fzf/install 2>&1 >/dev/null
             # After installing, initialize it
             source ~/.fzf.zsh
             echo "Successfully installed fzf"
@@ -395,9 +411,9 @@ if [ "$OS" = 'Linux' ]; then
         sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
         # Remove any cached files that may exist from a previous config
         echo "removing backup files.."
-        mv ~/.local/share/nvim{,.bak}
-        mv ~/.local/state/nvim{,.bak}
-        mv ~/.cache/nvim{,.bak}
+        mv ~/.local/share/nvim{,.bak} >/dev/null 2>&1
+        mv ~/.local/state/nvim{,.bak} >/dev/null 2>&1
+        mv ~/.cache/nvim{,.bak} >/dev/null 2>&1
         echo "Downloaded neovim"
     fi
 
