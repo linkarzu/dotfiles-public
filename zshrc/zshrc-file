@@ -409,6 +409,7 @@ if [ "$OS" = 'Linux' ]; then
         ./nvim.appimage --appimage-extract 2>&1 >/dev/null
         sudo mv squashfs-root /
         sudo ln -s /squashfs-root/AppRun /usr/bin/nvim
+        rm nvim.appimage
         # Remove any cached files that may exist from a previous config
         echo "removing backup files.."
         mv ~/.local/share/nvim{,.bak} >/dev/null 2>&1
@@ -420,11 +421,14 @@ if [ "$OS" = 'Linux' ]; then
     # These below ones are neovim dependencies
     # Check and install lazygit if not installed
     if ! command -v lazygit &> /dev/null; then
+        cd ~
         echo "Installing lazygit..."
         LAZYGIT_VERSION=$(curl -s "https://api.github.com/repos/jesseduffield/lazygit/releases/latest" | grep -Po '"tag_name": "v\K[^"]*')
         wget -O lazygit.tar.gz "https://github.com/jesseduffield/lazygit/releases/latest/download/lazygit_${LAZYGIT_VERSION}_Linux_x86_64.tar.gz" 2>&1 >/dev/null
         tar xf lazygit.tar.gz lazygit
         sudo install lazygit /usr/local/bin
+        rm -rf lazygit
+        rm lazygit.tar.gz
         echo "Downloaded lazygit"
     fi
 
