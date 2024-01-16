@@ -1,62 +1,41 @@
-# Filename: /Users/chris/github/dotfiles-public/brew/essential/Brewfile
+# /Users/krishna/github/dotfiles-public/brew/10-essential/Brewfile
 # https://github.com/linkarzu/dotfiles-public/blob/main/brew/essential/Brewfile
 
 # Below are used by neovim
 
-# I'll install fonts from neovim script
+# I'll install the following fonts from neovim script
 # tap "homebrew/cask-fonts"
 # cask "font-meslo-lg-nerd-font"
 brew "neovim"
+brew "gnu-sed"
 # This one errors out, so install it from nvim script
 # brew "jesseduffield/lazygit/lazygit"
 brew "ripgrep"
 brew "fd"
-brew "wget"
-brew "gnu-sed"
 # Used to check if specific font packages are installed
 brew "fontconfig"
 
 ###############################################################################
 
 brew "bind"
-# coreutils includes ls with colors
-brew "coreutils"
 brew "expect"
-brew "fzf"
-brew "git"
 brew "helm"
-brew "htop"
 brew "jq"
 brew "kubernetes-cli"
 brew "mtr"
 brew "mysql-client"
-brew "neofetch"
-brew "node"
 # I use smartmontools to monitor disk health
 brew "smartmontools"
-brew "starship"
 brew "tcptraceroute"
 brew "telnet"
-brew "tmux"
-brew "tree"
-brew "watch"
-brew "yarn"
-brew "z.lua"
-brew "zsh-autosuggestions"
-brew "zsh-vi-mode"
 # This errors out, so I install it from the yabai script
 # brew "koekeishiya/formulae/yabai"
-cask "alacritty"
 cask "beardedspice"
 cask "betterdisplay"
 cask "cursorcerer"
 cask "google-chrome"
 cask "google-cloud-sdk"
 cask "google-drive"
-cask "hammerspoon"
-cask "hot"
-cask "iterm2"
-cask "karabiner-elements"
 cask "microsoft-remote-desktop"
 cask "obsidian"
 cask "raindropio"

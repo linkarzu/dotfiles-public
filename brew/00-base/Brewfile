@@ -1,0 +1,26 @@
+# Filename: ~/github/dotfiles-public/brew/00-base/Brewfile
+# https://github.com/linkarzu/dotfiles-public/blob/main/brew/essential/Brewfile
+
+brew "wget"
+# coreutils includes ls with colors
+brew "coreutils"
+brew "fzf"
+brew "git"
+brew "htop"
+brew "neofetch"
+# yarn requires node
+brew "node"
+brew "starship"
+brew "tmux"
+brew "tree"
+brew "watch"
+# karabiner uses yarn to install depencencies
+brew "yarn"
+brew "z.lua"
+brew "zsh-autosuggestions"
+brew "zsh-vi-mode"
+cask "alacritty"
+cask "hammerspoon"
+cask "hot"
+cask "iterm2"
+cask "karabiner-elements"
