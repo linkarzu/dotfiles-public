@@ -39,7 +39,7 @@ return {
           align = "center",
           position = {
             -- Centers messages top to bottom
-            row = "80%",
+            row = "100%",
             -- Aligns messages to the far right
             col = "100%",
           },
