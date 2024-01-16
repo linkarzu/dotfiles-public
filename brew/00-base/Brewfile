@@ -1,5 +1,5 @@
 # Filename: ~/github/dotfiles-public/brew/00-base/Brewfile
-# https://github.com/linkarzu/dotfiles-public/blob/main/brew/essential/Brewfile
+# https://github.com/linkarzu/dotfiles-public/blob/main/brew/00-base/Brewfile
 
 brew "wget"
 # coreutils includes ls with colors
