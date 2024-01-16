@@ -14,15 +14,15 @@ vim.keymap.set("n", "gl", "$", { desc = "go to the end of the line" })
 vim.keymap.set("n", "Y", "y$", { desc = "Yank to end of line" })
 
 -- Ctrl+d and u are used to move up or down a half screen
--- but I don't like to use ctrl, so will try this instead
+-- but I don't like to use ctrl, so enabled this as well, both options work
 -- zz makes the cursor to stay in the middle
--- If you want to return back to ctrl+d and ctrl+u, uncomment below and comment this section
+-- If you want to return back to ctrl+d and ctrl+u
 vim.keymap.set("n", "gk", "<C-u>zz", { desc = "Go up a half screen" })
 vim.keymap.set("n", "gj", "<C-d>zz", { desc = "Go down a half screen" })
 
--- -- When jumping with ctrl+d and u the cursors stays in the middle
--- vim.keymap.set("n", "<C-d>", "<C-d>zz")
--- vim.keymap.set("n", "<c-u>", "<c-u>zz")
+-- When jumping with ctrl+d and u the cursors stays in the middle
+vim.keymap.set("n", "<C-d>", "<C-d>zz")
+vim.keymap.set("n", "<c-u>", "<c-u>zz")
 
 -- Move lines up and down in visual mode
 vim.keymap.set("v", "J", ":m '>+1<CR>gv=gv", { desc = "Move line down in visual mode" })
@@ -34,11 +34,6 @@ vim.keymap.set("n", "J", "mzJ`z")
 -- When searching for stuff, search results show in the middle
 vim.keymap.set("n", "n", "nzzzv")
 vim.keymap.set("n", "N", "Nzzzv")
-
--- Primeagen uses this
--- ctrl+f in normal mode will silently run a command to create a new tmux window and execute the tmux-sessionizer.
--- Allowing quick creation and navigation of tmux sessions directly from the editor.
-vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
 
 -- Replaces the word I'm currently on, opens a terminal so that I start typing the new word
 -- It replaces the word globally across the entire file
@@ -60,3 +55,8 @@ vim.keymap.set("n", "<leader>f.", function()
   vim.cmd("terminal " .. vim.fn.expand("%")) -- Open terminal and execute the file
   vim.api.nvim_feedkeys("i", "n", false) -- Enter insert mode, moves to end of prompt if there's one
 end, { desc = "Execute current file in terminal" })
+
+-- Primeagen uses this, leaving it here, but not using it for now
+-- ctrl+f in normal mode will silently run a command to create a new tmux window and execute the tmux-sessionizer.
+-- Allowing quick creation and navigation of tmux sessions directly from the editor.
+vim.keymap.set("n", "<C-f>", "<cmd>silent !tmux neww tmux-sessionizer<CR>")
