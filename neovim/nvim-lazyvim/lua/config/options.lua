@@ -9,3 +9,7 @@ vim.opt.winbar = "%=" .. vim.fn.systemlist("hostname")[1] .. "            %m %f"
 
 -- Shows colorcolumn that helps me with markdown guidelines
 vim.opt.colorcolumn = "80"
+
+-- Keeps my cursor in the middle whenever possible
+-- This didn't work as expected, but the `stay-centered.lua` plugin did the trick
+-- vim.opt.scrolloff = 999
