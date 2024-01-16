@@ -10,10 +10,13 @@ vim.keymap.set("i", "kj", "<ESC>", { desc = "Exit insert mode with kj" })
 vim.keymap.set("n", "gh", "^", { desc = "Go to the beginning of the line" })
 vim.keymap.set("n", "gl", "$", { desc = "go to the end of the line" })
 
+-- yank/copy to end of line
+vim.keymap.set("n", "Y", "y$", { desc = "Yank to end of line" })
+
 -- Ctrl+d and u are used to move up or down a half screen
 -- but I don't like to use ctrl, so will try this instead
 -- zz makes the cursor to stay in the middle
--- If you want to return back to ctrl+d and ctrl+u, uncomment below
+-- If you want to return back to ctrl+d and ctrl+u, uncomment below and comment this section
 vim.keymap.set("n", "gk", "<C-u>zz", { desc = "Go up a half screen" })
 vim.keymap.set("n", "gj", "<C-d>zz", { desc = "Go down a half screen" })
 
@@ -50,7 +53,7 @@ vim.keymap.set(
 vim.keymap.set("n", "<leader>fx", "<cmd>!chmod +x %<CR>", { silent = true, desc = "Make file executable" })
 vim.keymap.set("n", "<leader>fX", "<cmd>!chmod -x %<CR>", { silent = true, desc = "Remove executable flag" })
 
--- If this is a script, make it executable, and execut it in a split pane on the right
+-- If this is a script, make it executable, and execute it in a split pane on the right
 vim.keymap.set("n", "<leader>f.", function()
   vim.cmd("!chmod +x %") -- Make the file executable
   vim.cmd("vsplit") -- Split the window vertically
