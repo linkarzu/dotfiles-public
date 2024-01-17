@@ -103,8 +103,10 @@ alias kgp='kubectl get pods'
 alias kgpa='kubectl get pods --all-namespaces'
 alias kgpo='kubectl get pods -o wide'
 
-# Every time I log into a host I want to pull my github repos
-cd ~/github/dotfiles-public && git pull >/dev/null 2>&1 || echo "Failed to pull dotfiles"
+# Every time I log into a host I want to pull my github repos, but not cd to that dir
+# So running the command in a subshell
+(cd ~/github/dotfiles-public && git pull >/dev/null 2>&1) || echo "Failed to pull dotfiles"
+# cd ~/github/dotfiles-public && git pull >/dev/null 2>&1 || echo "Failed to pull dotfiles"
 
 # Detect OS
 case "$(uname -s)" in
