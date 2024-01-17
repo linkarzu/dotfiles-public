@@ -180,9 +180,7 @@ if [ "$OS" = 'Mac' ]; then
 	if command -v zoxide &>/dev/null; then
 		eval "$(zoxide init zsh)"
 
-		# Added it as 'z ~' as sometimes I just switched to home with 'cd'
-		# It has been working ifne even when navigating to not home dirs
-		alias cd='z ~'
+		alias cd='z'
 		# Alias below is same as 'cd -', takes to the previous directory
 		alias cdd='z -'
 
