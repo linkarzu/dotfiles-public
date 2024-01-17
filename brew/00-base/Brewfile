@@ -16,7 +16,13 @@ brew "tree"
 brew "watch"
 # karabiner uses yarn to install depencencies
 brew "yarn"
-brew "z.lua"
+# Switched from z.lua to zoxide as its more maintaned
+# brew "z.lua"
+brew "zoxide"
+# Cat with wings
+brew "bat"
+# Replacement for ls
+brew "eza"
 brew "zsh-autosuggestions"
 brew "zsh-vi-mode"
 cask "alacritty"
