@@ -122,7 +122,27 @@ esac
 # macOS-specific configurations
 if [ "$OS" = 'Mac' ]; then
 
-	# This is for brew autocompletion, instructions ask to add it befor the general autocomplete settings
+	# ls replacement
+	# exa is unmaintained, so now using eza
+	# https://github.com/ogham/exa
+	if command -v eza &>/dev/null; then
+		alias ls='eza'
+		alias ll='eza -lh'
+		alias lla='eza -alh'
+		alias tree='eza --tree'
+	fi
+	# if command -v gls &>/dev/null; then
+	# 	alias ls='gls --color=auto'
+	# fi
+
+	# https://github.com/sharkdp/bat
+	if command -v bat &>/dev/null; then
+		alias cat='bat -p'
+		alias catt='bat'
+		alias cata='bat -Ap'
+	fi
+
+	# This is for brew autocompletion, instructions ask to add it before the general autocomplete settings
 	if type brew &>/dev/null; then
 		FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
@@ -151,17 +171,31 @@ if [ "$OS" = 'Mac' ]; then
 		fi
 	fi
 
-	# Use 'gls' as 'ls' if 'gls' is installed
-	if command -v gls &>/dev/null; then
-		alias ls='gls --color=auto'
-	fi
-
+	# Changed from z.lua to zoxide, as it's more maintaned
+	# https://github.com/ajeetdsouza/zoxide
+	# https://github.com/skywind3000/z.lua
 	# Configure shell to point to z.lua, if Homebrew, lua and z.lua are installed
-	if command -v brew &>/dev/null && command -v lua &>/dev/null; then
-		if [ -f "$(brew --prefix z.lua)/share/z.lua/z.lua" ]; then
-			eval "$(lua $(brew --prefix z.lua)/share/z.lua/z.lua --init zsh enhanced once)"
-		fi
+	if command -v zoxide &>/dev/null; then
+		eval "$(zoxide init zsh)"
+
+		# Added it as 'z ~' as sometimes I just switched to home with 'cd'
+		# It has been working ifne even when navigating to not home dirs
+		alias cd='z ~'
+		# Alias below is same as 'cd -', takes to the previous directory
+		alias cdd='z -'
+
+		#Since I migrated from z.lua, I can import my data
+		# zoxide import --from=z "$HOME/.zlua" --merge
+
+		# Useful commands
+		# z foo<SPACE><TAB>  # show interactive completions
 	fi
+	# # Configure shell to point to z.lua, if Homebrew, lua and z.lua are installed
+	# if command -v brew &>/dev/null && command -v lua &>/dev/null; then
+	# 	if [ -f "$(brew --prefix z.lua)/share/z.lua/z.lua" ]; then
+	# 		eval "$(lua $(brew --prefix z.lua)/share/z.lua/z.lua --init zsh enhanced once)"
+	# 	fi
+	# fi
 
 	# Source zsh-vi-mode plugin, if it exists
 	if [ -f "/opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh" ]; then
