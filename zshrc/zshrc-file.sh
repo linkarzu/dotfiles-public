@@ -161,9 +161,9 @@ setopt histignorespace
 # HISTIGNORE='ls*:bg*:fg*:exit*:ll*'
 
 # Common settings and plugins
-alias ll='ls -l'
+alias ll='ls -lh'
 alias python='python3'
-alias lla='ls -al'
+alias lla='ls -alh'
 # Shows the last 30 entries, default is 15
 alias history='history -30'
 alias v='nvim'
