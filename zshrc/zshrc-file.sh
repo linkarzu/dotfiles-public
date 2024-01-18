@@ -197,6 +197,14 @@ esac
 # macOS-specific configurations
 if [ "$OS" = 'Mac' ]; then
 
+	# Brew autocompletion settings
+	if type brew &>/dev/null; then
+		FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+		autoload -Uz compinit
+		compinit
+	fi
+
 	# ls replacement
 	# exa is unmaintained, so now using eza
 	# https://github.com/ogham/exa
@@ -218,14 +226,6 @@ if [ "$OS" = 'Mac' ]; then
 		alias cat='bat --paging=never --style=plain'
 		alias catt='bat'
 		alias cata='bat --show-all --paging=never'
-	fi
-
-	# This is for brew autocompletion, instructions ask to add it before the general autocomplete settings
-	if type brew &>/dev/null; then
-		FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-
-		autoload -Uz compinit
-		compinit
 	fi
 
 	# Initialize Starship, if it is installed
@@ -274,6 +274,7 @@ if [ "$OS" = 'Mac' ]; then
 	# fi
 
 	# Source zsh-vi-mode plugin, if it exists
+	# https://github.com/jeffreytse/zsh-vi-mode
 	if [ -f "/opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh" ]; then
 		source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
 		# Following 4 lines modify the escape key to `kj`
