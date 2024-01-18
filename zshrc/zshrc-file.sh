@@ -213,9 +213,11 @@ if [ "$OS" = 'Mac' ]; then
 	# https://github.com/sharkdp/bat
 	# Cat with wings
 	if command -v bat &>/dev/null; then
-		alias cat='bat --paging=never'
+		# --style=plain - removes line numbers and got modifications
+		# --paging=never - doesnt pipe it through less
+		alias cat='bat --paging=never --style=plain'
 		alias catt='bat'
-		alias cata='bat -Ap'
+		alias cata='bat --show-all --paging=never'
 	fi
 
 	# This is for brew autocompletion, instructions ask to add it before the general autocomplete settings
