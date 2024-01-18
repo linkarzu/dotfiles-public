@@ -177,6 +177,7 @@ alias kgpo='kubectl get pods -o wide'
 
 # Every time I log into a host I want to pull my github repos, but not cd to that dir
 # So running the command in a subshell
+# Comment this line if you don't want to always pull my latest changes
 (cd ~/github/dotfiles-public && git pull >/dev/null 2>&1) || echo "Failed to pull dotfiles"
 # cd ~/github/dotfiles-public && git pull >/dev/null 2>&1 || echo "Failed to pull dotfiles"
 
@@ -210,8 +211,9 @@ if [ "$OS" = 'Mac' ]; then
 	# fi
 
 	# https://github.com/sharkdp/bat
+	# Cat with wings
 	if command -v bat &>/dev/null; then
-		alias cat='bat -p'
+		alias cat='bat --paging=never'
 		alias catt='bat'
 		alias cata='bat -Ap'
 	fi
