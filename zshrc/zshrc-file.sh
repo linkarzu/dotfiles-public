@@ -33,9 +33,9 @@ create_symlink() {
 
 	# echo
 
-	# Check if source path exists, not everyone uses obsidian for example
-	if [ ! -e "$source_path" ]; then
-		echo -e "${boldRed}Source path '$source_path' does not exist. Skipping symlink creation for '$target_path'.${noColor}"
+	# Check if target path exists, not everyone uses obsidian for example
+	if [ ! -e "$target_path" ]; then
+		echo -e "${boldRed}Target path '$target_path' does not exist. Skipping symlink creation for '$target_path'.${noColor}"
 		return 1
 	fi
 
