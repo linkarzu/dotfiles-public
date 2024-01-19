@@ -20,6 +20,9 @@ clear
 mkdir -p ~/.config
 # Alacritty is inside its own dir
 mkdir -p ~/.config/alacritty
+# Creating obsidian directory
+# Even if you don't use obsidian, don't remove this dir to avoid warnings
+mkdir ~/github/obsidian_main
 
 # Create the symlinks I normally use
 # ~/.config dir holds nvim, neofetch, alacritty configs
@@ -32,12 +35,6 @@ create_symlink() {
 	local backup_needed=true
 
 	# echo
-
-	# Check if target path exists, not everyone uses obsidian for example
-	if [ ! -e "$target_path" ]; then
-		echo -e "${boldRed}Target path '$target_path' does not exist. Skipping symlink creation for '$target_path'.${noColor}"
-		return 1
-	fi
 
 	# Check if the target is a file and contains the unique identifier
 	if [ -f "$target_path" ] && grep -q "UNIQUE_ID=do_not_delete_this_line" "$target_path"; then
