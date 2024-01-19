@@ -9,6 +9,8 @@ vim.keymap.set("i", "kj", "<ESC>", { desc = "Exit insert mode with kj" })
 -- use gl to move to the end of the line in normal mode
 vim.keymap.set("n", "gh", "^", { desc = "Go to the beginning of the line" })
 vim.keymap.set("n", "gl", "$", { desc = "go to the end of the line" })
+vim.keymap.set("v", "gh", "^", { desc = "Go to the beginning of the line in visual mode" })
+vim.keymap.set("v", "gl", "$", { desc = "Go to the end of the line in visual mode" })
 
 -- yank/copy to end of line
 vim.keymap.set("n", "Y", "y$", { desc = "Yank to end of line" })
