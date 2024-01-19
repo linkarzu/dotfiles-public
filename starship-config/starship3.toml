@@ -16,9 +16,9 @@
 # """
 
 # This will show the time on a 2nd line
+# Add a "\" at the end of an item, if you want the next item to show on the same line
 format = """
 $all\
-$time\
 $kubernetes
 $character
 """
