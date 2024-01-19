@@ -357,7 +357,7 @@ if [ "$OS" = 'Linux' ]; then
 		;;
 	esac
 	if command -v starship &>/dev/null; then
-		eval "$(starship init zsh)"
+		eval "$(starship init zsh)" >/dev/null 2>&1
 		# This is what applies the specific profile
 		export STARSHIP_CONFIG=$HOME/github/dotfiles-public/starship-config/$starship_file
 	else
