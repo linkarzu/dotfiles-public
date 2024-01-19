@@ -22,7 +22,7 @@ mkdir -p ~/.config
 mkdir -p ~/.config/alacritty
 # Creating obsidian directory
 # Even if you don't use obsidian, don't remove this dir to avoid warnings
-mkdir ~/github/obsidian_main
+mkdir -p ~/github/obsidian_main
 
 # Create the symlinks I normally use
 # ~/.config dir holds nvim, neofetch, alacritty configs
