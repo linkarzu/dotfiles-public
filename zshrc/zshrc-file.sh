@@ -33,6 +33,12 @@ create_symlink() {
 
 	# echo
 
+	# Check if source path exists, not everyone uses obsidian for example
+	if [ ! -e "$source_path" ]; then
+		echo -e "${boldRed}Source path '$source_path' does not exist. Skipping symlink creation for '$target_path'.${noColor}"
+		return 1
+	fi
+
 	# Check if the target is a file and contains the unique identifier
 	if [ -f "$target_path" ] && grep -q "UNIQUE_ID=do_not_delete_this_line" "$target_path"; then
 		# echo "$target_path is a FILE and contains UNIQUE_ID"
@@ -198,7 +204,10 @@ esac
 if [ "$OS" = 'Mac' ]; then
 
 	# Brew autocompletion settings
-	if type brew &>/dev/null; then
+	# https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
+	# -v makes command display a description of how the shell would
+	# invoke the command, so you're checking if the command exists and is executable.
+	if command -v brew &>/dev/null; then
 		FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
 
 		autoload -Uz compinit
@@ -214,18 +223,82 @@ if [ "$OS" = 'Mac' ]; then
 		alias lla='eza -alh'
 		alias tree='eza --tree'
 	fi
-	# if command -v gls &>/dev/null; then
-	# 	alias ls='gls --color=auto'
-	# fi
 
-	# https://github.com/sharkdp/bat
 	# Cat with wings
+	# https://github.com/sharkdp/bat
 	if command -v bat &>/dev/null; then
 		# --style=plain - removes line numbers and got modifications
 		# --paging=never - doesnt pipe it through less
 		alias cat='bat --paging=never --style=plain'
 		alias catt='bat'
 		alias cata='bat --show-all --paging=never'
+	fi
+
+	# Initialize fzf if installed
+	# https://github.com/junegunn/fzf
+	# Useful commands
+	# ctrl+r - command history
+	# ctrl+t - search for files
+	# ssh ::<tab><name> - shows you list of hosts in case don't remember exact name
+	# kill -9 ::<tab><name> - find and kill a process
+	# telnet ::<TAB>
+	if [ -f ~/.fzf.zsh ]; then
+		source ~/.fzf.zsh
+
+		# Preview file content using bat
+		export FZF_CTRL_T_OPTS="
+    --preview 'bat -n --color=always {}'
+    --bind 'ctrl-/:change-preview-window(down|hidden|)'"
+
+		# Use :: as the trigger sequence instead of the default **
+		export FZF_COMPLETION_TRIGGER='::'
+	fi
+
+	# vi(vim) mode plugin for ZSH
+	# https://github.com/jeffreytse/zsh-vi-mode
+	# Insert mode to type and edit text
+	# Normal mode to use vim commands
+	# tets {really} long (command) using a { lot } of symbols {page} and {abc} and other ones [find] () "test page" {'command 2'}
+	if [ -f "$(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh" ]; then
+		source $(brew --prefix)/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
+		# Following 4 lines modify the escape key to `kj`
+		ZVM_VI_ESCAPE_BINDKEY=kj
+		ZVM_VI_INSERT_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
+		ZVM_VI_VISUAL_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
+		ZVM_VI_OPPEND_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
+
+		function zvm_after_lazy_keybindings() {
+			# Remap to go to the beginning of the line
+			zvm_bindkey vicmd 'gh' beginning-of-line
+			# Remap to go to the end of the line
+			zvm_bindkey vicmd 'gl' end-of-line
+		}
+
+		# Source .fzf.zsh so that the ctrl+r bindkey is given back fzf
+		zvm_after_init_commands+=('[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh')
+	fi
+
+	# https://github.com/zsh-users/zsh-autosuggestions
+	# Right arrow to accept suggestion
+	if [ -f "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
+		source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+	fi
+
+	# Changed from z.lua to zoxide, as it's more maintaned
+	# https://github.com/ajeetdsouza/zoxide
+	# https://github.com/skywind3000/z.lua
+	if command -v zoxide &>/dev/null; then
+		eval "$(zoxide init zsh)"
+
+		alias cd='z'
+		# Alias below is same as 'cd -', takes to the previous directory
+		alias cdd='z -'
+
+		#Since I migrated from z.lua, I can import my data
+		# zoxide import --from=z "$HOME/.zlua" --merge
+
+		# Useful commands
+		# z foo<SPACE><TAB>  # show interactive completions
 	fi
 
 	# Initialize Starship, if it is installed
@@ -248,67 +321,6 @@ if [ "$OS" = 'Mac' ]; then
 			source "$(brew --prefix)/share/google-cloud-sdk/completion.zsh.inc"
 		fi
 	fi
-
-	# Changed from z.lua to zoxide, as it's more maintaned
-	# https://github.com/ajeetdsouza/zoxide
-	# https://github.com/skywind3000/z.lua
-	# Configure shell to point to z.lua, if Homebrew, lua and z.lua are installed
-	if command -v zoxide &>/dev/null; then
-		eval "$(zoxide init zsh)"
-
-		alias cd='z'
-		# Alias below is same as 'cd -', takes to the previous directory
-		alias cdd='z -'
-
-		#Since I migrated from z.lua, I can import my data
-		# zoxide import --from=z "$HOME/.zlua" --merge
-
-		# Useful commands
-		# z foo<SPACE><TAB>  # show interactive completions
-	fi
-	# # Configure shell to point to z.lua, if Homebrew, lua and z.lua are installed
-	# if command -v brew &>/dev/null && command -v lua &>/dev/null; then
-	# 	if [ -f "$(brew --prefix z.lua)/share/z.lua/z.lua" ]; then
-	# 		eval "$(lua $(brew --prefix z.lua)/share/z.lua/z.lua --init zsh enhanced once)"
-	# 	fi
-	# fi
-
-	# Source zsh-vi-mode plugin, if it exists
-	# https://github.com/jeffreytse/zsh-vi-mode
-	if [ -f "/opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh" ]; then
-		source /opt/homebrew/opt/zsh-vi-mode/share/zsh-vi-mode/zsh-vi-mode.plugin.zsh
-		# Following 4 lines modify the escape key to `kj`
-		ZVM_VI_ESCAPE_BINDKEY=kj
-		ZVM_VI_INSERT_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
-		ZVM_VI_VISUAL_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
-		ZVM_VI_OPPEND_ESCAPE_BINDKEY=$ZVM_VI_ESCAPE_BINDKEY
-
-		# Source .fzf.zsh so that the ctrl+r bindkey is given back fzf
-		zvm_after_init_commands+=('[ -f $HOME/.fzf.zsh ] && source $HOME/.fzf.zsh')
-
-		# # if zsh-history-substring-search is installed, source it so that the arrows are given back to it
-		# if [ -f "$(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh" ]; then
-		#   zvm_after_init_commands+=('source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh')
-		#   zvm_after_init_commands+=('bindkey "^[[A" history-substring-search-up')
-		#   zvm_after_init_commands+=('bindkey "^[[B" history-substring-search-down')
-		# fi
-	fi
-
-	# Initialize fzf if installed
-	[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
-	# Source zsh-autosuggestions if file exists
-	if [ -f "$(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh" ]; then
-		source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-	fi
-
-	# # Source zsh-history-substring-search if file exists
-	# # Also leaving this here in case fzf is not installed
-	# if [ -f "$(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh" ]; then
-	#   source $(brew --prefix)/share/zsh-history-substring-search/zsh-history-substring-search.zsh
-	#   bindkey '^[[A' history-substring-search-up
-	#   bindkey '^[[B' history-substring-search-down
-	# fi
 
 	# Initialize kubernetes kubectl completion if kubectl is installed
 	# https://kubernetes.io/docs/tasks/tools/install-kubectl-macos/#enable-shell-autocompletion
