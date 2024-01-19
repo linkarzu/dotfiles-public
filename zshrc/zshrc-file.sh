@@ -92,9 +92,9 @@ create_symlink ~/github/dotfiles-public/karabiner/mxstbr ~/.config/karabiner
 # ln -snf ~/github/dotfiles/sshconfig-pers ~/.ssh/config 2>&1 >/dev/null
 
 # I'm keeping the old manual commands here
+# ln -snf ~/github/dotfiles-public/zshrc/zshrc-file.sh ~/.zshrc >/dev/null 2>&1
 # ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/.vimrc >/dev/null 2>&1
 # ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/github/obsidian_main/.obsidian.vimrc >/dev/null 2>&1
-# ln -snf ~/github/dotfiles-public/zshrc/zshrc-file.sh ~/.zshrc >/dev/null 2>&1
 # ln -snf ~/github/dotfiles-public/tmux/tmux.conf ~/.tmux.conf >/dev/null 2>&1
 # ln -snf ~/github/dotfiles-public/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml >/dev/null 2>&1
 # ln -snf ~/github/dotfiles-public/yabai/yabairc ~/.yabairc >/dev/null 2>&1
@@ -302,7 +302,7 @@ if [ "$OS" = 'Mac' ]; then
 
 	# Initialize Starship, if it is installed
 	if command -v starship &>/dev/null; then
-		eval "$(starship init zsh)"
+		eval "$(starship init zsh)" >/dev/null 2>&1
 		export STARSHIP_CONFIG=$HOME/github/dotfiles-public/starship-config/starship.toml
 	fi
 
