@@ -302,8 +302,8 @@ if [ "$OS" = 'Mac' ]; then
 
 	# Initialize Starship, if it is installed
 	if command -v starship &>/dev/null; then
-		eval "$(starship init zsh)" >/dev/null 2>&1
 		export STARSHIP_CONFIG=$HOME/github/dotfiles-public/starship-config/starship.toml
+		eval "$(starship init zsh)" >/dev/null 2>&1
 	fi
 
 	# Add MySQL client to PATH, if it exists
@@ -357,9 +357,9 @@ if [ "$OS" = 'Linux' ]; then
 		;;
 	esac
 	if command -v starship &>/dev/null; then
-		eval "$(starship init zsh)" >/dev/null 2>&1
 		# This is what applies the specific profile
 		export STARSHIP_CONFIG=$HOME/github/dotfiles-public/starship-config/$starship_file
+		eval "$(starship init zsh)" >/dev/null 2>&1
 	else
 		echo
 		echo "Installing starship, please wait..."
