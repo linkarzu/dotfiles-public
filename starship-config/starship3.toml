@@ -44,9 +44,9 @@ format = '[$user@$cluster \($namespace\)](dimmed green) '
 disabled = false
 # Only dirs that have this file inside will show the kubernetes prompt
 detect_files = ['900-detectkubernetes.sh']
-contexts = [
-  { context_pattern = "dev.local.cluster.k8s", style = "green", symbol = "💔 " },
-]
+# contexts = [
+#   { context_pattern = "dev.local.cluster.k8s", style = "green", symbol = "💔 " },
+# ]
 
 [username]
 style_user = '#DBF227 bold'
