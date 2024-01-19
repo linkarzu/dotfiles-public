@@ -36,7 +36,7 @@ fi
 
 # Make the below apps transparent
 # app_list="^(Alacritty|System Settings|Raycast|Spotify)$"
-app_list="^(Spotify|Alacritty)$"
+app_list="^(Spotify|Alacritty|iTerm)$"
 # When my list of apps gains focus, make all background windows completely transparent
 yabai -m signal --add event=window_focused app="$app_list" action="yabai -m config active_window_opacity 0.85"
 yabai -m signal --add event=window_focused app="$app_list" action="yabai -m config normal_window_opacity 0.00001"
