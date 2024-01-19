@@ -282,6 +282,8 @@ if [ "$OS" = 'Mac' ]; then
 	fi
 
 	# Changed from z.lua to zoxide, as it's more maintaned
+	# smarter cd command, it remembers which directories you use most
+	# frequently, so you can "jump" to them in just a few keystrokes.
 	# https://github.com/ajeetdsouza/zoxide
 	# https://github.com/skywind3000/z.lua
 	if command -v zoxide &>/dev/null; then
