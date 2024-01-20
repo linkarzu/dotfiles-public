@@ -1,0 +1,23 @@
+# Random tools I normally use
+
+brew "expect"
+brew "mtr"
+# I use smartmontools to monitor disk health
+brew "smartmontools"
+brew "tcptraceroute"
+brew "telnet"
+# This errors out, so I install it from the yabai script
+# brew "koekeishiya/formulae/yabai"
+cask "beardedspice"
+cask "betterdisplay"
+cask "google-chrome"
+cask "google-cloud-sdk"
+cask "google-drive"
+cask "microsoft-remote-desktop"
+cask "obsidian"
+cask "raycast"
+cask "setapp"
+# Will install wineskin later on when needed, it errors out if part of my script
+# cask "wineskin"
+
+

@@ -1,8 +1,7 @@
 # /Users/krishna/github/dotfiles-public/brew/10-essential/Brewfile
 # https://github.com/linkarzu/dotfiles-public/blob/main/brew/10-essential/Brewfile
 
-# Below are used by neovim
-
+# Best editor of all times Neovim
 # I'll install the following fonts from neovim script
 # tap "homebrew/cask-fonts"
 # cask "font-meslo-lg-nerd-font"
@@ -18,28 +17,9 @@ brew "fontconfig"
 ###############################################################################
 
 brew "bind"
-brew "expect"
 brew "helm"
 brew "jq"
 brew "kubernetes-cli"
-brew "mtr"
 brew "mysql-client"
-# I use smartmontools to monitor disk health
-brew "smartmontools"
-brew "tcptraceroute"
-brew "telnet"
-# This errors out, so I install it from the yabai script
-# brew "koekeishiya/formulae/yabai"
-cask "beardedspice"
-cask "betterdisplay"
-cask "cursorcerer"
-cask "google-chrome"
-cask "google-cloud-sdk"
-cask "google-drive"
-cask "microsoft-remote-desktop"
-cask "obsidian"
 cask "raindropio"
-cask "raycast"
-cask "setapp"
-# Will install wineskin later on when needed, it errors out if part of my script
-# cask "wineskin"
+cask "cursorcerer"
