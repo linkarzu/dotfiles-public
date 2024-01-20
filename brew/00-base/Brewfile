@@ -2,8 +2,8 @@
 # https://github.com/linkarzu/dotfiles-public/blob/main/brew/00-base/Brewfile
 
 brew "wget"
-# coreutils includes ls with colors
-brew "coreutils"
+# coreutils includes ls with colors, not needed since I now use eza
+# brew "coreutils"
 brew "fzf"
 brew "git"
 brew "htop"
