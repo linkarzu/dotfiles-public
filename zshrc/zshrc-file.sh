@@ -178,11 +178,21 @@ alias kgp='kubectl get pods'
 alias kgpa='kubectl get pods --all-namespaces'
 alias kgpo='kubectl get pods -o wide'
 
+# #############################################################################
+#
 # Every time I log into a host I want to pull my github repos, but not cd to that dir
 # So running the command in a subshell
-# Comment this line if you don't want to always pull my latest changes
+#
+# Instead of directly cloning my repo, to avoid my changes being applied, I
+# instead recommend you fork it, and clone that fork to your local machine
+# That way, my changes won't affect you.
+#
+# If you don't want to fork, comment the line below if you don't want to always pull
+# my latest changes, otherwise your changes will be overriden by my updates
 (cd ~/github/dotfiles-public && git pull >/dev/null 2>&1) || echo "Failed to pull dotfiles"
 # cd ~/github/dotfiles-public && git pull >/dev/null 2>&1 || echo "Failed to pull dotfiles"
+#
+# #############################################################################
 
 # Detect OS
 case "$(uname -s)" in
@@ -240,6 +250,10 @@ if [ "$OS" = 'Mac' ]; then
 	# kill -9 ::<tab><name> - find and kill a process
 	# telnet ::<TAB>
 	if [ -f ~/.fzf.zsh ]; then
+
+		# After installing fzf with brew, you have to run the install script
+		# echo -e "y\ny\nn" | /opt/homebrew/opt/fzf/install
+
 		source ~/.fzf.zsh
 
 		# Preview file content using bat
