@@ -7,7 +7,7 @@
 # #############################################################################
 
 # My terminal, alacritty, was configured to use TERM: xterm-256color, in the alacritty.yml file
-# The only one that made truecolors work on nvim when using xterm-256color on alacritty is screen-256color 
+# The only one that made truecolors work on nvim when using xterm-256color on alacritty is screen-256color
 # set -g default-terminal "xterm-256color"
 # set -g default-terminal "screen-256color"
 # tmux-256color used to fuck up everything when using xterm-256 color
@@ -29,7 +29,7 @@ set -sg terminal-overrides ",*:RGB"
 unbind %
 bind '|' split-window -h
 
-unbind '"' 
+unbind '"'
 bind - split-window -v
 
 # Reload the tmux configuration
@@ -43,12 +43,12 @@ bind Q setw synchronize-panes
 # https://scripter.co/command-to-every-pane-window-session-in-tmux/
 # Send the same command to all panes/windows in current session
 bind C-e command-prompt -p "Command:" \
-         "run \"tmux list-panes -s -F '##{session_name}:##{window_index}.##{pane_index}' \
+	"run \"tmux list-panes -s -F '##{session_name}:##{window_index}.##{pane_index}' \
                 | xargs -I PANE tmux send-keys -t PANE '%1' Enter\""
 
 # Send the same command to all panes/windows/sessions
 bind E command-prompt -p "Command:" \
-       "run \"tmux list-panes -a -F '##{session_name}:##{window_index}.##{pane_index}' \
+	"run \"tmux list-panes -a -F '##{session_name}:##{window_index}.##{pane_index}' \
               | xargs -I PANE tmux send-keys -t PANE '%1' Enter\""
 
 # If you want to use the default meta key, which is 'option' in macos, you have to

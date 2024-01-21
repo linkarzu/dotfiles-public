@@ -28,7 +28,7 @@ echo
 echo ">>>>>>>>>>>>>>>>>>>>>>>"
 echo
 echo "Applying my own tmux config"
-ln -snf ~/github/dotfiles-public/tmux/tmux.conf ~/.tmux.conf
+ln -snf ~/github/dotfiles-public/tmux/tmux.conf.sh ~/.tmux.conf
 
 echo
 echo ">>>>>>>>>>>>>>>>>>>>>>>"

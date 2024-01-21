@@ -20,7 +20,7 @@ mkdir -p ~/.config
 ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/.vimrc >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/github/obsidian_main/.obsidian.vimrc >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/zshrc/zshrc-file.sh ~/.zshrc >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/tmux/tmux.conf ~/.tmux.conf >/dev/null 2>&1
+ln -snf ~/github/dotfiles-public/tmux/tmux.conf.sh ~/.tmux.conf >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/karabiner/mxstbr ~/.config/karabiner >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/neovim/nvim-lazyvim ~/.config/nvim >/dev/null 2>&1
 ln -snf ~/github/dotfiles-public/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml >/dev/null 2>&1

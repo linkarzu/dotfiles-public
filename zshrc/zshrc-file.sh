@@ -78,7 +78,7 @@ create_symlink() {
 create_symlink ~/github/dotfiles-public/vimrc/vimrc-file ~/.vimrc
 create_symlink ~/github/dotfiles-public/vimrc/vimrc-file ~/github/obsidian_main/.obsidian.vimrc
 create_symlink ~/github/dotfiles-public/zshrc/zshrc-file.sh ~/.zshrc
-create_symlink ~/github/dotfiles-public/tmux/tmux.conf ~/.tmux.conf
+create_symlink ~/github/dotfiles-public/tmux/tmux.conf.sh ~/.tmux.conf
 create_symlink ~/github/dotfiles-public/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml
 create_symlink ~/github/dotfiles-public/yabai/yabairc ~/.yabairc
 
@@ -95,7 +95,7 @@ create_symlink ~/github/dotfiles-public/karabiner/mxstbr ~/.config/karabiner
 # ln -snf ~/github/dotfiles-public/zshrc/zshrc-file.sh ~/.zshrc >/dev/null 2>&1
 # ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/.vimrc >/dev/null 2>&1
 # ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/github/obsidian_main/.obsidian.vimrc >/dev/null 2>&1
-# ln -snf ~/github/dotfiles-public/tmux/tmux.conf ~/.tmux.conf >/dev/null 2>&1
+# ln -snf ~/github/dotfiles-public/tmux/tmux.conf.sh ~/.tmux.conf >/dev/null 2>&1
 # ln -snf ~/github/dotfiles-public/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml >/dev/null 2>&1
 # ln -snf ~/github/dotfiles-public/yabai/yabairc ~/.yabairc >/dev/null 2>&1
 #
