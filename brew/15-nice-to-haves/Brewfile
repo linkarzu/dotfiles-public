@@ -1,13 +1,17 @@
 # Random tools I normally use
 
+# Adding taps (repos) on top
+tap "homebrew/bundle"
+tap "homebrew/services"
+tap "jesseduffield/lazygit"
+tap "homebrew/cask-fonts"
+
 brew "expect"
 brew "mtr"
 # I use smartmontools to monitor disk health
 brew "smartmontools"
 brew "tcptraceroute"
 brew "telnet"
-# This errors out, so I install it from the yabai script
-# brew "koekeishiya/formulae/yabai"
 cask "beardedspice"
 cask "betterdisplay"
 cask "google-chrome"
@@ -17,6 +21,10 @@ cask "microsoft-remote-desktop"
 cask "obsidian"
 cask "raycast"
 cask "setapp"
+
+# This errored out, I prefer to install it from the yabai script
+# brew "koekeishiya/formulae/yabai"
+
 # Will install wineskin later on when needed, it errors out if part of my script
 # cask "wineskin"
 

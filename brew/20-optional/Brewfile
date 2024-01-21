@@ -1,3 +1,9 @@
+# Adding taps (repos) on top
+tap "homebrew/bundle"
+tap "homebrew/services"
+tap "jesseduffield/lazygit"
+tap "homebrew/cask-fonts"
+
 # Files that I might install
 brew "switchaudio-osx"
 cask "brave-browser"
