@@ -210,6 +210,13 @@ esac
 # macOS-specific configurations
 if [ "$OS" = 'Mac' ]; then
 
+	# Starship
+	# https://starship.rs/config/#prompt
+	if command -v starship &>/dev/null; then
+		export STARSHIP_CONFIG=$HOME/github/dotfiles-public/starship-config/starship.toml
+		eval "$(starship init zsh)" >/dev/null 2>&1
+	fi
+
 	# Brew autocompletion settings
 	# https://docs.brew.sh/Shell-Completion#configuring-completions-in-zsh
 	# -v makes command display a description of how the shell would
@@ -231,7 +238,7 @@ if [ "$OS" = 'Mac' ]; then
 		alias tree='eza --tree'
 	fi
 
-	# Cat with wings
+	# Bat -> Cat with wings
 	# https://github.com/sharkdp/bat
 	if command -v bat &>/dev/null; then
 		# --style=plain - removes line numbers and got modifications
@@ -312,12 +319,6 @@ if [ "$OS" = 'Mac' ]; then
 
 		# Useful commands
 		# z foo<SPACE><TAB>  # show interactive completions
-	fi
-
-	# Initialize Starship, if it is installed
-	if command -v starship &>/dev/null; then
-		export STARSHIP_CONFIG=$HOME/github/dotfiles-public/starship-config/starship.toml
-		eval "$(starship init zsh)" >/dev/null 2>&1
 	fi
 
 	# Add MySQL client to PATH, if it exists
