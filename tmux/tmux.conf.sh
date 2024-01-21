@@ -22,14 +22,30 @@ set -g default-terminal "tmux-256color"
 # set-option -sa terminal-features ',xterm-256color:RGB'
 set -sg terminal-overrides ",*:RGB"
 
-#set -g prefix C-a
-#unbind C-b
-#bind-key C-a send-prefix
+# Switch to windows 1 through 4
+# 'p' is normally used to go to the previous window, but I won't use it
+# ctrl+b c -> new window
+# ctrl+b , -> rename current window
+# ctrl+b w -> show list of windows and sessions
+unbind p
+bind u select-window -t 1
+bind i select-window -t 2
+bind o select-window -t 3
+bind p select-window -t 4
 
-unbind %
+# Switch to sessions 1 through 4
+# ctrl+b : -> new -s 0 -> new session with name '0'
+# ctrl+b $ -> rename current session
+# ctrl+b s -> show list of sessions
+bind 7 switch-client -t 1
+bind 8 switch-client -t 2
+bind 9 switch-client -t 3
+bind 0 switch-client -t 4
+
+unbind '|'
 bind '|' split-window -h
 
-unbind '"'
+unbind '-'
 bind - split-window -v
 
 # Reload the tmux configuration
@@ -67,11 +83,11 @@ bind C-k select-layout main-vertical
 # Increase scroll history
 set-option -g history-limit 10000
 
-# Go to previous window, I'm using 'p' for something else
+# Go to previous window, I'm using 'p' to change to window 4
 unbind m
 bind m previous-window
 
-# # Resize pane to zoom so it occupies the entire screen
+# Resize pane to zoom so it occupies the entire screen
 unbind M
 bind -r M resize-pane -Z
 
@@ -86,7 +102,8 @@ bind -r Down resize-pane -D 1
 bind -r Up resize-pane -U 1
 bind -r Right resize-pane -R 1
 
-# Switch how to navigate panes
+# how to navigate across the different panes in a window
+# Notice I'm using vim motions
 bind h select-pane -L
 bind j select-pane -D
 bind k select-pane -U
@@ -110,35 +127,12 @@ set -g renumber-windows on
 # : new -s 4
 # And that will give the new session the desired number
 
-# # Switch to windows 1 through 4
-# # 'p' is normally used to go to the previous window, but I won't use it
-bind u select-window -t 1
-bind i select-window -t 2
-bind o select-window -t 3
-bind p select-window -t 4
-# bind J select-window -t 1
-# bind K select-window -t 2
-# bind L select-window -t 3
-# bind : select-window -t 4
-
-# # Switch to sessions 1 through 4
-bind 7 switch-client -t 1
-bind 8 switch-client -t 2
-bind 9 switch-client -t 3
-bind 0 switch-client -t 4
-# bind U switch-client -t 0
-# bind I switch-client -t 1
-# bind O switch-client -t 2
-# bind P switch-client -t 3
-
 # Swap the pane with the next pane to the right
 # Instead of this use `{` and `}` that are defaults
 # bind S swap-pane -D
 
+# Enable mouse support to resize panes, scrolling, etc
 set -g mouse on
-
-# This enables vim nagivation, use it with Josean configuration
-set-window-option -g mode-keys vi
 
 # I had to set this to on for osc52 to work
 # https://github.com/ojroques/nvim-osc52
@@ -152,12 +146,25 @@ bind-key -T copy-mode-vi 'y' send -X copy-selection
 # don't exit copy mode when dragging with mouse
 unbind -T copy-mode-vi MouseDragEnd1Pane
 
-# remove delay for exiting insert mode with ESC in Neovim, use with Josean configuration
-# this setting was recommended by neovim `escape-time` (500) is higher than 300ms
-set-option -sg escape-time 10
+# If I'm in insert mode typing text, and press escape, it will wait this amount
+# of time to switch to normal mode when I press escape
+# this setting was recommended by neovim `escape-time` (default 500)
+set-option -sg escape-time 100
 
-# Setting recommended by neovim
+# Enables tracking of focus events, allows tmux to respond when the terminal
+# window gains or looses focus
 set-option -g focus-events on
+
+# This enables vim nagivation, use it with Josean configuration
+# set-window-option -g mode-keys vi
+
+##############################################################################
+##############################################################################
+#
+# Plugins section
+#
+##############################################################################
+##############################################################################
 
 # Tmux Plugin Manager (tpm), to install it, clone the repo below
 # git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
@@ -165,7 +172,7 @@ set -g @plugin 'tmux-plugins/tpm'
 
 # list of tmux plugins
 # for navigating panes and vim/nvim with Ctrl-hjkl
-set -g @plugin 'christoomey/vim-tmux-navigator'
+# set -g @plugin 'christoomey/vim-tmux-navigator'
 
 # Powerline theme
 # set -g @plugin 'jimeh/tmux-themepack'
