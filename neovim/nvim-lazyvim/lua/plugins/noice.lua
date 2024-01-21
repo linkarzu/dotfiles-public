@@ -35,11 +35,11 @@ return {
       },
       views = {
         mini = {
-          timeout = 4000, -- timeout in milliseconds (5 seconds)
+          timeout = 7000, -- timeout in milliseconds
           align = "center",
           position = {
             -- Centers messages top to bottom
-            row = "100%",
+            row = "95%",
             -- Aligns messages to the far right
             col = "100%",
           },
