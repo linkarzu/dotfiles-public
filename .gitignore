@@ -60,3 +60,4 @@ karabiner/package-lock.json
 nvim-lazyvim/lazyvim.json
 brew/essential/Brewfile.lock.json
 karabiner/mxstbr/yarn.lock
+brew/10-essential/Brewfile.lock.json
