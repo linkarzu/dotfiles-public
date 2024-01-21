@@ -155,8 +155,10 @@ set-option -sg escape-time 100
 # window gains or looses focus
 set-option -g focus-events on
 
-# This enables vim nagivation, use it with Josean configuration
-# set-window-option -g mode-keys vi
+# This enables vim nagivation
+# If for example I'm in the scrolling mode (yellow) can navigate with vim motions
+# search with /, using v for visual mode, etc
+set-window-option -g mode-keys vi
 
 ##############################################################################
 ##############################################################################
@@ -180,7 +182,9 @@ set -g @plugin 'tmux-plugins/tpm'
 
 # Dracula theme
 # https://draculatheme.com/tmux
-# available plugins: battery, cpu-usage, git, gpu-usage, ram-usage, tmux-ram-usage, network, network-bandwidth, network-ping, attached-clients, network-vpn, weather, time, spotify-tui, kubernetes-context, synchronize-panes
+# available plugins: battery, cpu-usage, git, gpu-usage, ram-usage,
+# tmux-ram-usage, network, network-bandwidth, network-ping, attached-clients,
+# network-vpn, weather, time, spotify-tui, kubernetes-context, synchronize-panes
 set -g @plugin 'dracula/tmux'
 set -g @dracula-plugins "synchronize-panes git time network-ping tmux-ram-usage"
 set -g @dracula-synchronize-panes-label "Synchronize:"
