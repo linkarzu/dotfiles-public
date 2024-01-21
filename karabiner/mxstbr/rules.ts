@@ -79,32 +79,32 @@ const rules: KarabinerRules[] = [
   ...createHyperSubLayers({
     // I use spacebar as the app launcher
     spacebar: {
+      h: app("Spotify"),
       j: app("Alacritty"),
       k: app("Safari"),
       l: app("Obsidian"),
       semicolon: app("ChatGPT"),
       quote: app("System Settings"),
-      i: app("Slack"),
-      u: app("WhatsApp Web"),
-      p: app("Brave Browser"),
-      o: app("Preview"),
-      open_bracket: app("Reminders"),
-      m: app("Mail"),
-      comma: app("Microsoft Outlook"),
-      period: app("Finder"),
-      slash: app("GoTo"),
-      h: app("Spotify"),
       y: app("YouTube"),
+      u: app("WhatsApp Web"),
+      i: app("Slack"),
+      o: app("Preview"),
+      p: app("Brave Browser"),
+      open_bracket: app("Reminders"),
       n: app("Visual Studio Code"),
+      a: app("Mail"),
+      s: app("Udemy Business"),
       d: app("Dashlane"),
-      z: app("zoom.us"),
+      f: app("Finder"),
+      g: app("Udemy"),
+      q: app("Setapp"),
       w: app("Microsoft Word"),
       e: app("Microsoft Excel"),
-      q: app("Setapp"),
-      s: app("Udemy Business"),
-      // s: app("Udemy"),
       r: app("Microsoft Remote Desktop"),
-      v: app("DaVinci Resolve"),
+      t: app("DaVinci Resolve"),
+      x: app("GoTo"),
+      c: app("Microsoft Outlook"),
+      v: app("zoom.us"),
     },
 
     // r = "Raycast"
@@ -123,13 +123,6 @@ const rules: KarabinerRules[] = [
 
     // s = "System"
     s: {
-      k: {
-        to: [
-          {
-            key_code: "volume_increment",
-          },
-        ],
-      },
       j: {
         to: [
           {
@@ -137,16 +130,14 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
-      // Move between tabs in browsers
-      l: {
+      k: {
         to: [
           {
-            key_code: "close_bracket",
-            modifiers: ["left_command", "left_shift"],
+            key_code: "volume_increment",
           },
         ],
       },
-      // Move between tabs in browsers
+      // Move to left tab in browsers
       h: {
         to: [
           {
@@ -155,17 +146,19 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
-      o: {
+      // Move to right tab in browsers
+      l: {
         to: [
           {
-            key_code: "fastforward",
+            key_code: "close_bracket",
+            modifiers: ["left_command", "left_shift"],
           },
         ],
       },
-      y: {
+      u: {
         to: [
           {
-            key_code: "rewind",
+            key_code: "display_brightness_decrement",
           },
         ],
       },
@@ -176,10 +169,19 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
-      u: {
+      // Previous song
+      y: {
         to: [
           {
-            key_code: "display_brightness_decrement",
+            key_code: "rewind",
+          },
+        ],
+      },
+      // Next song
+      o: {
+        to: [
+          {
+            key_code: "fastforward",
           },
         ],
       },
@@ -208,10 +210,11 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
-      // Connect airpods via bluetooth
+      // BetterTouchTool, connect airpods via bluetooth
       n: open(
         "btt://execute_assigned_actions_for_trigger/?uuid=9A1CFA49-416C-480E-9430-184D2DAEE1CA"
       ),
+      // Change audio source to airpods
       m: {
         to: [
           {
@@ -226,6 +229,7 @@ const rules: KarabinerRules[] = [
       //     },
       //   ],
       // },
+      // Change audio source to mac mini
       comma: {
         to: [
           {
@@ -233,6 +237,7 @@ const rules: KarabinerRules[] = [
           },
         ],
       },
+      // Change audio source to macbook pro Speakers
       period: {
         to: [
           {
@@ -243,6 +248,26 @@ const rules: KarabinerRules[] = [
       // n: open(
       //   "raycast://extensions/VladCuciureanu/toothpick/connect-favorite-device-1"
       // ),
+    },
+
+    // For betterTouchTool
+    d: {
+      // Select text from alacritty
+      j: open(
+        "btt://execute_assigned_actions_for_trigger/?uuid=5A708885-4D65-465C-B87A-996BA6C23B86"
+      ),
+      // Paste alacritty text and go down
+      k: open(
+        "btt://execute_assigned_actions_for_trigger/?uuid=213C11E3-1541-46B2-9DF3-8F9C9EC421FA"
+      ),
+      // Paste kodekloud text and go down
+      l: open(
+        "btt://execute_assigned_actions_for_trigger/?uuid=3FD931CD-45A8-4AAF-8D73-A9C0E5C41A60"
+      ),
+      // Reboot router
+      u: open(
+        "btt://execute_assigned_actions_for_trigger/?uuid=EA461EE0-4C15-4113-93B6-07C12086FF1F"
+      ),
     },
 
     // shift+arrows to select stuff
@@ -279,18 +304,19 @@ const rules: KarabinerRules[] = [
           { key_code: "right_arrow", modifiers: ["left_shift", "left_option"] },
         ],
       },
-      // Magicmove via homerow.app
-      m: {
-        to: [{ key_code: "f", modifiers: ["right_control"] }],
-      },
-      // Scroll mode via homerow.app
-      s: {
-        to: [{ key_code: "j", modifiers: ["right_control"] }],
-      },
+      // // Magicmove via homerow.app
+      // m: {
+      //   to: [{ key_code: "f", modifiers: ["right_control"] }],
+      // },
+      // // Scroll mode via homerow.app
+      // s: {
+      //   to: [{ key_code: "j", modifiers: ["right_control"] }],
+      // },
     },
 
     // copy, paste and other stuff
     right_command: {
+      // I use this for fzf
       r: {
         to: [{ key_code: "r", modifiers: ["left_control"] }],
       },
@@ -304,7 +330,7 @@ const rules: KarabinerRules[] = [
       l: {
         to: [{ key_code: "delete_forward" }],
       },
-      // Switch between windows of same app
+      // Switch between windows of same app, normally cmd+~
       spacebar: {
         to: [
           { key_code: "grave_accent_and_tilde", modifiers: ["left_command"] },
@@ -339,45 +365,6 @@ const rules: KarabinerRules[] = [
         ],
       },
     },
-
-    // For betterTouchTool
-    d: {
-      // Select text from alacritty
-      j: open(
-        "btt://execute_assigned_actions_for_trigger/?uuid=5A708885-4D65-465C-B87A-996BA6C23B86"
-      ),
-      // Paste alacritty text and go down
-      k: open(
-        "btt://execute_assigned_actions_for_trigger/?uuid=213C11E3-1541-46B2-9DF3-8F9C9EC421FA"
-      ),
-      // Paste kodekloud text and go down
-      l: open(
-        "btt://execute_assigned_actions_for_trigger/?uuid=3FD931CD-45A8-4AAF-8D73-A9C0E5C41A60"
-      ),
-      // Reboot router
-      u: open(
-        "btt://execute_assigned_actions_for_trigger/?uuid=EA461EE0-4C15-4113-93B6-07C12086FF1F"
-      ),
-    },
-
-    // // 't' for terminal
-    // t: {
-    //   j: {
-    //     to: [
-    //       {
-    //         shell_command: `tmux select-window -t 0`,
-    //       },
-    //     ],
-    //   },
-    //   k: {
-    //     to: [
-    //
-    //       {
-    //         shell_command: `tmux select-window -t 1`,
-    //       },
-    //     ],
-    //   },
-    // },
 
     // Vim nagivation
     // ALWAYS LEAVE THE ONES WITHOUT ANY SUBLAYERS AT THE BOTTOM

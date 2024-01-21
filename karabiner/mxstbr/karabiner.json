@@ -80,6 +80,11 @@
                   },
                   {
                     "type": "variable_if",
+                    "name": "hyper_sublayer_d",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
                     "name": "hyper_sublayer_f",
                     "value": 0
                   },
@@ -91,11 +96,6 @@
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_e",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_d",
                     "value": 0
                   },
                   {
@@ -117,6 +117,30 @@
                     "type": "variable_if",
                     "name": "hyper_sublayer_l",
                     "value": 0
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open -a 'Spotify.app'"
+                  }
+                ],
+                "description": "Open -a 'Spotify.app'",
+                "type": "basic",
+                "from": {
+                  "key_code": "h",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_spacebar",
+                    "value": 1
                   }
                 ]
               },
@@ -243,13 +267,13 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Slack.app'"
+                    "shell_command": "open -a 'YouTube.app'"
                   }
                 ],
-                "description": "Open -a 'Slack.app'",
+                "description": "Open -a 'YouTube.app'",
                 "type": "basic",
                 "from": {
-                  "key_code": "i",
+                  "key_code": "y",
                   "modifiers": {
                     "mandatory": [
                       "any"
@@ -291,13 +315,13 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Brave Browser.app'"
+                    "shell_command": "open -a 'Slack.app'"
                   }
                 ],
-                "description": "Open -a 'Brave Browser.app'",
+                "description": "Open -a 'Slack.app'",
                 "type": "basic",
                 "from": {
-                  "key_code": "p",
+                  "key_code": "i",
                   "modifiers": {
                     "mandatory": [
                       "any"
@@ -339,6 +363,30 @@
               {
                 "to": [
                   {
+                    "shell_command": "open -a 'Brave Browser.app'"
+                  }
+                ],
+                "description": "Open -a 'Brave Browser.app'",
+                "type": "basic",
+                "from": {
+                  "key_code": "p",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_spacebar",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
                     "shell_command": "open -a 'Reminders.app'"
                   }
                 ],
@@ -346,150 +394,6 @@
                 "type": "basic",
                 "from": {
                   "key_code": "open_bracket",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -a 'Mail.app'"
-                  }
-                ],
-                "description": "Open -a 'Mail.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "m",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -a 'Microsoft Outlook.app'"
-                  }
-                ],
-                "description": "Open -a 'Microsoft Outlook.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "comma",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -a 'Finder.app'"
-                  }
-                ],
-                "description": "Open -a 'Finder.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "period",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -a 'GoTo.app'"
-                  }
-                ],
-                "description": "Open -a 'GoTo.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "slash",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -a 'Spotify.app'"
-                  }
-                ],
-                "description": "Open -a 'Spotify.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "h",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -a 'YouTube.app'"
-                  }
-                ],
-                "description": "Open -a 'YouTube.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "y",
                   "modifiers": {
                     "mandatory": [
                       "any"
@@ -531,6 +435,54 @@
               {
                 "to": [
                   {
+                    "shell_command": "open -a 'Mail.app'"
+                  }
+                ],
+                "description": "Open -a 'Mail.app'",
+                "type": "basic",
+                "from": {
+                  "key_code": "a",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_spacebar",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open -a 'Udemy Business.app'"
+                  }
+                ],
+                "description": "Open -a 'Udemy Business.app'",
+                "type": "basic",
+                "from": {
+                  "key_code": "s",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_spacebar",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
                     "shell_command": "open -a 'Dashlane.app'"
                   }
                 ],
@@ -555,13 +507,61 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'zoom.us.app'"
+                    "shell_command": "open -a 'Finder.app'"
                   }
                 ],
-                "description": "Open -a 'zoom.us.app'",
+                "description": "Open -a 'Finder.app'",
                 "type": "basic",
                 "from": {
-                  "key_code": "z",
+                  "key_code": "f",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_spacebar",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open -a 'Udemy.app'"
+                  }
+                ],
+                "description": "Open -a 'Udemy.app'",
+                "type": "basic",
+                "from": {
+                  "key_code": "g",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_spacebar",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open -a 'Setapp.app'"
+                  }
+                ],
+                "description": "Open -a 'Setapp.app'",
+                "type": "basic",
+                "from": {
+                  "key_code": "q",
                   "modifiers": {
                     "mandatory": [
                       "any"
@@ -627,54 +627,6 @@
               {
                 "to": [
                   {
-                    "shell_command": "open -a 'Setapp.app'"
-                  }
-                ],
-                "description": "Open -a 'Setapp.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "q",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open -a 'Udemy Business.app'"
-                  }
-                ],
-                "description": "Open -a 'Udemy Business.app'",
-                "type": "basic",
-                "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
                     "shell_command": "open -a 'Microsoft Remote Desktop.app'"
                   }
                 ],
@@ -703,6 +655,78 @@
                   }
                 ],
                 "description": "Open -a 'DaVinci Resolve.app'",
+                "type": "basic",
+                "from": {
+                  "key_code": "t",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_spacebar",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open -a 'GoTo.app'"
+                  }
+                ],
+                "description": "Open -a 'GoTo.app'",
+                "type": "basic",
+                "from": {
+                  "key_code": "x",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_spacebar",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open -a 'Microsoft Outlook.app'"
+                  }
+                ],
+                "description": "Open -a 'Microsoft Outlook.app'",
+                "type": "basic",
+                "from": {
+                  "key_code": "c",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_spacebar",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open -a 'zoom.us.app'"
+                  }
+                ],
+                "description": "Open -a 'zoom.us.app'",
                 "type": "basic",
                 "from": {
                   "key_code": "v",
@@ -768,6 +792,11 @@
                   },
                   {
                     "type": "variable_if",
+                    "name": "hyper_sublayer_d",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
                     "name": "hyper_sublayer_f",
                     "value": 0
                   },
@@ -779,11 +808,6 @@
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_e",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_d",
                     "value": 0
                   },
                   {
@@ -1096,6 +1120,11 @@
                   },
                   {
                     "type": "variable_if",
+                    "name": "hyper_sublayer_d",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
                     "name": "hyper_sublayer_f",
                     "value": 0
                   },
@@ -1107,11 +1136,6 @@
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_e",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_d",
                     "value": 0
                   },
                   {
@@ -1133,29 +1157,6 @@
                     "type": "variable_if",
                     "name": "hyper_sublayer_l",
                     "value": 0
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "key_code": "volume_increment"
-                  }
-                ],
-                "type": "basic",
-                "from": {
-                  "key_code": "k",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_s",
-                    "value": 1
                   }
                 ]
               },
@@ -1185,16 +1186,12 @@
               {
                 "to": [
                   {
-                    "key_code": "close_bracket",
-                    "modifiers": [
-                      "left_command",
-                      "left_shift"
-                    ]
+                    "key_code": "volume_increment"
                   }
                 ],
                 "type": "basic",
                 "from": {
-                  "key_code": "l",
+                  "key_code": "k",
                   "modifiers": {
                     "mandatory": [
                       "any"
@@ -1239,12 +1236,16 @@
               {
                 "to": [
                   {
-                    "key_code": "fastforward"
+                    "key_code": "close_bracket",
+                    "modifiers": [
+                      "left_command",
+                      "left_shift"
+                    ]
                   }
                 ],
                 "type": "basic",
                 "from": {
-                  "key_code": "o",
+                  "key_code": "l",
                   "modifiers": {
                     "mandatory": [
                       "any"
@@ -1262,12 +1263,12 @@
               {
                 "to": [
                   {
-                    "key_code": "rewind"
+                    "key_code": "display_brightness_decrement"
                   }
                 ],
                 "type": "basic",
                 "from": {
-                  "key_code": "y",
+                  "key_code": "u",
                   "modifiers": {
                     "mandatory": [
                       "any"
@@ -1308,12 +1309,35 @@
               {
                 "to": [
                   {
-                    "key_code": "display_brightness_decrement"
+                    "key_code": "rewind"
                   }
                 ],
                 "type": "basic",
                 "from": {
-                  "key_code": "u",
+                  "key_code": "y",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_s",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "key_code": "fastforward"
+                  }
+                ],
+                "type": "basic",
+                "from": {
+                  "key_code": "o",
                   "modifiers": {
                     "mandatory": [
                       "any"
@@ -1500,6 +1524,190 @@
             ]
           },
           {
+            "description": "Hyper Key sublayer \"d\"",
+            "manipulators": [
+              {
+                "description": "Toggle Hyper sublayer d",
+                "type": "basic",
+                "from": {
+                  "key_code": "d",
+                  "modifiers": {
+                    "mandatory": [
+                      "left_command",
+                      "left_control",
+                      "left_shift",
+                      "left_option"
+                    ]
+                  }
+                },
+                "to_after_key_up": [
+                  {
+                    "set_variable": {
+                      "name": "hyper_sublayer_d",
+                      "value": 0
+                    }
+                  }
+                ],
+                "to": [
+                  {
+                    "set_variable": {
+                      "name": "hyper_sublayer_d",
+                      "value": 1
+                    }
+                  }
+                ],
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_spacebar",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_r",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_s",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_f",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_right_command",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_e",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_h",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_j",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_k",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_l",
+                    "value": 0
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open btt://execute_assigned_actions_for_trigger/?uuid=5A708885-4D65-465C-B87A-996BA6C23B86"
+                  }
+                ],
+                "description": "Open btt://execute_assigned_actions_for_trigger/?uuid=5A708885-4D65-465C-B87A-996BA6C23B86",
+                "type": "basic",
+                "from": {
+                  "key_code": "j",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_d",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open btt://execute_assigned_actions_for_trigger/?uuid=213C11E3-1541-46B2-9DF3-8F9C9EC421FA"
+                  }
+                ],
+                "description": "Open btt://execute_assigned_actions_for_trigger/?uuid=213C11E3-1541-46B2-9DF3-8F9C9EC421FA",
+                "type": "basic",
+                "from": {
+                  "key_code": "k",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_d",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open btt://execute_assigned_actions_for_trigger/?uuid=3FD931CD-45A8-4AAF-8D73-A9C0E5C41A60"
+                  }
+                ],
+                "description": "Open btt://execute_assigned_actions_for_trigger/?uuid=3FD931CD-45A8-4AAF-8D73-A9C0E5C41A60",
+                "type": "basic",
+                "from": {
+                  "key_code": "l",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_d",
+                    "value": 1
+                  }
+                ]
+              },
+              {
+                "to": [
+                  {
+                    "shell_command": "open btt://execute_assigned_actions_for_trigger/?uuid=EA461EE0-4C15-4113-93B6-07C12086FF1F"
+                  }
+                ],
+                "description": "Open btt://execute_assigned_actions_for_trigger/?uuid=EA461EE0-4C15-4113-93B6-07C12086FF1F",
+                "type": "basic",
+                "from": {
+                  "key_code": "u",
+                  "modifiers": {
+                    "mandatory": [
+                      "any"
+                    ]
+                  }
+                },
+                "conditions": [
+                  {
+                    "type": "variable_if",
+                    "name": "hyper_sublayer_d",
+                    "value": 1
+                  }
+                ]
+              }
+            ]
+          },
+          {
             "description": "Hyper Key sublayer \"f\"",
             "manipulators": [
               {
@@ -1550,17 +1758,17 @@
                   },
                   {
                     "type": "variable_if",
+                    "name": "hyper_sublayer_d",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
                     "name": "hyper_sublayer_right_command",
                     "value": 0
                   },
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_e",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_d",
                     "value": 0
                   },
                   {
@@ -1796,58 +2004,6 @@
                     "value": 1
                   }
                 ]
-              },
-              {
-                "to": [
-                  {
-                    "key_code": "f",
-                    "modifiers": [
-                      "right_control"
-                    ]
-                  }
-                ],
-                "type": "basic",
-                "from": {
-                  "key_code": "m",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_f",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "key_code": "j",
-                    "modifiers": [
-                      "right_control"
-                    ]
-                  }
-                ],
-                "type": "basic",
-                "from": {
-                  "key_code": "s",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_f",
-                    "value": 1
-                  }
-                ]
               }
             ]
           },
@@ -1902,17 +2058,17 @@
                   },
                   {
                     "type": "variable_if",
+                    "name": "hyper_sublayer_d",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
                     "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_e",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_d",
                     "value": 0
                   },
                   {
@@ -2115,17 +2271,17 @@
                   },
                   {
                     "type": "variable_if",
+                    "name": "hyper_sublayer_d",
+                    "value": 0
+                  },
+                  {
+                    "type": "variable_if",
                     "name": "hyper_sublayer_f",
                     "value": 0
                   },
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_right_command",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_d",
                     "value": 0
                   },
                   {
@@ -2242,190 +2398,6 @@
                   {
                     "type": "variable_if",
                     "name": "hyper_sublayer_e",
-                    "value": 1
-                  }
-                ]
-              }
-            ]
-          },
-          {
-            "description": "Hyper Key sublayer \"d\"",
-            "manipulators": [
-              {
-                "description": "Toggle Hyper sublayer d",
-                "type": "basic",
-                "from": {
-                  "key_code": "d",
-                  "modifiers": {
-                    "mandatory": [
-                      "left_command",
-                      "left_control",
-                      "left_shift",
-                      "left_option"
-                    ]
-                  }
-                },
-                "to_after_key_up": [
-                  {
-                    "set_variable": {
-                      "name": "hyper_sublayer_d",
-                      "value": 0
-                    }
-                  }
-                ],
-                "to": [
-                  {
-                    "set_variable": {
-                      "name": "hyper_sublayer_d",
-                      "value": 1
-                    }
-                  }
-                ],
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_spacebar",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_r",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_s",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_f",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_right_command",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_e",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_h",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_j",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_k",
-                    "value": 0
-                  },
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_l",
-                    "value": 0
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open btt://execute_assigned_actions_for_trigger/?uuid=5A708885-4D65-465C-B87A-996BA6C23B86"
-                  }
-                ],
-                "description": "Open btt://execute_assigned_actions_for_trigger/?uuid=5A708885-4D65-465C-B87A-996BA6C23B86",
-                "type": "basic",
-                "from": {
-                  "key_code": "j",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_d",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open btt://execute_assigned_actions_for_trigger/?uuid=213C11E3-1541-46B2-9DF3-8F9C9EC421FA"
-                  }
-                ],
-                "description": "Open btt://execute_assigned_actions_for_trigger/?uuid=213C11E3-1541-46B2-9DF3-8F9C9EC421FA",
-                "type": "basic",
-                "from": {
-                  "key_code": "k",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_d",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open btt://execute_assigned_actions_for_trigger/?uuid=3FD931CD-45A8-4AAF-8D73-A9C0E5C41A60"
-                  }
-                ],
-                "description": "Open btt://execute_assigned_actions_for_trigger/?uuid=3FD931CD-45A8-4AAF-8D73-A9C0E5C41A60",
-                "type": "basic",
-                "from": {
-                  "key_code": "l",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_d",
-                    "value": 1
-                  }
-                ]
-              },
-              {
-                "to": [
-                  {
-                    "shell_command": "open btt://execute_assigned_actions_for_trigger/?uuid=EA461EE0-4C15-4113-93B6-07C12086FF1F"
-                  }
-                ],
-                "description": "Open btt://execute_assigned_actions_for_trigger/?uuid=EA461EE0-4C15-4113-93B6-07C12086FF1F",
-                "type": "basic",
-                "from": {
-                  "key_code": "u",
-                  "modifiers": {
-                    "mandatory": [
-                      "any"
-                    ]
-                  }
-                },
-                "conditions": [
-                  {
-                    "type": "variable_if",
-                    "name": "hyper_sublayer_d",
                     "value": 1
                   }
                 ]
