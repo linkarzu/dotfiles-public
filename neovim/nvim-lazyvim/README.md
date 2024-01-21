@@ -1,10 +1,12 @@
-# Nothing to see here
+# Things to remember
 
-My own lazyvim config
+## See messages history
 
-# Spectre pattern matching
+Use the command `NoiceHistory`
 
-I needed to match:
+## Spectre pattern matching
 
-- `>/dev/null 2>&1`
-- `[>]\/dev\/null 2[>]\&1`
+- I needed to match:
+  - `>/dev/null 2>&1`
+- So I used (but didn't work, and don't have time to deal with this right now)
+  - `[>]\/dev\/null 2[>]\&1`
