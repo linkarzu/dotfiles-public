@@ -32,3 +32,8 @@ brew "kubernetes-cli"
 brew "mysql-client"
 cask "raindropio"
 cask "cursorcerer"
+
+# Not essentials, but added them here, as I install them all the time ;)
+cask "google-chrome"
+cask "obsidian"
+cask "spotify"
