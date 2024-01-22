@@ -184,19 +184,20 @@ alias kgpo='kubectl get pods -o wide'
 # echo "2"
 # #############################################################################
 #
-# Every time I log into a host I want to pull my github repos, but not cd to that dir
-# So running the command in a subshell
-#
 # Instead of directly cloning my repo, to avoid my changes being applied, I
 # instead recommend you fork it, and clone that fork to your local machine
 # That way, my changes won't affect you.
+# If you don't fork, and for example I change my karabiner mappings, from
+# opening the terminal with hyper+space+j to hyper+space+b, it will
+# change your mappings too
 #
-# If you don't want to fork, comment the line below if you don't want to always pull
+# If you don't want to fork, comment the 3 lines below if you don't want to always pull
 # my latest changes, otherwise your changes will be overriden by my updates
 echo
 echo "Pulling latest changes, please wait..."
 (cd ~/github/dotfiles-public && git pull >/dev/null 2>&1) || echo "Failed to pull dotfiles"
-# cd ~/github/dotfiles-public && git pull >/dev/null 2>&1 || echo "Failed to pull dotfiles"
+# Every time I log into a host I want to pull my github repos, but not cd to that dir
+# So running the command above in a subshell
 #
 # #############################################################################
 # echo "finished 2"
