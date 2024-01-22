@@ -29,7 +29,7 @@ mkdir -p ~/github/obsidian_main
 # If the dir/file that the symlink points to doesnt exist, it will error out, so I direct them to dev null
 # This will update the symlink even if its pointing to another file
 # If the file exists, it will create a backup in the same dir
-echo "1"
+# echo "1"
 create_symlink() {
 	local source_path=$1
 	local target_path=$2
@@ -87,7 +87,7 @@ create_symlink ~/github/dotfiles-public/yabai/yabairc ~/.yabairc
 create_symlink ~/github/dotfiles-public/neovim/nvim-lazyvim ~/.config/nvim
 create_symlink ~/github/dotfiles-public/hammerspoon ~/.hammerspoon
 create_symlink ~/github/dotfiles-public/karabiner/mxstbr ~/.config/karabiner
-echo "finished 1"
+# echo "finished 1"
 
 # # This is on the other repo where I keep my ssh config files
 # I commented this as I don't have access to this repo in all the hosts
@@ -180,8 +180,8 @@ alias kgp='kubectl get pods'
 alias kgpa='kubectl get pods --all-namespaces'
 alias kgpo='kubectl get pods -o wide'
 
-echo
-echo "2"
+# echo
+# echo "2"
 # #############################################################################
 #
 # Every time I log into a host I want to pull my github repos, but not cd to that dir
@@ -193,11 +193,13 @@ echo "2"
 #
 # If you don't want to fork, comment the line below if you don't want to always pull
 # my latest changes, otherwise your changes will be overriden by my updates
+echo
+echo "Pulling latest changes, please wait..."
 (cd ~/github/dotfiles-public && git pull >/dev/null 2>&1) || echo "Failed to pull dotfiles"
 # cd ~/github/dotfiles-public && git pull >/dev/null 2>&1 || echo "Failed to pull dotfiles"
 #
 # #############################################################################
-echo "finished 2"
+# echo "finished 2"
 
 # Detect OS
 case "$(uname -s)" in
