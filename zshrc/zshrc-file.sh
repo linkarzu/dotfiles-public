@@ -241,8 +241,8 @@ if [ "$OS" = 'Mac' ]; then
 	# https://github.com/ogham/exa
 	if command -v eza &>/dev/null; then
 		alias ls='eza'
-		alias ll='eza -lh'
-		alias lla='eza -alh'
+		alias ll='eza -lhg'
+		alias lla='eza -alhg'
 		alias tree='eza --tree'
 	fi
 
