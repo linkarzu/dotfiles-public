@@ -31,54 +31,56 @@ sudo yabai --load-sa
 # 	yabai -m config right_padding 0
 # fi
 
+# yabai -m config top_padding 20
+# yabai -m config bottom_padding 20
+# yabai -m config left_padding 20
+# yabai -m config right_padding 20
+
 # Yabai signal to detect focus change for any application and move the cursor
 # yabai -m signal --add event=window_focused action="cliclick m:0,0"
 # yabai -m signal --add event=window_focused app="Google Chrome" action="cliclick m:0,0"
 
 # Make the below apps transparent
-# app_list="^(Alacritty|System Settings|Raycast|Spotify)$"
-app_list="^(Spotify|Alacritty|iTerm)$"
+APP_LIST="(Spotify|Alacritty)"
 # When my list of apps gains focus, make all background windows completely transparent
-yabai -m signal --add event=window_focused app="$app_list" action="yabai -m config active_window_opacity 0.85"
-yabai -m signal --add event=window_focused app="$app_list" action="yabai -m config normal_window_opacity 0.00001"
-# yabai -m signal --add event=window_focused app="$mgmt_excluded_apps" action="yabai -m config normal_window_opacity 1.0"
+yabai -m signal --add event=window_focused app="^${APP_LIST}$" action="yabai -m config active_window_opacity 0.85"
+yabai -m signal --add event=window_focused app="^${APP_LIST}$" action="yabai -m config normal_window_opacity 0.00001"
+# yabai -m signal --add event=window_focused app="$MGMT_EXCLUDED_APPS" action="yabai -m config normal_window_opacity 1.0"
 
 # When any other app gains focus, reset both active and background window opacity to fully visible
-yabai -m signal --add event=window_focused app!="$app_list" action="yabai -m config active_window_opacity 1.0"
-yabai -m signal --add event=window_focused app!="$app_list" action="yabai -m config normal_window_opacity 1.0"
+yabai -m signal --add event=window_focused app!="^${APP_LIST}$" action="yabai -m config active_window_opacity 1.0"
+yabai -m signal --add event=window_focused app!="^${APP_LIST}$" action="yabai -m config normal_window_opacity 1.0"
 
-# make the apps below fully opaque (not transparent) so theyre always shown
+# make the apps below fully opaque (not transparent)
+# This makes the following windows always appear on top
 # IF THE APP WAS CLOSED, OPEN IT, AND RESTART YABAI FOR THIS TO TAKE EFFECT, otherwise can't get it's ID
 # All the options can be seen using 'man yabai'
-always_shown_apps=("iStat Menus" "CleanShot X" "Calculator" "Hammerspoon" "BetterDisplay" "GIMP")
-for app in "${always_shown_apps[@]}"; do
-  # get the window ID for the app
-  window_ids=$(yabai -m query --windows | jq -r --arg APP "$app" '.[] | select(.app == $APP) | .id')
-  for id in $window_ids; do
-    # set the opacity for that specific window
-    yabai -m window "$id" --opacity 1.0
-  done
+ALWAYS_SHOWN_APPS="(Notes)"
+# Query yabai for windows and filter with jq using the regex pattern
+WINDOW_IDS=$(yabai -m query --windows | jq -r --arg APP_REGEX "$ALWAYS_SHOWN_APPS" '.[] | select(.app | test($APP_REGEX)) | .id')
+# Set the opacity for each window ID
+for id in $WINDOW_IDS; do
+	yabai -m window "$id" --opacity 1.0
 done
 
-# Exclude the following apps from window management
-# Convert always_shown_apps to regex string for yabai rules
-mgmt_excluded_apps="^($(IFS="|"; echo "${always_shown_apps[*]}"))$"
-yabai -m rule --add app="$mgmt_excluded_apps" manage=off
+# Apps excluded from window management, so you can resize them and move them around
+MGMT_EXCLUDED_APPS=$ALWAYS_SHOWN_APPS
+# Uncomment the line below if you want to use different excluded apps
+MGMT_EXCLUDED_APPS="(iStat Menus|CleanShot X|Calculator|Hammerspoon|BetterDisplay|GIMP|Notes)"
+# MGMT_EXCLUDED_APPS="(Notes|iStat Menus|CleanShot X|Udemy Business)"
+yabai -m rule --add app="^${MGMT_EXCLUDED_APPS}$" manage=off
 
-# Uncomment these 2 lines if you want to use different excluded apps
-# Comment the lines above
-# mgmt_excluded_apps="^(Notes|iStat Menus|CleanShot X|Udemy Business)$"
-# yabai -m rule --add app="$mgmt_excluded_apps" manage=off
-
-# # In case you want to debug and see the contents of the variable
-# echo "mgmt_excluded_apps: $mgmt_excluded_apps" >> /tmp/yabai_debug.log
+# In case you want to debug and see the contents of the variable
+# echo "MGMT_EXCLUDED_APPS: $MGMT_EXCLUDED_APPS" >> /tmp/yabai_debug.log
 
 # global settings
 # When I leave youtube or chrome, hammerspoon will move the mouse to the corner
-# this below will move the mouse back to the center
-# "mouse_follows_focus on"
+#
+# "mouse_follows_focus on" will move the mouse back to the center, but DISABLE it or it will
+# be a nightmare to use iStat Menus
+
 yabai -m config \
-	mouse_follows_focus on \
+	mouse_follows_focus off \
 	focus_follows_mouse off \
 	window_origin_display default \
 	window_placement second_child \
@@ -106,4 +108,3 @@ yabai -m config \
 	mouse_action1 move \
 	mouse_action2 resize \
 	mouse_drop_action swap
-
