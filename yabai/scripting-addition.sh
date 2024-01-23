@@ -1,3 +1,5 @@
+# Filename: ~/github/dotfiles-public/yabai/scripting-addition.sh
+
 echo
 echo -e "${boldPurple}>>>>>>>>>>>>>>>>>>>>>>>>>>${noColor}"
 echo "Configuring scripting additions"
