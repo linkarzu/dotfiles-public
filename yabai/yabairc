@@ -6,29 +6,30 @@
 # UNIQUE_ID=do_not_delete_this_line
 # #############################################################################
 
+# This command is the one that loads the scripting addition
 # Configure your user to execute `yabai --load-sa` as the root user without having to enter a password.
 #  https://github.com/koekeishiya/yabai/wiki/Installing-yabai-(latest-release)#configure-scripting-addition
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 sudo yabai --load-sa
 
-# Check the display size (e.g., grab the resolution here)
-display_info=$(system_profiler SPDisplaysDataType | grep Resolution)
-
-# If the resolution is 6016 x 3384 I want to apply bigger paddings
-# This means I'm connected to my 55 inch tv
-# The * are used as wildcards
-if [[ "$display_info" == *"6016 x 3384"* ]]; then
-	yabai -m config top_padding 400
-	yabai -m config bottom_padding 300
-	yabai -m config left_padding 1500
-	yabai -m config right_padding 12
-else
-	# settings for other machines
-	yabai -m config top_padding 0
-	yabai -m config bottom_padding 0
-	yabai -m config left_padding 0
-	yabai -m config right_padding 0
-fi
+# # Check the display size (e.g., grab the resolution here)
+# display_info=$(system_profiler SPDisplaysDataType | grep Resolution)
+#
+# # If the resolution is 6016 x 3384 I want to apply bigger paddings
+# # This means I'm connected to my 55 inch tv
+# # The * are used as wildcards
+# if [[ "$display_info" == *"6016 x 3384"* ]]; then
+# 	yabai -m config top_padding 400
+# 	yabai -m config bottom_padding 300
+# 	yabai -m config left_padding 1500
+# 	yabai -m config right_padding 12
+# else
+# 	# settings for other machines
+# 	yabai -m config top_padding 0
+# 	yabai -m config bottom_padding 0
+# 	yabai -m config left_padding 0
+# 	yabai -m config right_padding 0
+# fi
 
 # Yabai signal to detect focus change for any application and move the cursor
 # yabai -m signal --add event=window_focused action="cliclick m:0,0"
@@ -106,4 +107,3 @@ yabai -m config \
 	mouse_action2 resize \
 	mouse_drop_action swap
 
-echo "yabai configuration loaded.."
