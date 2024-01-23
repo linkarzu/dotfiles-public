@@ -27,7 +27,6 @@ brew "fontconfig"
 
 brew "bind"
 brew "helm"
-brew "jq"
 brew "kubernetes-cli"
 brew "mysql-client"
 cask "raindropio"
@@ -37,3 +36,10 @@ cask "cursorcerer"
 cask "google-chrome"
 cask "obsidian"
 cask "spotify"
+cask "hammerspoon"
+cask "hot"
+cask "iterm2"
+brew "htop"
+brew "neofetch"
+
+
