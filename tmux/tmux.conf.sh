@@ -82,21 +82,6 @@ bind Q setw synchronize-panes
 # search with /, using v for visual mode, etc
 set-window-option -g mode-keys vi
 
-# https://github.com/leelavg/dotfiles/blob/897aa883a/config/tmux.conf#L30-L39
-# https://scripter.co/command-to-every-pane-window-session-in-tmux/
-# Send the same command to all panes/windows in current session
-bind C-e command-prompt -p "Command:" \
-	"run \"tmux list-panes -s -F '##{session_name}:##{window_index}.##{pane_index}' \
-                | xargs -I PANE tmux send-keys -t PANE '%1' Enter\""
-
-# Send the same command to all panes/windows/sessions
-bind E command-prompt -p "Command:" \
-	"run \"tmux list-panes -a -F '##{session_name}:##{window_index}.##{pane_index}' \
-              | xargs -I PANE tmux send-keys -t PANE '%1' Enter\""
-
-# Increase scroll history
-set-option -g history-limit 10000
-
 # Go to previous window, I'm using 'p' to change to window 4
 unbind m
 bind m previous-window
@@ -111,6 +96,26 @@ bind -r Left resize-pane -L 1
 bind -r Down resize-pane -D 1
 bind -r Up resize-pane -U 1
 bind -r Right resize-pane -R 1
+
+# start selecting text with "v"
+bind-key -T copy-mode-vi 'v' send -X begin-selection
+# copy text with "y"
+bind-key -T copy-mode-vi 'y' send -X copy-selection
+
+# https://github.com/leelavg/dotfiles/blob/897aa883a/config/tmux.conf#L30-L39
+# https://scripter.co/command-to-every-pane-window-session-in-tmux/
+# Send the same command to all panes/windows in current session
+bind C-e command-prompt -p "Command:" \
+	"run \"tmux list-panes -s -F '##{session_name}:##{window_index}.##{pane_index}' \
+                | xargs -I PANE tmux send-keys -t PANE '%1' Enter\""
+
+# Send the same command to all panes/windows/sessions
+bind E command-prompt -p "Command:" \
+	"run \"tmux list-panes -a -F '##{session_name}:##{window_index}.##{pane_index}' \
+              | xargs -I PANE tmux send-keys -t PANE '%1' Enter\""
+
+# Increase scroll history
+set-option -g history-limit 10000
 
 # New windows normally start at 0, but I want them to start at 1 instead
 set -g base-index 1
@@ -140,11 +145,6 @@ set -g mouse on
 # I had to set this to on for osc52 to work
 # https://github.com/ojroques/nvim-osc52
 set -s set-clipboard on
-
-# start selecting text with "v"
-bind-key -T copy-mode-vi 'v' send -X begin-selection
-# copy text with "y"
-bind-key -T copy-mode-vi 'y' send -X copy-selection
 
 # don't exit copy mode when dragging with mouse
 unbind -T copy-mode-vi MouseDragEnd1Pane
