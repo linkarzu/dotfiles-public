@@ -22,6 +22,21 @@ set -g default-terminal "tmux-256color"
 # set-option -sa terminal-features ',xterm-256color:RGB'
 set -sg terminal-overrides ",*:RGB"
 
+# Create vertical split
+unbind '|'
+bind '|' split-window -h
+
+# Create horizontal split
+unbind '-'
+bind - split-window -v
+
+# how to navigate across the different panes in a window
+# Notice I'm using vim motions
+bind h select-pane -L
+bind j select-pane -D
+bind k select-pane -U
+bind l select-pane -R
+
 # Switch to windows 1 through 4
 # 'p' is normally used to go to the previous window, but I won't use it
 # ctrl+b c -> new window
@@ -42,31 +57,6 @@ bind 8 switch-client -t 2
 bind 9 switch-client -t 3
 bind 0 switch-client -t 4
 
-unbind '|'
-bind '|' split-window -h
-
-unbind '-'
-bind - split-window -v
-
-# Reload the tmux configuration
-unbind r
-bind r source-file ~/.tmux.conf
-
-# Bind pane synchronization to Ctrl-b s
-bind Q setw synchronize-panes
-
-# https://github.com/leelavg/dotfiles/blob/897aa883a/config/tmux.conf#L30-L39
-# https://scripter.co/command-to-every-pane-window-session-in-tmux/
-# Send the same command to all panes/windows in current session
-bind C-e command-prompt -p "Command:" \
-	"run \"tmux list-panes -s -F '##{session_name}:##{window_index}.##{pane_index}' \
-                | xargs -I PANE tmux send-keys -t PANE '%1' Enter\""
-
-# Send the same command to all panes/windows/sessions
-bind E command-prompt -p "Command:" \
-	"run \"tmux list-panes -a -F '##{session_name}:##{window_index}.##{pane_index}' \
-              | xargs -I PANE tmux send-keys -t PANE '%1' Enter\""
-
 # If you want to use the default meta key, which is 'option' in macos, you have to
 # configure the alacritty 'option_as_alt' option, but that messed up my hyper key,
 # so if I enable that option in alacritty, I cant do hyper+b which is what I use for
@@ -79,6 +69,30 @@ bind K select-layout even-vertical
 bind L select-layout tiled
 bind C-j select-layout main-horizontal
 bind C-k select-layout main-vertical
+
+# Reload the tmux configuration, display a 2 second message
+unbind r
+bind r source-file ~/.tmux.conf \; display-message -d 2000 "Configuration reloaded!"
+
+# Bind pane synchronization to Ctrl-b s
+bind Q setw synchronize-panes
+
+# This enables vim nagivation
+# If for example I'm in the scrolling mode (yellow) can navigate with vim motions
+# search with /, using v for visual mode, etc
+set-window-option -g mode-keys vi
+
+# https://github.com/leelavg/dotfiles/blob/897aa883a/config/tmux.conf#L30-L39
+# https://scripter.co/command-to-every-pane-window-session-in-tmux/
+# Send the same command to all panes/windows in current session
+bind C-e command-prompt -p "Command:" \
+	"run \"tmux list-panes -s -F '##{session_name}:##{window_index}.##{pane_index}' \
+                | xargs -I PANE tmux send-keys -t PANE '%1' Enter\""
+
+# Send the same command to all panes/windows/sessions
+bind E command-prompt -p "Command:" \
+	"run \"tmux list-panes -a -F '##{session_name}:##{window_index}.##{pane_index}' \
+              | xargs -I PANE tmux send-keys -t PANE '%1' Enter\""
 
 # Increase scroll history
 set-option -g history-limit 10000
@@ -93,21 +107,10 @@ bind -r M resize-pane -Z
 
 # The number at the end specifies number of cells
 # Increase or decrease to your liking
-# bind -r j resize-pane -D 3
-# bind -r k resize-pane -U 3
-# bind -r l resize-pane -R 3
-# bind -r h resize-pane -L 3
 bind -r Left resize-pane -L 1
 bind -r Down resize-pane -D 1
 bind -r Up resize-pane -U 1
 bind -r Right resize-pane -R 1
-
-# how to navigate across the different panes in a window
-# Notice I'm using vim motions
-bind h select-pane -L
-bind j select-pane -D
-bind k select-pane -U
-bind l select-pane -R
 
 # New windows normally start at 0, but I want them to start at 1 instead
 set -g base-index 1
@@ -118,7 +121,7 @@ set -g base-index 1
 # tmux, and you'll remain in the session
 set -g detach-on-destroy off
 
-# Imaginve if you have windows 1-5, and you close window 3, you are left with
+# Imagine if you have windows 1-5, and you close window 3, you are left with
 # 1,2,4,5, which is inconvenient for my navigation method seen below
 # renumbering solves that issue, so if you close 3 youre left with 1-4
 set -g renumber-windows on
@@ -149,16 +152,12 @@ unbind -T copy-mode-vi MouseDragEnd1Pane
 # If I'm in insert mode typing text, and press escape, it will wait this amount
 # of time to switch to normal mode when I press escape
 # this setting was recommended by neovim `escape-time` (default 500)
+# Can be set to a lower value, like 10 for it to be faster
 set-option -sg escape-time 100
 
 # Enables tracking of focus events, allows tmux to respond when the terminal
 # window gains or looses focus
 set-option -g focus-events on
-
-# This enables vim nagivation
-# If for example I'm in the scrolling mode (yellow) can navigate with vim motions
-# search with /, using v for visual mode, etc
-set-window-option -g mode-keys vi
 
 ##############################################################################
 ##############################################################################
