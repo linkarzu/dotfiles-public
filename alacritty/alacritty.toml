@@ -63,14 +63,28 @@ history = 10000
 # Scrolling distance multiplier.
 multiplier = 3
 
+# Shell
+#
+# You can set `shell.program` to the path of your favorite shell, e.g.
+# `/bin/fish`. Entries in `shell.args` are passed unmodified as arguments to the
+# shell.
+#
+# Default:
+#   - (Linux/BSD/macOS) `$SHELL` or the user's login shell, if `$SHELL` is unset
+#   - (Windows) powershell
+#shell:
+#  program: /bin/bash
+#  args:
+#    - --login
 [shell]
+program = "/bin/zsh"
 # The 2 commands after login are needed to automatically attach to an existing tmux session
 # If no session exists, a new one is created
 args = ["--login", "-c", "/opt/homebrew/bin/tmux attach || //opt/homebrew/bin/tmux"]
-program = "/bin/zsh"
 
 [window]
 opacity = 1
+
 # Make `Option` key behave as `Alt` (macOS only):
 #   - OnlyLeft
 #   - OnlyRight
