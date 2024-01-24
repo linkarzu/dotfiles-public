@@ -167,8 +167,8 @@ setopt histignorespace
 
 # Common settings and plugins
 alias ll='ls -lh'
-alias python='python3'
 alias lla='ls -alh'
+alias python='python3'
 # Shows the last 30 entries, default is 15
 alias history='history -30'
 alias v='nvim'
