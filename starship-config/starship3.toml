@@ -37,6 +37,8 @@ format = '[\[$time\]]($style) '
 # %T	00:34:60	Hour-minute-second format. Same to %H:%M:%S.
 time_format = '%y/%m/%d %T'
 
+# For this to show up correcly, you need to have access cluster access
+# So your ~/.kube/config needs to be configured on the local machine
 [kubernetes]
 # context = user@cluster
 format = '[$user@$cluster \($namespace\)](dimmed green) '
