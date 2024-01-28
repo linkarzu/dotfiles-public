@@ -2,6 +2,12 @@
 
 [![04 - What are dotfiles and how to clone them](https://res.cloudinary.com/daqwsgmx6/image/upload/v1706358848/youtube/2024-macos-workflow/04-dotfiles.png)](https://youtu.be/XBjfzySpGdE)
 
+<div align="center">
+    <a href="https://youtu.be/XBjfzySpGdE">
+        <img src="https://res.cloudinary.com/daqwsgmx6/image/upload/v1706358848/youtube/2024-macos-workflow/04-dotfiles.png" alt="04 - What are dotfiles and how to clone them" width="300"/>
+    </a>
+</div>
+
 # Symbolic links creation
 
 <!-- # https://github.com/linkarzu/dotfiles-public -->
