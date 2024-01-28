@@ -349,6 +349,20 @@ if [ "$OS" = 'Mac' ]; then
 	if command -v kubectl &>/dev/null; then
 		source <(kubectl completion zsh)
 	fi
+
+	# Check if chruby is installed
+	# Source chruby scripts if they exist
+	# Working instructions to install on macos can be found on the jekyll site
+	# https://jekyllrb.com/docs/installation/macos/
+	if [ -f "$(brew --prefix)/opt/chruby/share/chruby/chruby.sh" ]; then
+		source "$(brew --prefix)/opt/chruby/share/chruby/chruby.sh"
+		source "$(brew --prefix)/opt/chruby/share/chruby/auto.sh"
+		# Set default Ruby version using chruby
+		# Replace 'ruby-3.1.3' with the version you have or want to use
+		# You can also put a conditional check here if you want
+		chruby ruby-3.1.3
+	fi
+
 fi
 
 # Linux (Debian)-specific configurations
