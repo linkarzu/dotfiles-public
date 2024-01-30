@@ -6,43 +6,34 @@
     </a>
 </div>
 
-# Symbolic links creation
+# Repo overview
 
-<!-- # https://github.com/linkarzu/dotfiles-public -->
+- This repo is related to my my youtube `2024 macOS workflow` video series
+- `https://youtube.com/playlist?list=PLZWMav2s1MZTanWwNKYvS8qgwl0HBH9J-&si=q6ByPmN8I7SOBKmX`
+- My dotfiles tend to change a lot, so I won't be modifying this current
+  `dotfiles-public` repo anymore. That way, this repo always shows what's
+  reflected in the youtube videos
+- Repo where I keep my latest dotfiles, but will NOT match what's on youtube
+  - `https://github.com/linkarzu/dotfiles-latest`
 
-After cloning the repo, I create a symbolic link
-that points to my custom vimrc file
+# Update symbolic links
 
-- Commands below will create all the files if they don't yet exist
+- Commands below will create the files if they don't yet exist,
   if they do exist, it will update them.
 - `-n` allows the link to be treated as a normal file if it is a
   symlink to a directory
 - `-f` "force" overwrites without warning if it already exists
 
 ```bash
-# Create the symlinks I normally use
-# ~/.config dir holds nvim, neofetch, alacritty configs
-# If the dir/file that the symlink points to doesnt exist
-# it will error out, so I direct them to dev null
-mkdir -p ~/.config
-ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/.vimrc >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/vimrc/vimrc-file ~/github/obsidian_main/.obsidian.vimrc >/dev/null 2>&1
+# Point your zshrc file to the desired repo
 ln -snf ~/github/dotfiles-public/zshrc/zshrc-file.sh ~/.zshrc >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/tmux/tmux.conf.sh ~/.tmux.conf >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/karabiner/mxstbr ~/.config/karabiner >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/neovim/nvim-lazyvim ~/.config/nvim >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/yabai/yabairc ~/.yabairc >/dev/null 2>&1
-ln -snf ~/github/dotfiles-public/hammerspoon ~/.hammerspoon >/dev/null 2>&1
+
+ln -snf ~/github/dotfiles-latest/zshrc/zshrc-file.sh ~/.zshrc >/dev/null 2>&1
+
+source ~/.zshrc
 
 # # This is on the other repo where I keep my ssh config files
 # I commented this as I don't have give access to this repo to all the hosts
 # ln -snf ~/github/dotfiles/sshconfig-pers ~/.ssh/config >/dev/null 2>&1
 
-echo
-echo "In case you have obsidian installed, restart obsidian"
-
-# I'm sourcing the ~/.zshrc file in case it was replaced
-# using the symlink above
-source ~/.zshrc
 ```
