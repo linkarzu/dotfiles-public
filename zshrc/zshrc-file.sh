@@ -202,8 +202,8 @@ echo
 if [ ! -d ~/github/dotfiles-latest ]; then
 	echo
 	echo "Cloning dotfiles-latest repo where my latest changes are"
-	mkdir -p ~/dotfiles
-	cd ~/dotfiles
+	mkdir -p ~/github
+	cd ~/github
 	git clone https://github.com/linkarzu/dotfiles-latest.git >/dev/null 2>&1
 fi
 
