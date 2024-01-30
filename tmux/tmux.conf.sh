@@ -86,6 +86,11 @@ set-window-option -g mode-keys vi
 unbind m
 bind m previous-window
 
+# Go to next window
+# This is the default, so you actually don't need to set it up
+unbind n
+bind n next-window
+
 # Resize pane to zoom so it occupies the entire screen
 unbind M
 bind -r M resize-pane -Z
