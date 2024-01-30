@@ -197,17 +197,20 @@ echo
 # inside this section to disable auto updates, but no issue if you don't because
 # I won't update this repo anymore
 
-# This is to get my new repo on my new machines
+# This is to get my new repo on my new machines, this won't affect you as your
+# zshrc file will be pointing to the dotfiles-public repo
 if [ ! -d ~/github/dotfiles-latest ]; then
+	echo
+	echo "Cloning dotfiles-latest repo where my latest changes are"
+	mkdir -p ~/dotfiles
 	cd ~/dotfiles
-	git clone https://github.com/your-username/dotfiles-latest.git >/dev/null 2>&1
-else
-	(cd ~/github/dotfiles-latest && git pull >/dev/null 2>&1) || echo "Failed to pull dotfiles"
+	git clone git@github.com:linkarzu/dotfiles-latest.git >/dev/null 2>&1
 fi
 
 # Automatic updates
 # Every time I log into a host I want to pull my github repos, but not cd to that dir
 # So running the command above in a subshell
+echo
 echo "Pulling latest changes, please wait..."
 (cd ~/github/dotfiles-public && git pull >/dev/null 2>&1) || echo "Failed to pull dotfiles"
 #
