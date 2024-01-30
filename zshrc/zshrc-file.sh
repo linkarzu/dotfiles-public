@@ -180,25 +180,38 @@ alias kgp='kubectl get pods'
 alias kgpa='kubectl get pods --all-namespaces'
 alias kgpo='kubectl get pods -o wide'
 
-# echo
+echo
 # echo "2"
 # #############################################################################
-#
+# #############################################################################
+
 # Instead of directly cloning my repo, to avoid my changes being applied, I
 # instead recommend you fork it, and clone that fork to your local machine
-# That way, my changes won't affect you.
-# If you don't fork, and for example I change my karabiner mappings, from
-# opening the terminal with hyper+space+j to hyper+space+b, it will
-# change your mappings too
-#
-# If you don't want to fork, comment the 3 lines below if you don't want to always pull
-# my latest changes, otherwise your changes will be overriden by my updates
-echo
-echo "Pulling latest changes, please wait..."
-(cd ~/github/dotfiles-public && git pull >/dev/null 2>&1) || echo "Failed to pull dotfiles"
+
+# Update as of Jan 30 2024:
+# I won't be updating this repo anymore, so that it keeps consistent with whats
+# on youtube, so you could clone it directly, but forking would be a good option
+# in case you want to make your own changes and store them in github
+
+# If you don't want to fork, you could still comment all the following lines
+# inside this section to disable auto updates, but no issue if you don't because
+# I won't update this repo anymore
+
+# This is to get my new repo on my new machines
+if [ ! -d ~/github/dotfiles-latest ]; then
+	cd ~/dotfiles
+	git clone https://github.com/your-username/dotfiles-latest.git >/dev/null 2>&1
+else
+	(cd ~/github/dotfiles-latest && git pull >/dev/null 2>&1) || echo "Failed to pull dotfiles"
+fi
+
+# Automatic updates
 # Every time I log into a host I want to pull my github repos, but not cd to that dir
 # So running the command above in a subshell
+echo "Pulling latest changes, please wait..."
+(cd ~/github/dotfiles-public && git pull >/dev/null 2>&1) || echo "Failed to pull dotfiles"
 #
+# #############################################################################
 # #############################################################################
 # echo "finished 2"
 
