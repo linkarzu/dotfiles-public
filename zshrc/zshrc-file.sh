@@ -1,4 +1,4 @@
-# Filename: /Users/krishna/github/dotfiles-public/zshrc/zshrc-file.sh
+# Filename: ~/github/dotfiles-public/zshrc/zshrc-file.sh
 
 # #############################################################################
 # Do not delete the `UNIQUE_ID` line below, I use it to backup original files
